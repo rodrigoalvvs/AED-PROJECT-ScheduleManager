@@ -2,7 +2,7 @@
 // Created by admin1 on 14-10-2023.
 //
 
-#include "../headers/CourseManager.h"
+#include "../include/CourseManager.h"
 
 CourseManager::CourseManager() {
     std::ifstream in("../src/students_classes.csv");
