@@ -9,14 +9,35 @@
 #include <string>
 #include <fstream>
 #include <iostream>
+#include <vector>
+#include <map>
 #include "Student.h"
+#include "CourseUnit.h"
 
 
 class CourseManager {
 private:
-    std::unordered_map<int, Student> students;
+    // Field for the courses {UcCode : CourseUnit}
+    std::unordered_map<std::string, std::shared_ptr<CourseUnit>> units;
+
+    // Field for the students {studentID : Student}
+    std::unordered_map<int, std::shared_ptr<Student>> students;
 public:
+
+    // Constructors and destructors
     CourseManager();
+
+    // Member functions
+    void getClasses();
+    void getStudentsClasses();
+    void getClassesPerUc();
+
+    void showStudentSchedule(int id);
+    void showClassSchedule(const std::string& ucId, const std::string& classId);
+    static void printSchedule(std::unordered_map<std::string, std::shared_ptr<Period>> schedule);
+    void showStudentListInCourse(const std::string& courstseUnit);
+    void showStudentListInClass(const std::string &courseUnit, const std::string& classId);
+    void showStudentCountOnNUnits(int n);
 };
 
 

@@ -5,13 +5,15 @@ set(CMAKE_CXX_STANDARD 17)
 
 add_executable(AED_PROJ
         src/main.cpp
-        src/Class.cpp
-        include/Class.h
         src/Student.cpp
         include/Student.h
-        src/Uc.cpp
-        include/Uc.h
         src/CourseManager.cpp
         include/CourseManager.h
         src/CourseManager.cpp
-        )
+        include/Period.h
+        include/CourseUnit.h
+        src/CourseUnit.cpp
+        src/Period.cpp
+        include/CourseClass.h
+        src/CourseClass.cpp
+)
