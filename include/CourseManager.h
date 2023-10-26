@@ -24,7 +24,7 @@ private:
     // Field for the students {studentID : Student}
     std::unordered_map<int, std::shared_ptr<Student>> students;
 
-    std::queue<Request> requests;
+    //std::queue<Request> requests;
 public:
 
     // Constructors and destructors
@@ -42,12 +42,15 @@ public:
 
     // Student list handler
     void showStudentListInCourse(const std::string& courstseUnit, int firstN = -1);
-    void showStudentListInClass(const std::string &courseUnit, const std::string& classId);
+    void showStudentListInClass(const std::string &courseUnit, const std::string& classId, int firstN = -1);
     void showStudentListInYear(int year, int firstN = -1);
     void showUnitCoursesWithMostStudents(int firstN = 5);
 
     // Student count
     void showStudentCountOnNUnits(int n);
+
+    bool removeStudentFromUc(const std::string& ucId, int studentId);
+    bool addStudentToUc(const std::string& ucId, const std::string& classId, int studentId);
 
 };
 

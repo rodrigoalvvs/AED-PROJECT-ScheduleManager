@@ -121,3 +121,13 @@ int CourseUnit::getStudentCount() {
     return this->studentCount;
 }
 
+bool CourseUnit::removeStudentFromClass(const std::string &classId, int studentId) {
+    bool operationStatus = this->classes[classId]->removeStudent(studentId);
+    this->studentCount--;
+    return operationStatus;
+}
+
+const std::vector<int> &CourseUnit::getStudentsInClass(const std::string &classId) {
+    return this->classes[classId]->getStudents();
+}
+

@@ -36,6 +36,8 @@ public:
     std::shared_ptr<CourseClass> getClass(const std::string& classId);
     const std::vector<std::shared_ptr<Period>>& getClassPeriods( const std::string& classId);
     int getUnitYear() const;
+    bool removeStudentFromClass(const std::string& classId, int studentId);
+    const std::vector<int>& getStudentsInClass(const std::string& classId);
 };
 
 #endif //AED_PROJ_COURSEUNIT_H

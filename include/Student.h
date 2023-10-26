@@ -40,9 +40,10 @@ public:
 
 
     // Class methods
-    void addClass(const std::string& ucCode, const std::string& classCode);
+    bool addClass(const std::string& ucCode, const std::string& classCode);
     std::vector<std::string> getUnitCourses();
     const std::string& getClass(const std::string& unitCourse);
+    void removeClass(const std::string& ucId);
 };
 
 

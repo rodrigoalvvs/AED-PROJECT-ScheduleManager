@@ -325,7 +325,7 @@ void CourseManager::showStudentListInCourse(const std::string &courseUnit, int f
  * @param classId The ID of the specific class within the course unit.
  */
 
-void CourseManager::showStudentListInClass(const std::string &courseUnit, const std::string& classId) {
+void CourseManager::showStudentListInClass(const std::string &courseUnit, const std::string& classId, int firstN) {
     if(this->units.count(courseUnit) == 0){
         std::cout << "Course Unit does not exist!\n";
         return;
@@ -334,10 +334,14 @@ void CourseManager::showStudentListInClass(const std::string &courseUnit, const 
         std::cout << "Class does not exist!\n";
         return;
     }
+    const std::vector<int>& studentsVect = this->units[courseUnit]->getStudentListOnClass(classId);
 
-
-    for(int studentId: this->units[courseUnit]->getClass(classId)->getStudents()){
-        std::cout << students[studentId]->getName() << " - up" << studentId <<  std::endl;
+    std::cout << "Students in uc " << courseUnit << " class " << classId << " ";
+    if(firstN != -1) std::cout << "(Showing the first " << firstN << " students)";
+    std::cout << std::endl;
+    int i = 0;
+    for(auto studentsItr = studentsVect.begin(); studentsItr != studentsVect.end() && i < firstN; studentsItr++){
+        std::cout << students[*studentsItr]->getName() << " - up" << *studentsItr <<  std::endl;
     }
 }
 
@@ -423,7 +427,7 @@ void CourseManager::showUnitCoursesWithMostStudents(int firstN){
     }
 
     std::cout << "The top " << firstN << " uc's with the most students are: " << std::endl;
-    std::sort(count.begin(), count.end(), [](const std::pair<std::string,int>& a, const std::pair<std::string,int>& b) ->bool{
+    std::sort(count.begin(), count.end(), [](const std::pair<std::string,int>& a, const std::pair<std::string,int>& b) -> bool{
         return a.second < b.second;
     });
 
@@ -431,6 +435,23 @@ void CourseManager::showUnitCoursesWithMostStudents(int firstN){
         std::cout << "Position "  << i <<  "/ UC " << count.at(count.size() - i).first << " with " << count.at(count.size() - i).second << " students" << std::endl;
     }
 }
+
+bool CourseManager::removeStudentFromUc(const std::string &ucId, int studentId) {
+    if(this->units[ucId]->removeStudentFromClass(this->students[studentId]->getClass(ucId), studentId)){
+        this->students[studentId]->removeClass(ucId);
+        return true;
+    }
+    return false;
+}
+
+bool CourseManager::addStudentToUc(const std::string &ucId, const std::string &classId, int studentId) {
+    if(this->students[studentId]->addClass(ucId, classId)){
+        this->units[ucId]->addStudent(classId, studentId);
+        return true;
+    }
+    return false;
+}
+
 
 
 

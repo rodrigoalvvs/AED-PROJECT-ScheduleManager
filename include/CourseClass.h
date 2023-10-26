@@ -33,6 +33,7 @@ public:
     bool addStudent(int studentCode);
     const std::vector<std::shared_ptr<Period>>& getClasses();
     const std::vector<int>& getStudents();
+    bool removeStudent(int studentId);
 
 
 };

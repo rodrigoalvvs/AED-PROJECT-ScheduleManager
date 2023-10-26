@@ -43,3 +43,13 @@ const std::vector<std::shared_ptr<Period>>& CourseClass::getClasses() {
 const std::vector<int> &CourseClass::getStudents() {
     return this->students;
 }
+
+bool CourseClass::removeStudent(int studentId){
+    for(auto itr= this->students.begin(); itr != this->students.end() ; itr++){
+        if(*itr == studentId){
+            this->students.erase(itr);
+            return true;
+        }
+    }
+    return false;
+}

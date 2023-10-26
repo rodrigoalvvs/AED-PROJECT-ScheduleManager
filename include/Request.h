@@ -5,12 +5,21 @@
 #ifndef AED_PROJ_REQUEST_H
 #define AED_PROJ_REQUEST_H
 
+#include <utility>
+#include <string>
+#include "CourseManager.h"
 
 class Request {
 private:
-    int requestType;
+    short requestType;
+    int studentId;
+    // <ucId, classId>
+    std::pair<std::string, std::string> ucInfo;
 public:
-    Request(int requestType_);
+    // Constructor
+    Request(int requestType_, int studentId_, const std::pair<std::string, std::string> & ucInfo_);
+
+    //void handleRequest(const std::shared_ptr<CourseManager>& courseManager);
 
 };
 
