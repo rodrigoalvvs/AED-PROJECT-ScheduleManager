@@ -1,0 +1,115 @@
+\hypertarget{classCourseManager}{}\doxysection{Course\+Manager Class Reference}
+\label{classCourseManager}\index{CourseManager@{CourseManager}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCourseManager_afba31bde00e392e28062c978c74a32f6}{Course\+Manager}} ()
+\item 
+void \mbox{\hyperlink{classCourseManager_a73549432695f27d99670118cbb3a1ea6}{get\+Classes}} ()
+\item 
+void \mbox{\hyperlink{classCourseManager_aeaad5b7b50fa47ca2766d0452dca3ecd}{get\+Students\+Classes}} ()
+\item 
+void \mbox{\hyperlink{classCourseManager_a376acc99ef5ac456ce54fa437f7bac9a}{get\+Classes\+Per\+Uc}} ()
+\item 
+\mbox{\Hypertarget{classCourseManager_ab2b06918934f8b7e89a4c7508dc2a134}\label{classCourseManager_ab2b06918934f8b7e89a4c7508dc2a134}} 
+void {\bfseries show\+Student\+Schedule} (int id)
+\item 
+\mbox{\Hypertarget{classCourseManager_a03637079f0e780a9b0e11d6d8f10071b}\label{classCourseManager_a03637079f0e780a9b0e11d6d8f10071b}} 
+void {\bfseries show\+Class\+Schedule} (const std\+::string \&uc\+Id, const std\+::string \&class\+Id)
+\item 
+\mbox{\Hypertarget{classCourseManager_a184000c21c8e98ffd4a8e4fda3b75176}\label{classCourseManager_a184000c21c8e98ffd4a8e4fda3b75176}} 
+void {\bfseries show\+Student\+List\+In\+Course} (const std\+::string \&courstse\+Unit)
+\item 
+\mbox{\Hypertarget{classCourseManager_a6bb2bb61152dca231ac6bd4e779bc0a7}\label{classCourseManager_a6bb2bb61152dca231ac6bd4e779bc0a7}} 
+void {\bfseries show\+Student\+List\+In\+Class} (const std\+::string \&course\+Unit, const std\+::string \&class\+Id)
+\item 
+void \mbox{\hyperlink{classCourseManager_a06b268a8e72dc5b2895982718cd98f9a}{show\+Student\+List\+In\+Year}} (int year, int firstN=-\/1)
+\begin{DoxyCompactList}\small\item\em Show a list of students registered in a specific year. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCourseManager_aface14383a421ce45fd46ac95b396416}{show\+Student\+Count\+On\+NUnits}} (int n)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCourseManager_aaf6f11fe85fdb1f3bc505d78d8ec1ccf}\label{classCourseManager_aaf6f11fe85fdb1f3bc505d78d8ec1ccf}} 
+static void {\bfseries print\+Schedule} (std\+::unordered\+\_\+map$<$ std\+::string, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classPeriod}{Period}} $>$$>$ schedule)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classCourseManager_afba31bde00e392e28062c978c74a32f6}\label{classCourseManager_afba31bde00e392e28062c978c74a32f6}} 
+\index{CourseManager@{CourseManager}!CourseManager@{CourseManager}}
+\index{CourseManager@{CourseManager}!CourseManager@{CourseManager}}
+\doxysubsubsection{\texorpdfstring{CourseManager()}{CourseManager()}}
+{\footnotesize\ttfamily Course\+Manager\+::\+Course\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This is the constructor that handles all information on the system. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCourseManager_a73549432695f27d99670118cbb3a1ea6}\label{classCourseManager_a73549432695f27d99670118cbb3a1ea6}} 
+\index{CourseManager@{CourseManager}!getClasses@{getClasses}}
+\index{getClasses@{getClasses}!CourseManager@{CourseManager}}
+\doxysubsubsection{\texorpdfstring{getClasses()}{getClasses()}}
+{\footnotesize\ttfamily void Course\+Manager\+::get\+Classes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This is a function that gets information about course classes from a file. \begin{DoxyReturn}{Returns}
+void. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCourseManager_a376acc99ef5ac456ce54fa437f7bac9a}\label{classCourseManager_a376acc99ef5ac456ce54fa437f7bac9a}} 
+\index{CourseManager@{CourseManager}!getClassesPerUc@{getClassesPerUc}}
+\index{getClassesPerUc@{getClassesPerUc}!CourseManager@{CourseManager}}
+\doxysubsubsection{\texorpdfstring{getClassesPerUc()}{getClassesPerUc()}}
+{\footnotesize\ttfamily void Course\+Manager\+::get\+Classes\+Per\+Uc (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This is a function that gets the list of classes per course unit. \begin{DoxyReturn}{Returns}
+void. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCourseManager_aeaad5b7b50fa47ca2766d0452dca3ecd}\label{classCourseManager_aeaad5b7b50fa47ca2766d0452dca3ecd}} 
+\index{CourseManager@{CourseManager}!getStudentsClasses@{getStudentsClasses}}
+\index{getStudentsClasses@{getStudentsClasses}!CourseManager@{CourseManager}}
+\doxysubsubsection{\texorpdfstring{getStudentsClasses()}{getStudentsClasses()}}
+{\footnotesize\ttfamily void Course\+Manager\+::get\+Students\+Classes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This is a function that gets information about the student\textquotesingle{}s classes. \begin{DoxyReturn}{Returns}
+void. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCourseManager_aface14383a421ce45fd46ac95b396416}\label{classCourseManager_aface14383a421ce45fd46ac95b396416}} 
+\index{CourseManager@{CourseManager}!showStudentCountOnNUnits@{showStudentCountOnNUnits}}
+\index{showStudentCountOnNUnits@{showStudentCountOnNUnits}!CourseManager@{CourseManager}}
+\doxysubsubsection{\texorpdfstring{showStudentCountOnNUnits()}{showStudentCountOnNUnits()}}
+{\footnotesize\ttfamily void Course\+Manager\+::show\+Student\+Count\+On\+NUnits (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
+
+Shows the count of students registered in at least n course units.
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & An integer threshold representing the minimum number of course units a student must be registered in. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCourseManager_a06b268a8e72dc5b2895982718cd98f9a}\label{classCourseManager_a06b268a8e72dc5b2895982718cd98f9a}} 
+\index{CourseManager@{CourseManager}!showStudentListInYear@{showStudentListInYear}}
+\index{showStudentListInYear@{showStudentListInYear}!CourseManager@{CourseManager}}
+\doxysubsubsection{\texorpdfstring{showStudentListInYear()}{showStudentListInYear()}}
+{\footnotesize\ttfamily void Course\+Manager\+::show\+Student\+List\+In\+Year (\begin{DoxyParamCaption}\item[{int}]{year,  }\item[{int}]{firstN = {\ttfamily -\/1} }\end{DoxyParamCaption})}
+
+
+
+Show a list of students registered in a specific year. 
+
+This function displays a list of students who are registered in the specified year.
+
+
+\begin{DoxyParams}{Parameters}
+{\em year} & The year for which you want to list registered students. \\
+\hline
+{\em firstN} & The maximum number of students to display. Use -\/1 to display all students.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+The students are sorted in ascending order of their IDs. 
+\end{DoxyNote}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Course\+Manager.\+h\item 
+src/Course\+Manager.\+cpp\end{DoxyCompactItemize}

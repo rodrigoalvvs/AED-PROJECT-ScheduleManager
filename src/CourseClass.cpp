@@ -36,7 +36,6 @@ bool CourseClass::addStudent(int studentCode_){
     return true;
 }
 
-
 const std::vector<std::shared_ptr<Period>>& CourseClass::getClasses() {
     return this->classes;
 }

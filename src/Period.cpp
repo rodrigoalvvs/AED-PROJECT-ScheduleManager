@@ -17,12 +17,19 @@ const std::string& Period::getWeekDay() const {
     return this->weekDay;
 }
 
-const std::string& Period::getClassType() const {
+const std::string& Period::getPeriodType() const {
     return this->type;
 }
 
-float Period::getStartHour() const {
-    return this->startHour;
+Hour Period::getStartTime() const {
+    int startHour_ = this->startHour;
+    int startMinute_ = (this->startHour - startHour_) * 60;
+    return {startHour_, startMinute_};
+}
+Hour Period::getEndTime() const {
+    int endHour_ = this->startHour + this->duration;
+    int endMinute_ = (this->startHour + this->duration - endHour_) * 60;
+    return {endHour_, endMinute_};
 }
 
 float Period::getDuration() const {
@@ -33,7 +40,7 @@ void Period::setWeekDay(const std::string &weekDay_) {
     this->weekDay = weekDay_;
 }
 
-void Period::setClassType(const std::string &classType_) {
+void Period::setPeriodType(const std::string &classType_) {
     this->type = classType_;
 }
 

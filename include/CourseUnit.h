@@ -16,6 +16,7 @@ class CourseClass;
 class CourseUnit{
 private:
     std::unordered_map<std::string, std::shared_ptr<CourseClass>> classes;
+    int studentCount;
 public:
     // Constructors and destructors
     CourseUnit();
@@ -32,8 +33,9 @@ public:
     std::shared_ptr<std::list<int>> getStudentList();
     int getStudentCountOnClass(const std::string& classId);
     const std::vector<int>& getStudentListOnClass(const std::string& classId);
-    std::shared_ptr<CourseClass> getClass(const std::string& id);
-    const std::vector<std::shared_ptr<Period>>& getClasses( const std::string& classId);
+    std::shared_ptr<CourseClass> getClass(const std::string& classId);
+    const std::vector<std::shared_ptr<Period>>& getClassPeriods( const std::string& classId);
+    int getUnitYear() const;
 };
 
 #endif //AED_PROJ_COURSEUNIT_H

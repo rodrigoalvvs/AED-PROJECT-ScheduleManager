@@ -7,6 +7,11 @@
 
 #include <string>
 
+struct Hour{
+    int hour;
+    int minute;
+};
+
 class Period{
 private:
     float startHour;
@@ -19,12 +24,14 @@ public:
 
     // Class getters and setters
     const std::string& getWeekDay() const;
-    const std::string& getClassType() const;
-    float getStartHour() const;
+    const std::string& getPeriodType() const;
+
+    Hour getStartTime() const;
+    Hour getEndTime() const;
     float getDuration() const;
 
     void setWeekDay( const std::string& weekDay_);
-    void setClassType(const std::string& classType_);
+    void setPeriodType(const std::string& classType_);
     void setStartHour(float startHour_);
     void setDuration(float duration_);
 

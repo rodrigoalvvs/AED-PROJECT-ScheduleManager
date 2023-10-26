@@ -32,12 +32,20 @@ public:
     void getStudentsClasses();
     void getClassesPerUc();
 
+    // Schedule handle
     void showStudentSchedule(int id);
     void showClassSchedule(const std::string& ucId, const std::string& classId);
-    static void printSchedule(std::unordered_map<std::string, std::shared_ptr<Period>> schedule);
-    void showStudentListInCourse(const std::string& courstseUnit);
+    void printSchedule(std::unordered_map<std::string, std::vector<std::shared_ptr<Period>>> schedule);
+
+    // Student list handler
+    void showStudentListInCourse(const std::string& courstseUnit, int firstN = -1);
     void showStudentListInClass(const std::string &courseUnit, const std::string& classId);
+    void showStudentListInYear(int year, int firstN = -1);
+    void showUnitCoursesWithMostStudents(int firstN = 5);
+
+    // Student count
     void showStudentCountOnNUnits(int n);
+
 };
 
 

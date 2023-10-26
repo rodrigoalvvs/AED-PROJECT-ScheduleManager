@@ -7,6 +7,7 @@
 #include <sstream>
 #include <algorithm>
 #include <iomanip>
+#include <set>
 #include "../include/CourseManager.h"
 
 /**
@@ -17,12 +18,6 @@ CourseManager::CourseManager() {
     this->getClassesPerUc();
     this->getClasses();
     this->getStudentsClasses();
-    //this->showStudentSchedule(202028717);
-    //this->showStudentListInCourse("L.EIC001");
-    //this->showClassSchedule("L.EIC001", "1LEIC01");
-    //this->showStudentListInClass("L.EIC001", "1LEIC01");
-    this->showStudentCountOnNUnits(3);
-    this->showStudentCountOnNUnits(7);
 }
 
 
@@ -172,7 +167,7 @@ void CourseManager::getStudentsClasses() {
 void CourseManager::showStudentSchedule(int id) {
     // Init schedule
     // Unordered_map containing as keys <"ucId/classId", Period>
-    std::unordered_map<std::string, std::shared_ptr<Period>> schedule;
+    std::unordered_map<std::string, std::vector<std::shared_ptr<Period>>> schedule;
 
     // Get student object
     if(this->students.count(id) == 0){
@@ -181,7 +176,7 @@ void CourseManager::showStudentSchedule(int id) {
     }
     std::shared_ptr<Student> currentStudent = this->students[id];
 
-    std::cout << "Student for student " << currentStudent->getName() << " with student ID: " << id << std::endl;
+    std::cout << "Schedule for student " << currentStudent->getName() << " with student ID: " << id << std::endl;
 
     // Get units which the student is enrolled
     std::vector<std::string> units = currentStudent->getUnitCourses();
@@ -193,7 +188,9 @@ void CourseManager::showStudentSchedule(int id) {
         // Fetch class object
         std::shared_ptr<CourseClass> classPtr = this->units[unitId]->getClass(classId);
         for(std::shared_ptr<Period> period: classPtr->getClasses()){
-            schedule.insert(std::make_pair(unitId + "/" + classPtr->getClassId(), period));
+            std::string key = unitId + "/" + classPtr->getClassId();
+            schedule[key].push_back(period);
+
         }
     }
 
@@ -202,15 +199,30 @@ void CourseManager::showStudentSchedule(int id) {
 }
 
 
+/**
+ * @brief Display the schedule for a specific class in a course unit.
+ *
+ * This function displays the schedule for a specific class in a course unit identified by 'ucId' and 'classId'.
+ *
+ * @param ucId The unique identifier of the course unit.
+ * @param classId The unique identifier of the class within the course unit.
+ */
+
 void CourseManager::showClassSchedule(const std::string &ucId, const std::string &classId) {
-    std::unordered_map<std::string, std::shared_ptr<Period>> schedule;
+    std::unordered_map<std::string, std::vector<std::shared_ptr<Period>>> schedule;
 
     if(this->units.count(ucId) == 0){
         std::cout << "The class id is not valid!";
         return;
     }
-    for(std::shared_ptr<Period> period: this->units[ucId]->getClasses(classId)){
-        schedule.insert(std::make_pair(ucId + "/" + classId, period));
+
+
+
+    for(std::shared_ptr<Period> period: this->units[ucId]->getClassPeriods(classId)){
+        std::string key = ucId;
+        key.append("/");
+        key.append(classId);
+        schedule[key].push_back(period);
     }
 
     std::cout << "\nUnit: " << ucId << "/" << "Class: " << classId<< std::endl;
@@ -219,53 +231,98 @@ void CourseManager::showClassSchedule(const std::string &ucId, const std::string
 
 
 
-
-bool cmp(const std::pair<std::string,std::shared_ptr<Period>>& a, const std::pair<std::string,std::shared_ptr<Period>>& b){
-    return a.second->getStartHour() < b.second->getStartHour();
+/**
+ * @brief Compare two pairs of <string, shared_ptr<Period>> by their start hours.
+ *
+ * This function is a custom comparison function for sorting pairs of <string, shared_ptr<Period>> by
+ * their start hours in ascending order.
+ *
+ * @param a The first pair to compare.
+ * @param b The second pair to compare.
+ * @return true if the start hour of 'a' is less than the start hour of 'b', false otherwise.
+ */
+bool cmpHours(const std::pair<std::string,std::shared_ptr<Period>>& a, const std::pair<std::string,std::shared_ptr<Period>>& b){
+    if(a.second->getStartTime().hour == b.second->getStartTime().hour){
+        return a.second->getStartTime().minute < b.second->getStartTime().minute;
+    }
+    return a.second->getStartTime().hour < b.second->getStartTime().hour;
 }
 
-void CourseManager::printSchedule(std::unordered_map<std::string, std::shared_ptr<Period>> schedule) {
+/**
+ * @brief Print the schedule of course periods for each weekday.
+ *
+ * This function prints the schedule of course periods for each weekday. It takes an unordered_map
+ * containing course periods, organizes them by weekday, and then sorts and displays the schedule
+ * for each weekday.
+ *
+ * @param schedule An unordered_map containing course periods with keys as "<ucId/classId>" and values as shared_ptr<Period>.
+ */
+
+void CourseManager::printSchedule(std::unordered_map<std::string, std::vector<std::shared_ptr<Period>>> schedule) {
     std::vector<std::string> weekDays = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
 
-    for(std::string dayOfWeek: weekDays){
+    for(const std::string& dayOfWeek: weekDays){
         std::cout << dayOfWeek << std::endl;
 
         std::vector<std::pair<std::string, std::shared_ptr<Period>>> dailySchedule;
 
-        for(std::pair<std::string,std::shared_ptr<Period>> period: schedule){
-            if(period.second->getWeekDay() == dayOfWeek){
-                dailySchedule.push_back(std::make_pair(period.first, period.second));
+        for(std::pair<std::string, std::vector<std::shared_ptr<Period>>> periodList: schedule){
+            for(const std::shared_ptr<Period>& period: periodList.second){
+                if(period->getWeekDay() == dayOfWeek){
+                    dailySchedule.emplace_back(periodList.first, period);
+                }
             }
         }
 
-        std::sort(dailySchedule.begin(), dailySchedule.end(), cmp);
+        std::sort(dailySchedule.begin(), dailySchedule.end(), cmpHours);
 
-        for(std::pair<std::string, std::shared_ptr<Period>> period: dailySchedule){
-            int startHour = period.second->getStartHour();
-            int startMinute = (period.second->getStartHour() - startHour) * 60;
+        for(const std::pair<std::string, std::shared_ptr<Period>>& period: dailySchedule){
 
-            int endHour = period.second->getStartHour() + period.second->getDuration();
-            int endMinute = (period.second->getStartHour() + period.second->getDuration() - endHour) * 60;
-
-            std::cout << period.first << " - " << std::fixed << std::setw(2) << std::setfill('0') << startHour << "h"  << std::setw(2) << std::setfill('0') << startMinute << " " << std::setw(2) << std::setfill('0') << endHour << "h" << std::setw(2)<< endMinute << " " << period.second->getClassType() << std::endl;
+            std::cout << period.first << " - " << std::fixed << std::setw(2) << std::setfill('0') << period.second->getStartTime().hour << "h"  << std::setw(2) << std::setfill('0') << period.second->getStartTime().minute << " " << std::setw(2) << std::setfill('0') << period.second->getEndTime().hour << "h" << std::setw(2)<< period.second->getEndTime().minute << " " << period.second->getPeriodType() << std::endl;
         }
         dailySchedule.clear();
     }
 }
 
 
-void CourseManager::showStudentListInCourse(const std::string &courseUnit) {
+/**
+ * @brief Show a list of students registered in a specific course unit.
+ *
+ * This function displays a list of students who are registered in the specified course unit.
+ * It first checks if the course unit exists, and if it does, it lists the students along
+ * with their names and student IDs. You can limit the number of students displayed by
+ * providing the 'firstN' parameter.
+ *
+ * @param courseUnit The ID of the course unit for which you want to list registered students.
+ * @param firstN The maximum number of students to display (use -1 to display all).
+ */
+
+void CourseManager::showStudentListInCourse(const std::string &courseUnit, int firstN) {
     if(this->units.count(courseUnit) == 0){
         std::cout << "Course Unit does not exist!\n";
         return;
     }
     std::cout << "Student list for unit " << courseUnit << std::endl;
     std::shared_ptr<std::list<int>> studentsId = this->units[courseUnit]->getStudentList();
-    for(int studentId: *studentsId){
-        std::cout << students[studentId]->getName() << " - up" << studentId <<  std::endl;
+    int i = 0;
+    for(auto studentIdPtr = studentsId->begin(); studentIdPtr != studentsId->end() &&  (firstN == -1 || i < firstN); studentIdPtr++){
+        i++;
+        std::cout << students[*studentIdPtr]->getName() << " - up" << *studentIdPtr <<  std::endl;
     }
 }
 
+
+
+/**
+ * @brief Show a list of students registered in a specific class of a course unit.
+ *
+ * This function displays a list of students who are registered in a specific class
+ * of the given course unit. It first checks if the course unit and class exist, and
+ * if they do, it lists the students along with their names and student IDs.
+ *
+ * @param courseUnit The ID of the course unit to query.
+ * @param classId The ID of the specific class within the course unit.
+ */
 
 void CourseManager::showStudentListInClass(const std::string &courseUnit, const std::string& classId) {
     if(this->units.count(courseUnit) == 0){
@@ -283,8 +340,61 @@ void CourseManager::showStudentListInClass(const std::string &courseUnit, const 
     }
 }
 
+
+
+
+/**
+ * @brief Show a list of students registered in a specific year.
+ *
+ * This function displays a list of students who are registered in the specified year.
+ *
+ * @param year The year for which you want to list registered students.
+ * @param firstN The maximum number of students to display. Use -1 to display all students.
+ *
+ * @note The students are sorted in ascending order of their IDs.
+ */
+
+void CourseManager::showStudentListInYear(int year, int firstN){
+    std::set<int> studentsId;
+
+    for(std::pair<std::string, std::shared_ptr<CourseUnit>> unitPair: this->units){
+        std::shared_ptr<CourseUnit> currentUnit = unitPair.second;
+        if(year == currentUnit->getUnitYear()){
+            std::shared_ptr<std::list<int>> studentsEnrolled = currentUnit->getStudentList();
+            for(int student: *studentsEnrolled){
+                studentsId.insert(student);
+            }
+        }
+    }
+
+    std::cout << "The following students are registered in year " << year << " ";
+    if(firstN != -1) std::cout << "(Showing the first " << firstN << " students)";
+    std::cout << std::endl;
+
+    int i = 0;
+    for(auto studentPtr = studentsId.begin(); studentPtr != studentsId.end() && (i < firstN || firstN == -1) ; studentPtr++){
+        i++;
+        std::cout << students[*studentPtr]->getName() << " - up" << *studentPtr <<  std::endl;
+    }
+}
+
+
+
+
+
+/**
+ * @brief Count the number of students registered in at least a specified number of course units.
+ *
+ * This function calculates and displays the count of students who are registered in at least
+ * the specified number of course units. It iterates through the list of students and checks
+ * if each student is registered in the required number of course units (or more).
+ *
+ * @param n The minimum number of course units a student must be registered in to be counted.
+ */
+
 void CourseManager::showStudentCountOnNUnits(int n) {
     int result = 0;
+
     for(std::pair<int, std::shared_ptr<Student>> student: this->students){
         if(student.second->getNumberOfClassesRegistered() >= n){
             result += 1;
@@ -292,6 +402,18 @@ void CourseManager::showStudentCountOnNUnits(int n) {
     }
     std::cout << result << " students are registered in atleast " << n << " UC's\n";
 }
+
+
+void CourseManager::showUnitCoursesWithMostStudents(int firstN){
+    std::unordered_map<std::string, int> count;
+    for(std::pair<std::string, std::shared_ptr<CourseUnit>> unit: this->units){
+        count[unit.first] = unit.second->getStudentCount();
+    }
+
+    
+}
+
+
 
 
 
