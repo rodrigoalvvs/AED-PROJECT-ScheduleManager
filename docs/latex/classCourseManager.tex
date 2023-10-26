@@ -14,25 +14,20 @@ void \mbox{\hyperlink{classCourseManager_a376acc99ef5ac456ce54fa437f7bac9a}{get\
 \mbox{\Hypertarget{classCourseManager_ab2b06918934f8b7e89a4c7508dc2a134}\label{classCourseManager_ab2b06918934f8b7e89a4c7508dc2a134}} 
 void {\bfseries show\+Student\+Schedule} (int id)
 \item 
-\mbox{\Hypertarget{classCourseManager_a03637079f0e780a9b0e11d6d8f10071b}\label{classCourseManager_a03637079f0e780a9b0e11d6d8f10071b}} 
-void {\bfseries show\+Class\+Schedule} (const std\+::string \&uc\+Id, const std\+::string \&class\+Id)
-\item 
-\mbox{\Hypertarget{classCourseManager_a184000c21c8e98ffd4a8e4fda3b75176}\label{classCourseManager_a184000c21c8e98ffd4a8e4fda3b75176}} 
-void {\bfseries show\+Student\+List\+In\+Course} (const std\+::string \&courstse\+Unit)
-\item 
-\mbox{\Hypertarget{classCourseManager_a6bb2bb61152dca231ac6bd4e779bc0a7}\label{classCourseManager_a6bb2bb61152dca231ac6bd4e779bc0a7}} 
-void {\bfseries show\+Student\+List\+In\+Class} (const std\+::string \&course\+Unit, const std\+::string \&class\+Id)
-\item 
+void \mbox{\hyperlink{classCourseManager_a03637079f0e780a9b0e11d6d8f10071b}{show\+Class\+Schedule}} (const std\+::string \&uc\+Id, const std\+::string \&class\+Id)
+\begin{DoxyCompactList}\small\item\em Display the schedule for a specific class in a course unit. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCourseManager_a0ac7213c679d0796c6c47ac02acf832b}{print\+Schedule}} (std\+::unordered\+\_\+map$<$ std\+::string, std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classPeriod}{Period}} $>$$>$$>$ schedule)
+\begin{DoxyCompactList}\small\item\em Print the schedule of course periods for each weekday. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCourseManager_a11358fd1dbfd411bbfefc2077ef7ed79}{show\+Student\+List\+In\+Course}} (const std\+::string \&courstse\+Unit, int firstN=-\/1)
+\begin{DoxyCompactList}\small\item\em Show a list of students registered in a specific course unit. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCourseManager_a6bb2bb61152dca231ac6bd4e779bc0a7}{show\+Student\+List\+In\+Class}} (const std\+::string \&course\+Unit, const std\+::string \&class\+Id)
+\begin{DoxyCompactList}\small\item\em Show a list of students registered in a specific class of a course unit. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classCourseManager_a06b268a8e72dc5b2895982718cd98f9a}{show\+Student\+List\+In\+Year}} (int year, int firstN=-\/1)
 \begin{DoxyCompactList}\small\item\em Show a list of students registered in a specific year. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCourseManager_af4df7a608215bcfb3c23dd4e96e5dc0e}{show\+Unit\+Courses\+With\+Most\+Students}} (int firstN=5)
+\begin{DoxyCompactList}\small\item\em Display a list of Unit Courses with the most students. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classCourseManager_aface14383a421ce45fd46ac95b396416}{show\+Student\+Count\+On\+NUnits}} (int n)
-\end{DoxyCompactItemize}
-\doxysubsection*{Static Public Member Functions}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{classCourseManager_aaf6f11fe85fdb1f3bc505d78d8ec1ccf}\label{classCourseManager_aaf6f11fe85fdb1f3bc505d78d8ec1ccf}} 
-static void {\bfseries print\+Schedule} (std\+::unordered\+\_\+map$<$ std\+::string, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classPeriod}{Period}} $>$$>$ schedule)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Count the number of students registered in at least a specified number of course units. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
@@ -72,17 +67,95 @@ void.
 This is a function that gets information about the student\textquotesingle{}s classes. \begin{DoxyReturn}{Returns}
 void. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classCourseManager_a0ac7213c679d0796c6c47ac02acf832b}\label{classCourseManager_a0ac7213c679d0796c6c47ac02acf832b}} 
+\index{CourseManager@{CourseManager}!printSchedule@{printSchedule}}
+\index{printSchedule@{printSchedule}!CourseManager@{CourseManager}}
+\doxysubsubsection{\texorpdfstring{printSchedule()}{printSchedule()}}
+{\footnotesize\ttfamily void Course\+Manager\+::print\+Schedule (\begin{DoxyParamCaption}\item[{std\+::unordered\+\_\+map$<$ std\+::string, std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classPeriod}{Period}} $>$$>$$>$}]{schedule }\end{DoxyParamCaption})}
+
+
+
+Print the schedule of course periods for each weekday. 
+
+This function prints the schedule of course periods for each weekday. It takes an unordered\+\_\+map containing course periods, organizes them by weekday, and then sorts and displays the schedule for each weekday.
+
+
+\begin{DoxyParams}{Parameters}
+{\em schedule} & An unordered\+\_\+map containing course periods with keys as \char`\"{}$<$uc\+Id/class\+Id$>$\char`\"{} and values as shared\+\_\+ptr$<$\+Period$>$. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCourseManager_a03637079f0e780a9b0e11d6d8f10071b}\label{classCourseManager_a03637079f0e780a9b0e11d6d8f10071b}} 
+\index{CourseManager@{CourseManager}!showClassSchedule@{showClassSchedule}}
+\index{showClassSchedule@{showClassSchedule}!CourseManager@{CourseManager}}
+\doxysubsubsection{\texorpdfstring{showClassSchedule()}{showClassSchedule()}}
+{\footnotesize\ttfamily void Course\+Manager\+::show\+Class\+Schedule (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{uc\+Id,  }\item[{const std\+::string \&}]{class\+Id }\end{DoxyParamCaption})}
+
+
+
+Display the schedule for a specific class in a course unit. 
+
+This function displays the schedule for a specific class in a course unit identified by \textquotesingle{}uc\+Id\textquotesingle{} and \textquotesingle{}class\+Id\textquotesingle{}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em uc\+Id} & The unique identifier of the course unit. \\
+\hline
+{\em class\+Id} & The unique identifier of the class within the course unit. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classCourseManager_aface14383a421ce45fd46ac95b396416}\label{classCourseManager_aface14383a421ce45fd46ac95b396416}} 
 \index{CourseManager@{CourseManager}!showStudentCountOnNUnits@{showStudentCountOnNUnits}}
 \index{showStudentCountOnNUnits@{showStudentCountOnNUnits}!CourseManager@{CourseManager}}
 \doxysubsubsection{\texorpdfstring{showStudentCountOnNUnits()}{showStudentCountOnNUnits()}}
 {\footnotesize\ttfamily void Course\+Manager\+::show\+Student\+Count\+On\+NUnits (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
 
-Shows the count of students registered in at least n course units.
+
+
+Count the number of students registered in at least a specified number of course units. 
+
+This function calculates and displays the count of students who are registered in at least the specified number of course units. It iterates through the list of students and checks if each student is registered in the required number of course units (or more).
 
 
 \begin{DoxyParams}{Parameters}
-{\em n} & An integer threshold representing the minimum number of course units a student must be registered in. \\
+{\em n} & The minimum number of course units a student must be registered in to be counted. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCourseManager_a6bb2bb61152dca231ac6bd4e779bc0a7}\label{classCourseManager_a6bb2bb61152dca231ac6bd4e779bc0a7}} 
+\index{CourseManager@{CourseManager}!showStudentListInClass@{showStudentListInClass}}
+\index{showStudentListInClass@{showStudentListInClass}!CourseManager@{CourseManager}}
+\doxysubsubsection{\texorpdfstring{showStudentListInClass()}{showStudentListInClass()}}
+{\footnotesize\ttfamily void Course\+Manager\+::show\+Student\+List\+In\+Class (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{course\+Unit,  }\item[{const std\+::string \&}]{class\+Id }\end{DoxyParamCaption})}
+
+
+
+Show a list of students registered in a specific class of a course unit. 
+
+This function displays a list of students who are registered in a specific class of the given course unit. It first checks if the course unit and class exist, and if they do, it lists the students along with their names and student IDs.
+
+
+\begin{DoxyParams}{Parameters}
+{\em course\+Unit} & The ID of the course unit to query. \\
+\hline
+{\em class\+Id} & The ID of the specific class within the course unit. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCourseManager_a11358fd1dbfd411bbfefc2077ef7ed79}\label{classCourseManager_a11358fd1dbfd411bbfefc2077ef7ed79}} 
+\index{CourseManager@{CourseManager}!showStudentListInCourse@{showStudentListInCourse}}
+\index{showStudentListInCourse@{showStudentListInCourse}!CourseManager@{CourseManager}}
+\doxysubsubsection{\texorpdfstring{showStudentListInCourse()}{showStudentListInCourse()}}
+{\footnotesize\ttfamily void Course\+Manager\+::show\+Student\+List\+In\+Course (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{course\+Unit,  }\item[{int}]{firstN = {\ttfamily -\/1} }\end{DoxyParamCaption})}
+
+
+
+Show a list of students registered in a specific course unit. 
+
+This function displays a list of students who are registered in the specified course unit. It first checks if the course unit exists, and if it does, it lists the students along with their names and student IDs. You can limit the number of students displayed by providing the \textquotesingle{}firstN\textquotesingle{} parameter.
+
+
+\begin{DoxyParams}{Parameters}
+{\em course\+Unit} & The ID of the course unit for which you want to list registered students. \\
+\hline
+{\em firstN} & The maximum number of students to display (use -\/1 to display all). \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classCourseManager_a06b268a8e72dc5b2895982718cd98f9a}\label{classCourseManager_a06b268a8e72dc5b2895982718cd98f9a}} 
@@ -107,6 +180,23 @@ This function displays a list of students who are registered in the specified ye
 \begin{DoxyNote}{Note}
 The students are sorted in ascending order of their IDs. 
 \end{DoxyNote}
+\mbox{\Hypertarget{classCourseManager_af4df7a608215bcfb3c23dd4e96e5dc0e}\label{classCourseManager_af4df7a608215bcfb3c23dd4e96e5dc0e}} 
+\index{CourseManager@{CourseManager}!showUnitCoursesWithMostStudents@{showUnitCoursesWithMostStudents}}
+\index{showUnitCoursesWithMostStudents@{showUnitCoursesWithMostStudents}!CourseManager@{CourseManager}}
+\doxysubsubsection{\texorpdfstring{showUnitCoursesWithMostStudents()}{showUnitCoursesWithMostStudents()}}
+{\footnotesize\ttfamily void Course\+Manager\+::show\+Unit\+Courses\+With\+Most\+Students (\begin{DoxyParamCaption}\item[{int}]{firstN = {\ttfamily 5} }\end{DoxyParamCaption})}
+
+
+
+Display a list of Unit Courses with the most students. 
+
+This function retrieves the student count for each Unit Course, identifies the top N Unit Courses with the most students, and displays their information.
+
+
+\begin{DoxyParams}{Parameters}
+{\em firstN} & The number of top Unit Courses to display. The default value is 5. \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

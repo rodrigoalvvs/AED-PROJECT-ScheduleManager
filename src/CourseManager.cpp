@@ -8,6 +8,7 @@
 #include <algorithm>
 #include <iomanip>
 #include <set>
+#include <queue>
 #include "../include/CourseManager.h"
 
 /**
@@ -404,20 +405,34 @@ void CourseManager::showStudentCountOnNUnits(int n) {
 }
 
 
+
+/**
+ * @brief Display a list of Unit Courses with the most students.
+ *
+ * This function retrieves the student count for each Unit Course,
+ * identifies the top N Unit Courses with the most students, and displays their information.
+ *
+ * @param firstN The number of top Unit Courses to display. The default value is 5.
+ */
+
 void CourseManager::showUnitCoursesWithMostStudents(int firstN){
-    std::unordered_map<std::string, int> count;
+    std::vector<std::pair<std::string, int>> count;
+
     for(std::pair<std::string, std::shared_ptr<CourseUnit>> unit: this->units){
-        count[unit.first] = unit.second->getStudentCount();
+        count.emplace_back(unit.first, unit.second->getStudentCount());
     }
+
+    std::cout << "The top " << firstN << " uc's with the most students are: " << std::endl;
+    std::sort(count.begin(), count.end(), [](const std::pair<std::string,int>& a, const std::pair<std::string,int>& b) ->bool{
+        return a.second < b.second;
+    });
 
     for(int i = 1; i <= firstN; i++){
-        std::max_element(count.begin(), count.end(), [](std::pair<std::string, int> a, std::pair<std::string, int> b) {
-
-        });
+        std::cout << "Position "  << i <<  "/ UC " << count.at(count.size() - i).first << " with " << count.at(count.size() - i).second << " students" << std::endl;
     }
-
-    
 }
+
+
 
 
 

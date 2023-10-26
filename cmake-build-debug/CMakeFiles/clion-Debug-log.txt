@@ -1,0 +1,4 @@
+/home/admin1/Documents/clion/bin/cmake/linux/x64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/home/admin1/Documents/clion/bin/ninja/linux/x64/ninja -G Ninja -S /home/admin1/Documents/AED_PROJ -B /home/admin1/Documents/AED_PROJ/cmake-build-debug
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/admin1/Documents/AED_PROJ/cmake-build-debug

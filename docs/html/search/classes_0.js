@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['courseclass_19',['CourseClass',['../classCourseClass.html',1,'']]],
-  ['coursemanager_20',['CourseManager',['../classCourseManager.html',1,'']]],
-  ['courseunit_21',['CourseUnit',['../classCourseUnit.html',1,'']]]
+  ['courseclass_25',['CourseClass',['../classCourseClass.html',1,'']]],
+  ['coursemanager_26',['CourseManager',['../classCourseManager.html',1,'']]],
+  ['courseunit_27',['CourseUnit',['../classCourseUnit.html',1,'']]]
 ];

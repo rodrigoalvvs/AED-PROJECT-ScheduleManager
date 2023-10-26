@@ -117,3 +117,7 @@ int CourseUnit::getUnitYear() const {
     return -1;
 }
 
+int CourseUnit::getStudentCount() {
+    return this->studentCount;
+}
+

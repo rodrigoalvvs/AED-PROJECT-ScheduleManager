@@ -13,6 +13,7 @@
 #include <map>
 #include "Student.h"
 #include "CourseUnit.h"
+#include "Request.h"
 
 
 class CourseManager {
@@ -22,6 +23,8 @@ private:
 
     // Field for the students {studentID : Student}
     std::unordered_map<int, std::shared_ptr<Student>> students;
+
+    std::queue<Request> requests;
 public:
 
     // Constructors and destructors

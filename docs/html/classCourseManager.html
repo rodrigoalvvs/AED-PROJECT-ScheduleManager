@@ -63,7 +63,6 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="classCourseManager-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">CourseManager Class Reference</div>  </div>
@@ -83,26 +82,27 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab2b06918934f8b7e89a4c7508dc2a134"><td class="memItemLeft" align="right" valign="top"><a id="ab2b06918934f8b7e89a4c7508dc2a134"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>showStudentSchedule</b> (int id)</td></tr>
 <tr class="separator:ab2b06918934f8b7e89a4c7508dc2a134"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a03637079f0e780a9b0e11d6d8f10071b"><td class="memItemLeft" align="right" valign="top"><a id="a03637079f0e780a9b0e11d6d8f10071b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>showClassSchedule</b> (const std::string &amp;ucId, const std::string &amp;classId)</td></tr>
+<tr class="memitem:a03637079f0e780a9b0e11d6d8f10071b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseManager.html#a03637079f0e780a9b0e11d6d8f10071b">showClassSchedule</a> (const std::string &amp;ucId, const std::string &amp;classId)</td></tr>
+<tr class="memdesc:a03637079f0e780a9b0e11d6d8f10071b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display the schedule for a specific class in a course unit.  <a href="classCourseManager.html#a03637079f0e780a9b0e11d6d8f10071b">More...</a><br /></td></tr>
 <tr class="separator:a03637079f0e780a9b0e11d6d8f10071b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a184000c21c8e98ffd4a8e4fda3b75176"><td class="memItemLeft" align="right" valign="top"><a id="a184000c21c8e98ffd4a8e4fda3b75176"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>showStudentListInCourse</b> (const std::string &amp;courstseUnit)</td></tr>
-<tr class="separator:a184000c21c8e98ffd4a8e4fda3b75176"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6bb2bb61152dca231ac6bd4e779bc0a7"><td class="memItemLeft" align="right" valign="top"><a id="a6bb2bb61152dca231ac6bd4e779bc0a7"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>showStudentListInClass</b> (const std::string &amp;courseUnit, const std::string &amp;classId)</td></tr>
+<tr class="memitem:a0ac7213c679d0796c6c47ac02acf832b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseManager.html#a0ac7213c679d0796c6c47ac02acf832b">printSchedule</a> (std::unordered_map&lt; std::string, std::vector&lt; std::shared_ptr&lt; <a class="el" href="classPeriod.html">Period</a> &gt;&gt;&gt; schedule)</td></tr>
+<tr class="memdesc:a0ac7213c679d0796c6c47ac02acf832b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the schedule of course periods for each weekday.  <a href="classCourseManager.html#a0ac7213c679d0796c6c47ac02acf832b">More...</a><br /></td></tr>
+<tr class="separator:a0ac7213c679d0796c6c47ac02acf832b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11358fd1dbfd411bbfefc2077ef7ed79"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseManager.html#a11358fd1dbfd411bbfefc2077ef7ed79">showStudentListInCourse</a> (const std::string &amp;courstseUnit, int firstN=-1)</td></tr>
+<tr class="memdesc:a11358fd1dbfd411bbfefc2077ef7ed79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Show a list of students registered in a specific course unit.  <a href="classCourseManager.html#a11358fd1dbfd411bbfefc2077ef7ed79">More...</a><br /></td></tr>
+<tr class="separator:a11358fd1dbfd411bbfefc2077ef7ed79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6bb2bb61152dca231ac6bd4e779bc0a7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseManager.html#a6bb2bb61152dca231ac6bd4e779bc0a7">showStudentListInClass</a> (const std::string &amp;courseUnit, const std::string &amp;classId)</td></tr>
+<tr class="memdesc:a6bb2bb61152dca231ac6bd4e779bc0a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Show a list of students registered in a specific class of a course unit.  <a href="classCourseManager.html#a6bb2bb61152dca231ac6bd4e779bc0a7">More...</a><br /></td></tr>
 <tr class="separator:a6bb2bb61152dca231ac6bd4e779bc0a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a06b268a8e72dc5b2895982718cd98f9a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseManager.html#a06b268a8e72dc5b2895982718cd98f9a">showStudentListInYear</a> (int year, int firstN=-1)</td></tr>
 <tr class="memdesc:a06b268a8e72dc5b2895982718cd98f9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Show a list of students registered in a specific year.  <a href="classCourseManager.html#a06b268a8e72dc5b2895982718cd98f9a">More...</a><br /></td></tr>
 <tr class="separator:a06b268a8e72dc5b2895982718cd98f9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4df7a608215bcfb3c23dd4e96e5dc0e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseManager.html#af4df7a608215bcfb3c23dd4e96e5dc0e">showUnitCoursesWithMostStudents</a> (int firstN=5)</td></tr>
+<tr class="memdesc:af4df7a608215bcfb3c23dd4e96e5dc0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display a list of Unit Courses with the most students.  <a href="classCourseManager.html#af4df7a608215bcfb3c23dd4e96e5dc0e">More...</a><br /></td></tr>
+<tr class="separator:af4df7a608215bcfb3c23dd4e96e5dc0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aface14383a421ce45fd46ac95b396416"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseManager.html#aface14383a421ce45fd46ac95b396416">showStudentCountOnNUnits</a> (int n)</td></tr>
+<tr class="memdesc:aface14383a421ce45fd46ac95b396416"><td class="mdescLeft">&#160;</td><td class="mdescRight">Count the number of students registered in at least a specified number of course units.  <a href="classCourseManager.html#aface14383a421ce45fd46ac95b396416">More...</a><br /></td></tr>
 <tr class="separator:aface14383a421ce45fd46ac95b396416"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:aaf6f11fe85fdb1f3bc505d78d8ec1ccf"><td class="memItemLeft" align="right" valign="top"><a id="aaf6f11fe85fdb1f3bc505d78d8ec1ccf"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>printSchedule</b> (std::unordered_map&lt; std::string, std::shared_ptr&lt; <a class="el" href="classPeriod.html">Period</a> &gt;&gt; schedule)</td></tr>
-<tr class="separator:aaf6f11fe85fdb1f3bc505d78d8ec1ccf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="afba31bde00e392e28062c978c74a32f6"></a>
@@ -178,6 +178,71 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>printSchedule<
 
 </div>
 </div>
+<a id="a0ac7213c679d0796c6c47ac02acf832b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ac7213c679d0796c6c47ac02acf832b">&#9670;&nbsp;</a></span>printSchedule()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CourseManager::printSchedule </td>
+          <td>(</td>
+          <td class="paramtype">std::unordered_map&lt; std::string, std::vector&lt; std::shared_ptr&lt; <a class="el" href="classPeriod.html">Period</a> &gt;&gt;&gt;&#160;</td>
+          <td class="paramname"><em>schedule</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Print the schedule of course periods for each weekday. </p>
+<p>This function prints the schedule of course periods for each weekday. It takes an unordered_map containing course periods, organizes them by weekday, and then sorts and displays the schedule for each weekday.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">schedule</td><td>An unordered_map containing course periods with keys as "&lt;ucId/classId&gt;" and values as shared_ptr&lt;Period&gt;. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a03637079f0e780a9b0e11d6d8f10071b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03637079f0e780a9b0e11d6d8f10071b">&#9670;&nbsp;</a></span>showClassSchedule()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CourseManager::showClassSchedule </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>ucId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>classId</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Display the schedule for a specific class in a course unit. </p>
+<p>This function displays the schedule for a specific class in a course unit identified by 'ucId' and 'classId'.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ucId</td><td>The unique identifier of the course unit. </td></tr>
+    <tr><td class="paramname">classId</td><td>The unique identifier of the class within the course unit. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="aface14383a421ce45fd46ac95b396416"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aface14383a421ce45fd46ac95b396416">&#9670;&nbsp;</a></span>showStudentCountOnNUnits()</h2>
 
@@ -193,10 +258,88 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>printSchedule<
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Shows the count of students registered in at least n course units.</p>
+
+<p>Count the number of students registered in at least a specified number of course units. </p>
+<p>This function calculates and displays the count of students who are registered in at least the specified number of course units. It iterates through the list of students and checks if each student is registered in the required number of course units (or more).</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">n</td><td>An integer threshold representing the minimum number of course units a student must be registered in. </td></tr>
+    <tr><td class="paramname">n</td><td>The minimum number of course units a student must be registered in to be counted. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6bb2bb61152dca231ac6bd4e779bc0a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6bb2bb61152dca231ac6bd4e779bc0a7">&#9670;&nbsp;</a></span>showStudentListInClass()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CourseManager::showStudentListInClass </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>courseUnit</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>classId</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Show a list of students registered in a specific class of a course unit. </p>
+<p>This function displays a list of students who are registered in a specific class of the given course unit. It first checks if the course unit and class exist, and if they do, it lists the students along with their names and student IDs.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">courseUnit</td><td>The ID of the course unit to query. </td></tr>
+    <tr><td class="paramname">classId</td><td>The ID of the specific class within the course unit. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a11358fd1dbfd411bbfefc2077ef7ed79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11358fd1dbfd411bbfefc2077ef7ed79">&#9670;&nbsp;</a></span>showStudentListInCourse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CourseManager::showStudentListInCourse </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>courseUnit</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>firstN</em> = <code>-1</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Show a list of students registered in a specific course unit. </p>
+<p>This function displays a list of students who are registered in the specified course unit. It first checks if the course unit exists, and if it does, it lists the students along with their names and student IDs. You can limit the number of students displayed by providing the 'firstN' parameter.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">courseUnit</td><td>The ID of the course unit for which you want to list registered students. </td></tr>
+    <tr><td class="paramname">firstN</td><td>The maximum number of students to display (use -1 to display all). </td></tr>
   </table>
   </dd>
 </dl>
@@ -239,6 +382,33 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>printSchedule<
   </dd>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>The students are sorted in ascending order of their IDs. </dd></dl>
+
+</div>
+</div>
+<a id="af4df7a608215bcfb3c23dd4e96e5dc0e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4df7a608215bcfb3c23dd4e96e5dc0e">&#9670;&nbsp;</a></span>showUnitCoursesWithMostStudents()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CourseManager::showUnitCoursesWithMostStudents </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>firstN</em> = <code>5</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Display a list of Unit Courses with the most students. </p>
+<p>This function retrieves the student count for each Unit Course, identifies the top N Unit Courses with the most students, and displays their information.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">firstN</td><td>The number of top Unit Courses to display. The default value is 5. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
