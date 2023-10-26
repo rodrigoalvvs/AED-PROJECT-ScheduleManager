@@ -1,3 +1,0 @@
-/home/admin1/Documents/AED_PROJ/cmake-build-debug/CMakeFiles/AED_PROJ.dir
-/home/admin1/Documents/AED_PROJ/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/admin1/Documents/AED_PROJ/cmake-build-debug/CMakeFiles/rebuild_cache.dir
