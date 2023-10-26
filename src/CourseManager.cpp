@@ -410,6 +410,12 @@ void CourseManager::showUnitCoursesWithMostStudents(int firstN){
         count[unit.first] = unit.second->getStudentCount();
     }
 
+    for(int i = 1; i <= firstN; i++){
+        std::max_element(count.begin(), count.end(), [](std::pair<std::string, int> a, std::pair<std::string, int> b) {
+
+        });
+    }
+
     
 }
 
