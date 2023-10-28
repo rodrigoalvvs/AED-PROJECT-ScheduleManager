@@ -145,8 +145,13 @@ void CourseManager::getStudentsClasses() {
         this->units[unitId]->addStudent(classId, studentId);
 
 
+        // Find the student in the set with the same id
+        auto studentsItr = std::find_if(this->students.begin(), this->students.end(), [studentId](const std::pair<int, std::shared_ptr<Student>> studentRegistered) -> bool {
+            return studentRegistered.first == studentId;
+        });
+
         // [Add student object] If the student is not in students already, add it
-        if(this->students.count(studentId) == 0){
+        if(studentsItr == this->students.end()){
             // Create a student
             std::shared_ptr<Student> currentStudent = std::make_shared<Student>(Student(studentName, studentId));
 
@@ -172,7 +177,7 @@ void CourseManager::showStudentSchedule(int id) {
 
     // Get student object
     if(this->students.count(id) == 0){
-        std::cout << "Student Not Found, Invalid identifier\n";
+        std::cout << "Student Not Found.\n";
         return;
     }
     std::shared_ptr<Student> currentStudent = this->students[id];
@@ -286,6 +291,18 @@ void CourseManager::printSchedule(std::unordered_map<std::string, std::vector<st
 }
 
 
+void CourseManager::orderList(std::shared_ptr<std::vector<int>> studentsId, int orderType) {
+    if(orderType == 1){
+        // Sort the students by id
+        std::sort(studentsId->begin(), studentsId->end());
+    }
+    else if(orderType == 2){
+        std::sort(studentsId->begin(), studentsId->end(),[this](int a, int b) -> bool {
+            return this->students[a]->getName() < this->students[b]->getName();
+        });
+    }
+}
+
 /**
  * @brief Show a list of students registered in a specific course unit.
  *
@@ -298,13 +315,21 @@ void CourseManager::printSchedule(std::unordered_map<std::string, std::vector<st
  * @param firstN The maximum number of students to display (use -1 to display all).
  */
 
-void CourseManager::showStudentListInCourse(const std::string &courseUnit, int firstN) {
+void CourseManager::showStudentListInCourse(const std::string &courseUnit, int orderType,int firstN) {
     if(this->units.count(courseUnit) == 0){
         std::cout << "Course Unit does not exist!\n";
         return;
     }
+
     std::cout << "Student list for unit " << courseUnit << std::endl;
-    std::shared_ptr<std::list<int>> studentsId = this->units[courseUnit]->getStudentList();
+    std::shared_ptr<std::vector<int>> studentsId = this->units[courseUnit]->getStudentList();
+
+
+    if(this->units[courseUnit]->getCurrentOrder() != orderType){
+        this->orderList(studentsId, orderType);
+        this->units[courseUnit]->setCurrentOrder(orderType);
+    }
+
     int i = 0;
     for(auto studentIdPtr = studentsId->begin(); studentIdPtr != studentsId->end() &&  (firstN == -1 || i < firstN); studentIdPtr++){
         i++;
@@ -314,18 +339,25 @@ void CourseManager::showStudentListInCourse(const std::string &courseUnit, int f
 
 
 
-/**
- * @brief Show a list of students registered in a specific class of a course unit.
- *
- * This function displays a list of students who are registered in a specific class
- * of the given course unit. It first checks if the course unit and class exist, and
- * if they do, it lists the students along with their names and student IDs.
- *
- * @param courseUnit The ID of the course unit to query.
- * @param classId The ID of the specific class within the course unit.
- */
 
-void CourseManager::showStudentListInClass(const std::string &courseUnit, const std::string& classId, int firstN) {
+/**
+ * @brief Show a list of students in a specific class of a course unit.
+ *
+ * This function displays a list of students who are enrolled in a particular class of a course unit.
+ *
+ * @param courseUnit The name of the course unit.
+ * @param classId The ID of the class for which you want to list students.
+ * @param orderType The sorting order for the list (1 for by student ID, 2 for by student name).
+ * @param firstN The maximum number of students to display. Use -1 to display all students.
+ *
+ * @note The students are sorted based on the specified sorting order and then displayed.
+ * @note If the course unit or class does not exist, appropriate error messages are displayed.
+ *
+ * */
+
+void CourseManager::showStudentListInClass(const std::string &courseUnit, const std::string& classId, int orderType,int firstN) {
+
+    // Error handling
     if(this->units.count(courseUnit) == 0){
         std::cout << "Course Unit does not exist!\n";
         return;
@@ -334,17 +366,29 @@ void CourseManager::showStudentListInClass(const std::string &courseUnit, const 
         std::cout << "Class does not exist!\n";
         return;
     }
-    const std::vector<int>& studentsVect = this->units[courseUnit]->getStudentListOnClass(classId);
+
+    // Get students vector
+    std::shared_ptr<std::vector<int>> studentsVect = this->units[courseUnit]->getStudentListOnClass(classId);
+
+
+    if(this->units[courseUnit]->getCurrentOrder() != orderType){
+        this->orderList(studentsVect, orderType);
+        this->units[courseUnit]->setCurrentOrder(orderType);
+    }
+
+
+
 
     std::cout << "Students in uc " << courseUnit << " class " << classId << " ";
     if(firstN != -1) std::cout << "(Showing the first " << firstN << " students)";
     std::cout << std::endl;
+
+    // Print students
     int i = 0;
-    for(auto studentsItr = studentsVect.begin(); studentsItr != studentsVect.end() && i < firstN; studentsItr++){
-        std::cout << students[*studentsItr]->getName() << " - up" << *studentsItr <<  std::endl;
+    for(auto studentsItr = studentsVect->begin(); studentsItr != studentsVect->end() && (i < firstN || firstN == -1); studentsItr++){
+        std::cout << this->students[*studentsItr]->getName() << " - up" << *studentsItr <<  std::endl;
     }
 }
-
 
 
 
@@ -359,27 +403,43 @@ void CourseManager::showStudentListInClass(const std::string &courseUnit, const 
  * @note The students are sorted in ascending order of their IDs.
  */
 
-void CourseManager::showStudentListInYear(int year, int firstN){
-    std::set<int> studentsId;
+void CourseManager::showStudentListInYear(int year, int orderType,int firstN){
+    std::vector<int> studentsId;
+    std::set<int> studentTracker;
 
     for(std::pair<std::string, std::shared_ptr<CourseUnit>> unitPair: this->units){
         std::shared_ptr<CourseUnit> currentUnit = unitPair.second;
         if(year == currentUnit->getUnitYear()){
-            std::shared_ptr<std::list<int>> studentsEnrolled = currentUnit->getStudentList();
+            std::shared_ptr<std::vector<int>> studentsEnrolled = currentUnit->getStudentList();
             for(int student: *studentsEnrolled){
-                studentsId.insert(student);
+                if(studentTracker.insert(student).second){
+                    studentsId.push_back(student);
+                }
+
             }
         }
     }
+
+
 
     std::cout << "The following students are registered in year " << year << " ";
     if(firstN != -1) std::cout << "(Showing the first " << firstN << " students)";
     std::cout << std::endl;
 
+    if(orderType == 1){
+        std::sort(studentsId.begin(), studentsId.end());
+    }
+    else if (orderType == 2) {
+        std::sort(studentsId.begin(), studentsId.end(), [this](int a, int b) -> bool{
+            return this->students[a]->getName() < this->students[b]->getName();
+        });
+    }
+
+
     int i = 0;
     for(auto studentPtr = studentsId.begin(); studentPtr != studentsId.end() && (i < firstN || firstN == -1) ; studentPtr++){
         i++;
-        std::cout << students[*studentPtr]->getName() << " - up" << *studentPtr <<  std::endl;
+        std::cout << this->students[*studentPtr]->getName() << " - up" << *studentPtr <<  std::endl;
     }
 }
 
@@ -451,6 +511,8 @@ bool CourseManager::addStudentToUc(const std::string &ucId, const std::string &c
     }
     return false;
 }
+
+
 
 
 

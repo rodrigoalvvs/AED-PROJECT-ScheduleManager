@@ -41,9 +41,9 @@ public:
     void printSchedule(std::unordered_map<std::string, std::vector<std::shared_ptr<Period>>> schedule);
 
     // Student list handler
-    void showStudentListInCourse(const std::string& courstseUnit, int firstN = -1);
-    void showStudentListInClass(const std::string &courseUnit, const std::string& classId, int firstN = -1);
-    void showStudentListInYear(int year, int firstN = -1);
+    void showStudentListInCourse(const std::string& courstseUnit, int orderType, int firstN = -1);
+    void showStudentListInClass(const std::string &courseUnit, const std::string& classId, int orderType,int firstN = -1);
+    void showStudentListInYear(int year, int orderType, int firstN = -1);
     void showUnitCoursesWithMostStudents(int firstN = 5);
 
     // Student count
@@ -51,6 +51,8 @@ public:
 
     bool removeStudentFromUc(const std::string& ucId, int studentId);
     bool addStudentToUc(const std::string& ucId, const std::string& classId, int studentId);
+
+    void orderList(std::shared_ptr<std::vector<int>> studentsId, int orderType);
 
 };
 

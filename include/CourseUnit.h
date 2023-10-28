@@ -16,6 +16,9 @@ class CourseClass;
 class CourseUnit{
 private:
     std::unordered_map<std::string, std::shared_ptr<CourseClass>> classes;
+
+    std::vector<int> allStudents;
+    int currentOrderOfStudents;
     int studentCount;
 public:
     // Constructors and destructors
@@ -24,20 +27,26 @@ public:
     // Class getters and setters
 
     int getNumberOfClasses() const;
+    int getCurrentOrder() const;
+    int getUnitYear() const;
+
+    void setCurrentOrder(int orderType);
 
 
     // Class member functions
+    // classes handle functions
     bool addClass(const std::string& classId);
-    bool addStudent(const std::string& classId, int studentId);
-    int getStudentCount();
-    std::shared_ptr<std::list<int>> getStudentList();
     int getStudentCountOnClass(const std::string& classId);
-    const std::vector<int>& getStudentListOnClass(const std::string& classId);
     std::shared_ptr<CourseClass> getClass(const std::string& classId);
     const std::vector<std::shared_ptr<Period>>& getClassPeriods( const std::string& classId);
-    int getUnitYear() const;
+    std::shared_ptr<std::vector<int>> getStudentListOnClass(const std::string& classId);
+
+    // Student handle functions
+    bool addStudent(const std::string& classId, int studentId);
+    int getStudentCount() const;
+    std::shared_ptr<std::vector<int>> getStudentList();
+
     bool removeStudentFromClass(const std::string& classId, int studentId);
-    const std::vector<int>& getStudentsInClass(const std::string& classId);
 };
 
 #endif //AED_PROJ_COURSEUNIT_H

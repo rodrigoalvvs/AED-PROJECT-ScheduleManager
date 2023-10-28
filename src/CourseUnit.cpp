@@ -5,6 +5,7 @@
 #include <iostream>
 #include <sstream>
 #include <list>
+#include <algorithm>
 #include "../include/CourseUnit.h"
 /**
  * This is the constructor that handles the creation of a course unit.
@@ -12,6 +13,8 @@
 CourseUnit::CourseUnit() {
     this->classes.clear();
     this->studentCount = 0;
+    this->allStudents.clear();
+    this->currentOrderOfStudents = -1;
 }
 
 /**
@@ -53,6 +56,7 @@ std::shared_ptr<CourseClass> CourseUnit::getClass(const std::string& classId) {
  */
 bool CourseUnit::addStudent(const std::string &classId, int studentId) {
     this->classes[classId]->addStudent(studentId);
+    this->allStudents.push_back(studentId);
     this->studentCount += 1;
     return true;
 }
@@ -74,8 +78,9 @@ int CourseUnit::getStudentCountOnClass(const std::string &classId) {
  * @return A constant reference to a vector of integers representing the students in the class.
  */
 
-const std::vector<int>& CourseUnit::getStudentListOnClass(const std::string &classId) {
-    return this->classes[classId]->getStudents();
+std::shared_ptr<std::vector<int>> CourseUnit::getStudentListOnClass(const std::string &classId) {
+    std::shared_ptr<std::vector<int>> students = this->classes[classId]->getStudents();
+    return students;
 }
 
 /**
@@ -94,15 +99,8 @@ const std::vector<std::shared_ptr<Period>> &CourseUnit::getClassPeriods(const st
  * @return A shared pointer to a list of integer values containing the student IDs.
  */
 
-std::shared_ptr<std::list<int>> CourseUnit::getStudentList() {
-    std::list<int> students;
-    for(std::pair<std::string, std::shared_ptr<CourseClass>> class_: classes){
-
-        for(int studentId : class_.second->getStudents()){
-            students.push_back(studentId);
-        }
-    }
-    return std::make_shared<std::list<int>>(students);
+std::shared_ptr<std::vector<int>> CourseUnit::getStudentList() {
+    return std::make_shared<std::vector<int>>(this->allStudents);
 }
 
 /**
@@ -117,7 +115,7 @@ int CourseUnit::getUnitYear() const {
     return -1;
 }
 
-int CourseUnit::getStudentCount() {
+int CourseUnit::getStudentCount() const {
     return this->studentCount;
 }
 
@@ -127,7 +125,10 @@ bool CourseUnit::removeStudentFromClass(const std::string &classId, int studentI
     return operationStatus;
 }
 
-const std::vector<int> &CourseUnit::getStudentsInClass(const std::string &classId) {
-    return this->classes[classId]->getStudents();
+int CourseUnit::getCurrentOrder() const {
+    return this->currentOrderOfStudents;
 }
 
+void CourseUnit::setCurrentOrder(int orderType) {
+    this->currentOrderOfStudents = orderType;
+}
