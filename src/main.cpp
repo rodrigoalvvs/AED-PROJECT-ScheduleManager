@@ -5,8 +5,9 @@
 
 void waitForEnter();
 bool validStudentId(const std::string& id);
+void showOccupancies(CourseManager*, int);
 
-void showLists(const std::shared_ptr<CourseManager>& sharedPtr, int i);
+void showLists(CourseManager* courseManager, int orderType);
 
 int getStudentId(const std::string& message = "Provide the student id: "){
     std::string studentId;
@@ -57,7 +58,7 @@ bool validStudentId(const std::string& id){
     }
 }
 
-void showSchedules(std::shared_ptr<CourseManager> courseManager) {
+void showSchedules(CourseManager* courseManager) {
     bool running = true;
     char scheduleOption;
 
@@ -107,7 +108,7 @@ void waitForEnter() {
 }
  */
 
-bool showSwitchMenu(std::shared_ptr<CourseManager> course){
+bool showSwitchMenu(CourseManager* course){
     char option;
     while(true){
         std::cout << "\nWhat request would you like to make:\n"
@@ -129,12 +130,12 @@ bool showSwitchMenu(std::shared_ptr<CourseManager> course){
             case 1:
                 ucRegistered = getUcId("Enter the uc in wich the student is already enrolled (L.EICXXX):");
                 ucToRegister = getUcId("Enter the uc that the students wishes to enroll (L.EICXXX):");
-                return course->addRequest(3, studentId, {ucRegistered, ""}, {ucToRegister, ""});
+                return course->addRequest(3, studentId, {ucToRegister, ""}, {ucRegistered, ""});
             case 2:
                 ucRegistered = getUcId("Enter the uc to perform the class change (L.EICXXX): ");
                 classRegistered = getClassId("Enter the class that the student is enrolled (XLEICXX): ");
                 classToRegister = getClassId("Enter the class that the student wishes to enroll (XLEICXX): ");
-                return course->addRequest(4, studentId, {ucRegistered, classRegistered}, {ucRegistered, classToRegister});
+                return course->addRequest(4, studentId, {ucRegistered, classToRegister}, {ucRegistered, classRegistered});
             case 0:
                 return true;
             default:
@@ -143,7 +144,7 @@ bool showSwitchMenu(std::shared_ptr<CourseManager> course){
     }
 }
 
-bool showRequestMenu(std::shared_ptr<CourseManager> course){
+bool showRequestMenu(CourseManager* course){
     char option;
     std::string studentId;
     std::string succesfullSentRequest = "Request submitted, will be handled shortly!\n";
@@ -195,40 +196,49 @@ bool showRequestMenu(std::shared_ptr<CourseManager> course){
 }
 
 int main() {
-    CourseManager informatica;
+    CourseManager* informatica = new CourseManager;
     bool running = true;
     while(running){
         std::cout << "\nSelect an option:\n"
                      "[1] Consult schedule\n"
                      "[2] Consult lists\n"
-                     "[3] Make a request\n"
-                     "[4] Handle requests\nYour option:";
+                     "[3] Consult occupancies\n"
+                     "[4] Make a request\n"
+                     "[5] Handle requests\nYour option:";
         char option;
+        int orderType;
         std::cin >> option;
         if(!std::isdigit(option)){
             std::cout << "Enter a valid digit.\n";
             continue;
         }
-
         switch (option - '0') {
             case 1:
-                showSchedules(std::make_shared<CourseManager>(informatica));
+                showSchedules(informatica);
                 break;
             case 2:
                 std::cout << "\nIn wich order would you like to consult the listings:\n"
                              "[1] Order by student ID\n"
                              "[2] Order alphabetically\n"
                              "[0] Return to main menu\nYour option: ";
-                int orderType;
                 std::cin >> orderType;
                 if(orderType == 0) break;
-                showLists(std::make_shared<CourseManager>(informatica), orderType);
+                showLists(informatica, orderType);
                 break;
             case 3:
-                showRequestMenu(std::make_shared<CourseManager>(informatica));
+                std::cout << "\nIn wich order would you like to consult the occupancies:\n"
+                             "[1] Ascending order\n"
+                             "[2] Descending order\n"
+                             "[0] Return to main menu\nYour option: ";
+                std::cin >> orderType;
+                showOccupancies(informatica, orderType);
                 break;
             case 4:
-                informatica.handleRequest();
+                showRequestMenu(informatica);
+                break;
+            case 5:
+                std::cout << "Handling oldest request!\n";
+                informatica->handleRequest();
                 break;
             default:
                 std::cout << "Invalid option, try again!\n";
@@ -238,11 +248,11 @@ int main() {
 
     }
 
-
+    delete informatica;
     return 0;
 }
 
-void showLists(const std::shared_ptr<CourseManager>& courseManager, int orderType) {
+void showLists(CourseManager* courseManager, int orderType) {
     bool running = true;
     int scheduleOption;
     int year;
@@ -301,6 +311,41 @@ void showLists(const std::shared_ptr<CourseManager>& courseManager, int orderTyp
     return;
 }
 
+
+void showOccupancies(CourseManager* course, int orderType){
+    bool running = true;
+    char option;
+    while(running){
+        std::cout << "What occupancy would you like to consult:\n"
+                     "[1] Class occupancy\n"
+                     "[2] Year occupancy\n"
+                     "[3] UC occupancy\n"
+                     "[0] Return to main menu\nYour option:";
+        std::cin >> option;
+        if(!std::isdigit(option)){
+            std::cout << "Enter a valid option!\n";
+            continue;
+        }
+
+
+        switch (option - '0') {
+            case 1:
+                course->showClassOccupancy(orderType);
+                break;
+            case 2:
+                course->showYearOccupancy(orderType);
+                break;
+            case 3:
+                course->showUcOccupancy(orderType);
+                break;
+            case 0:
+                return;
+            default:
+                std::cout << "Enter a valid option!\n";
+                continue;
+        }
+    }
+}
 
 
 /*

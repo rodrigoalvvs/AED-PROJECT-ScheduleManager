@@ -31,6 +31,7 @@ public:
     int getUnitYear() const;
 
     void setCurrentOrder(int orderType);
+    std::list<std::shared_ptr<CourseClass>> getClasses();
 
 
     // Class member functions
@@ -50,6 +51,8 @@ public:
     std::string getClassWithVacancy() const;
 
     int getClassOccupancy(const std::string& classId) const;
+
+    int getOccupancy() const;
 
 
 };

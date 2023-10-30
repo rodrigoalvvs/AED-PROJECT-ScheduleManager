@@ -3,7 +3,6 @@
 //
 
 #include <memory>
-#include <map>
 #include <sstream>
 #include <algorithm>
 #include <iomanip>
@@ -143,7 +142,7 @@ void CourseManager::getStudentsClasses() {
 
 
         // Find the student in the set with the same id
-        auto studentsItr = std::find_if(this->students.begin(), this->students.end(), [studentId](const std::pair<int, std::shared_ptr<Student>> studentRegistered) -> bool {
+        auto studentsItr = std::find_if(this->students.begin(), this->students.end(), [studentId](const std::pair<int, std::shared_ptr<Student>>& studentRegistered) -> bool {
             return studentRegistered.first == studentId;
         });
 
@@ -182,7 +181,7 @@ void CourseManager::showStudentSchedule(int id) {
     // Get units which the student is enrolled
     std::vector<std::string> units = currentStudent->getUnitCourses();
 
-    for(std::string unitId: units){
+    for(const std::string& unitId: units){
         // Get classId that the student is registered in each unit
         std::string classId = currentStudent->getClass(unitId);
 
@@ -383,19 +382,7 @@ void CourseManager::showStudentListInClass(const std::string &courseUnit, const 
 }
 
 
-
-/**
- * @brief Show a list of students registered in a specific year.
- *
- * This function displays a list of students who are registered in the specified year.
- *
- * @param year The year for which you want to list registered students.
- * @param firstN The maximum number of students to display. Use -1 to display all students.
- *
- * @note The students are sorted in ascending order of their IDs.
- */
-
-void CourseManager::showStudentListInYear(int year, int orderType,int firstN){
+std::vector<int> CourseManager::getStudentListInYear(int year, int orderType) {
     std::vector<int> studentsId;
     std::set<int> studentTracker;
 
@@ -412,12 +399,6 @@ void CourseManager::showStudentListInYear(int year, int orderType,int firstN){
         }
     }
 
-
-
-    std::cout << "The following students are registered in year " << year << " ";
-    if(firstN != -1) std::cout << "(Showing the first " << firstN << " students)";
-    std::cout << std::endl;
-
     if(orderType == 1){
         std::sort(studentsId.begin(), studentsId.end());
     }
@@ -426,6 +407,28 @@ void CourseManager::showStudentListInYear(int year, int orderType,int firstN){
             return this->students[a]->getName() < this->students[b]->getName();
         });
     }
+    return studentsId;
+}
+
+
+
+/**
+ * @brief Show a list of students registered in a specific year.
+ *
+ * This function displays a list of students who are registered in the specified year.
+ *
+ * @param year The year for which you want to list registered students.
+ * @param firstN The maximum number of students to display. Use -1 to display all students.
+ *
+ * @note The students are sorted in ascending order of their IDs.
+ */
+
+void CourseManager::showStudentListInYear(int year, int orderType,int firstN){
+    std::vector<int> studentsId = this->getStudentListInYear(year, orderType);
+
+    std::cout << "The following students are registered in year " << year << " ";
+    if(firstN != -1) std::cout << "(Showing the first " << firstN << " students)";
+    std::cout << std::endl;
 
 
     int i = 0;
@@ -507,9 +510,9 @@ bool CourseManager::removeStudentFromUc(const std::string &ucId, int studentId) 
 
     if(this->units[ucId]->removeStudentFromClass(this->students[studentId]->getClass(ucId), studentId)){
         this->students[studentId]->removeClass(ucId);
+        this->removeFromDatabase(studentId, ucId);
         return true;
     }
-    this->removeFromDatabase(studentId, ucId);
     return false;
 }
 
@@ -549,11 +552,9 @@ bool CourseManager::addStudentToUc(const std::string &ucId, const std::string &c
 
     // Get classes that student is enrolled
     std::shared_ptr<std::unordered_map<std::string, std::string>> classesEnrolled = this->students[studentId]->getClasses();
-
-
-
     this->students[studentId]->addClass(ucId, classId);
     this->units[ucId]->addStudent(classId, studentId);
+
     // studentId, studentName, UcCode, ClassCode (Adding e removing - operation types (1 for adding, 2 for removing))
     this->saveToDatabase(studentId, this->students[studentId]->getName(), ucId, classId);
 
@@ -691,10 +692,10 @@ void CourseManager::handleRequest() {
             this->removeStudentFromUc(requestToHandle.removing.first, requestToHandle.studentId);
             break;
         case 3:
-            this->switchUc(requestToHandle.studentId, requestToHandle.adding.first, requestToHandle.removing.first);
+            this->switchUc(requestToHandle.studentId, requestToHandle.removing.first, requestToHandle.adding.first);
             break;
         case 4:
-            this->switchClass(requestToHandle.studentId, requestToHandle.adding.first, requestToHandle.adding.second, requestToHandle.removing.second);
+            this->switchClass(requestToHandle.studentId, requestToHandle.removing.first, requestToHandle.removing.second, requestToHandle.adding.second);
             break;
         default:
             std::cout << "Invalid request type!\n";
@@ -736,9 +737,76 @@ void CourseManager::removeFromDatabase(int studentId, const std::string &ucId) {
 
 }
 
+bool CourseManager::showClassOccupancy(int orderType) {
+    auto cmp = [orderType](const std::pair<int, std::string>& a, const std::pair<int, std::string>& b) -> bool{
+        if(orderType == 1) return a.first <= b.first;
+        else return a.first >= b.first;
+    };
+
+    std::set<std::pair<int, std::string>, decltype(cmp)> classes_(cmp);
+
+    for(std::pair<std::string, std::shared_ptr<CourseUnit>> ucPair: this->units){
+        for(const std::shared_ptr<CourseClass>& class_: ucPair.second->getClasses()){
+            classes_.emplace(class_->getStudentCount(), ucPair.first + "/" + class_->getClassId());
+        }
+    }
+    for(const std::pair<int, std::string>& pair: classes_){
+        std::cout << pair.second << " - " << pair.first << " students\n";
+    }
+
+    return false;
+}
+
+bool CourseManager::showYearOccupancy(int orderType) {
+    // pair<COUNT, YEAR> and specific lambda function to sort
+    auto cmp = [orderType](const std::pair<int, int>& a, const std::pair<int, int>& b) -> bool{
+        if(orderType == 1) return a.first <= b.first;
+        else return a.first >= b.first;
+    };
+    std::set<std::pair<int, int>, decltype(cmp)> yearlyCount(cmp);
+
+
+    for(std::pair<std::string, std::shared_ptr<CourseUnit>> unitPair: this->units){
+        bool yearAccountFor = false;
+        for(std::pair<int,int> countYearPair: yearlyCount){
+            if(countYearPair.second == unitPair.second->getUnitYear())
+                yearAccountFor = true;
+        }
+        if(!yearAccountFor){
+            yearlyCount.emplace(this->getStudentListInYear(unitPair.second->getUnitYear(), 1).size(), unitPair.second->getUnitYear());
+        }
+    }
+
+    for(std::pair<int, int> yearPair: yearlyCount){
+        std::cout << "Year "<< yearPair.second << " has a total of " << yearPair.first << " students.\n";
+    }
+    return false;
+}
+
+bool CourseManager::showUcOccupancy(int orderType) {
+    auto cmp = [orderType](const std::pair<int, std::string>& a, const std::pair<int, std::string>& b) -> bool{
+        if(orderType == 1) return a.first <= b.first;
+        else return a.first >= b.first;
+    };
+    std::set<std::pair<int, std::string>, decltype(cmp)> ucCount(cmp);
+
+    for(std::pair<std::string, std::shared_ptr<CourseUnit>> ucPair: this->units){
+        ucCount.emplace(ucPair.second->getStudentCount(), ucPair.first);
+    }
+    for(const std::pair<int, std::string>& ucCount_: ucCount){
+        std::cout << "Uc " << ucCount_.second << " has a total of " << ucCount_.first << " students\n";
+    }
+
+    return false;
+}
+
+
 Request::Request(short requestType_, int studentId_, const std::pair<std::string, std::string> &adding_,const std::pair<std::string, std::string> &removing_) {
     this->requestType = requestType_;
     this->studentId = studentId_;
     this->adding = adding_;
     this->removing = removing_;
 }
+
+
+

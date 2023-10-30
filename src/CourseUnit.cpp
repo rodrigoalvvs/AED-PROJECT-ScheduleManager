@@ -190,3 +190,19 @@ int CourseUnit::getClassOccupancy(const std::string &classId) const {
     if(this->classes.find(classId) == this->classes.end()) return -1;
     return this->classes.find(classId)->second->getStudentCount();
 }
+
+int CourseUnit::getOccupancy() const {
+    int result = 0;
+    for(std::pair<std::string, std::shared_ptr<CourseClass>> classPair: this->classes){
+        result += classPair.second->getStudentCount();
+    }
+    return result;
+}
+
+std::list<std::shared_ptr<CourseClass>> CourseUnit::getClasses() {
+    std::list<std::shared_ptr<CourseClass>> classes_;
+    for(std::pair< std::string, std::shared_ptr<CourseClass>> classPair: this->classes){
+        classes_.push_back(classPair.second);
+    }
+    return classes_;
+}

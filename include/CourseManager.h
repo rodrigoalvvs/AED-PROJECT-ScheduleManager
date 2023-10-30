@@ -47,7 +47,7 @@ public:
     // Schedule handle
     void showStudentSchedule(int id);
     void showClassSchedule(const std::string& ucId, const std::string& classId);
-    void printSchedule(std::unordered_map<std::string, std::vector<std::shared_ptr<Period>>> schedule);
+    static void printSchedule(std::unordered_map<std::string, std::vector<std::shared_ptr<Period>>> schedule);
 
     // Student list handler
     void showStudentListInCourse(const std::string& courseUnit, int orderType, int firstN = -1);
@@ -63,8 +63,6 @@ public:
     std::vector<std::shared_ptr<Period>> getStudentSchedule(int studentId);
 
     void orderList(std::shared_ptr<std::vector<int>> studentsId, int orderType);
-    bool checkOverlap(const std::vector<std::shared_ptr<Period>>& classesA, const std::vector<std::shared_ptr<Period>>& classesB);
-
     bool switchUc(int studentId, const std::string& ucIdRegistered, const std::string& ucIdToRegister);
     bool switchClass(int studentId, const std::string& ucIdRegistered, const std::string& classRegistered, const std::string& classToRegister);
     bool doStudentClassesOverlap(const std::vector<std::shared_ptr<Period>>& newClasses, const std::vector<std::shared_ptr<Period>>& classesEnrolled);
@@ -74,6 +72,14 @@ public:
 
     void saveToDatabase(int studentId, const std::string& studentName, const std::string& ucId, const std::string& classId);
     void removeFromDatabase(int studentId, const std::string& ucId);
+    static bool checkOverlap(const std::vector<std::shared_ptr<Period>>& classesA, const std::vector<std::shared_ptr<Period>>& classesB);
+
+
+    bool showClassOccupancy(int);
+    bool showYearOccupancy(int);
+    bool showUcOccupancy(int);
+
+    std::vector<int> getStudentListInYear(int year, int orderType);
 };
 
 #endif //AED_PROJ_COURSEMANAGER_H
