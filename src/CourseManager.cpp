@@ -22,7 +22,6 @@ CourseManager::CourseManager() {
 }
 
 
-
 /**
  * This is a function that gets information about course classes from a file.
  * @return void.
@@ -109,8 +108,6 @@ void CourseManager::getClassesPerUc() {
     }
 }
 
-
-
 /**
  * This is a function that gets information about the student's classes.
  * @return void.
@@ -121,7 +118,7 @@ void CourseManager::getStudentsClasses() {
     std::getline(in, line);
 
     while(std::getline(in, line)){
-        // Ignore if its not comma separated
+        // Ignore if it's not comma separated
         if(line.find(',') == std::string::npos) continue;
         // Remove additional literals
         if(line.find('\r') != std::string::npos) line.pop_back();
@@ -169,9 +166,7 @@ void CourseManager::getStudentsClasses() {
 }
 
 
-
 void CourseManager::showStudentSchedule(int id) {
-    // Init schedule
     // Unordered_map containing as keys <"ucId/classId", Period>
     std::unordered_map<std::string, std::vector<std::shared_ptr<Period>>> schedule;
 
@@ -376,9 +371,6 @@ void CourseManager::showStudentListInClass(const std::string &courseUnit, const 
         this->units[courseUnit]->setCurrentOrder(orderType);
     }
 
-
-
-
     std::cout << "Students in uc " << courseUnit << " class " << classId << " ";
     if(firstN != -1) std::cout << "(Showing the first " << firstN << " students)";
     std::cout << std::endl;
@@ -496,28 +488,257 @@ void CourseManager::showUnitCoursesWithMostStudents(int firstN){
     }
 }
 
+
+/**
+ * @brief Removes a student from a specific unit course.
+ *
+ * This function removes a student from a unit course, provided that the student is currently enrolled in the specified unit course.
+ *
+ * @param ucId The unique identifier of the unit course.
+ * @param studentId The unique identifier of the student to remove.
+ *
+ * @return true if the student was successfully removed from the unit course, false otherwise.
+ */
 bool CourseManager::removeStudentFromUc(const std::string &ucId, int studentId) {
+    if(!this->students[studentId]->checkEnrollment(ucId)){
+        std::cout << "Student is not enrolled in this unit!\n";
+        return false;
+    }
+
     if(this->units[ucId]->removeStudentFromClass(this->students[studentId]->getClass(ucId), studentId)){
         this->students[studentId]->removeClass(ucId);
         return true;
     }
+    this->removeFromDatabase(studentId, ucId);
     return false;
 }
 
-bool CourseManager::addStudentToUc(const std::string &ucId, const std::string &classId, int studentId) {
-    if(this->students[studentId]->addClass(ucId, classId)){
-        this->units[ucId]->addStudent(classId, studentId);
+
+
+
+/**
+ * @brief Adds a student to a specific unit course and class.
+ *
+ * This function adds a student to a unit course and class, provided that the student is not already enrolled in the unit course
+ * and there is no time overlap between the new class and the student's existing classes.
+ *
+ * @param ucId The unique identifier of the unit course.
+ * @param classId The unique identifier of the class.
+ * @param studentId The unique identifier of the student.
+ *
+ * @return true if the student was successfully added to the unit course and class, false otherwise.
+ */
+bool CourseManager::addStudentToUc(const std::string &ucId, const std::string &classId, int studentId, bool isChange) {
+    if(this->students[studentId]->checkEnrollment(ucId) && !isChange){
+        std::cout << "Student already registered in this unit!\n";
+        return false;
+    }
+
+    if(this->students[studentId]->getClasses()->size() == 7){
+        std::cout << "Student already registered in 7 UC'S.\n";
+        return false;
+    }
+
+
+    // Get new classes
+    if(this->units.find(ucId) == this->units.end()){
+        std::cout << "Uc does not exist!\n";
+        return false;
+    }
+    std::vector<std::shared_ptr<Period>> newClasses = this->units[ucId]->getClass(classId)->getClasses();
+
+    // Get classes that student is enrolled
+    std::shared_ptr<std::unordered_map<std::string, std::string>> classesEnrolled = this->students[studentId]->getClasses();
+
+
+
+    this->students[studentId]->addClass(ucId, classId);
+    this->units[ucId]->addStudent(classId, studentId);
+    // studentId, studentName, UcCode, ClassCode (Adding e removing - operation types (1 for adding, 2 for removing))
+    this->saveToDatabase(studentId, this->students[studentId]->getName(), ucId, classId);
+
+    return true;
+}
+
+
+/**
+ * @brief Checks for time overlap between two sets of class periods.
+ *
+ * This function checks for time overlap between two sets of class periods (classesA and classesB).
+ *
+ * @param classesA A vector of shared pointers to class periods from the first set.
+ * @param classesB A vector of shared pointers to class periods from the second set.
+ *
+ * @return true if there is a time overlap between the two sets of class periods, false otherwise.
+ */
+bool CourseManager::checkOverlap(const std::vector<std::shared_ptr<Period>>& classesA,
+                                 const std::vector<std::shared_ptr<Period>>& classesB) {
+    for(std::shared_ptr<Period> classA: classesA){
+        for(std::shared_ptr<Period> classB: classesB){
+            if(classA->overlaps(classB) && (((classA->getPeriodType() == "TP" || classA->getPeriodType() == "PL") && classB->getPeriodType() == "TP" || classB->getPeriodType() == "PL"))) return true;
+        }
+    }
+    return false;
+}
+
+bool CourseManager::switchUc(int studentId, const std::string &ucIdRegistered, const std::string &ucIdToRegister) {
+    // Check if student is enrolled in the uc given
+    if(!this->students[studentId]->checkEnrollment(ucIdRegistered)){
+        std::cout << "Student is not enrolled in the given uc!\n";
+        return false;
+    }
+
+    // Student cannot be in more than 7 ucs
+    if(this->students[studentId]->getNumberOfClassesRegistered() == 7){
+        std::cout << "Student is already registered in 7 UC's\n";
+        return false;
+    }
+
+    // There must be a vacancy in a class in the new UC, find first available
+    std::string classIdWithVacancy = this->units[ucIdToRegister]->getClassWithVacancy();
+    if(classIdWithVacancy.empty()){
+        std::cout << "The given Uc has no vacancy.\n";
+        return false;
+    }
+
+    std::string classIdRegistered = this->students[studentId]->getClass(ucIdRegistered);
+    this->removeStudentFromUc(ucIdRegistered, studentId);
+
+    if(this->doStudentClassesOverlap(this->units[ucIdToRegister]->getClass(classIdWithVacancy)->getClasses(),this->getStudentSchedule(studentId))){
+        std::cout << "Classes schedules overlap.\n";
+        this->addStudentToUc(ucIdRegistered, classIdRegistered,studentId);
+        return false;
+    }
+
+    this->addStudentToUc(ucIdToRegister, classIdWithVacancy, studentId);
+    this->removeFromDatabase(studentId, ucIdRegistered);
+    return true;
+}
+
+
+// BUG WITH CLASS OVERLAP (10h30 - 12h30; 10h30 - 12h00)
+bool CourseManager::doStudentClassesOverlap(const std::vector<std::shared_ptr<Period>>& newClasses, const std::vector<std::shared_ptr<Period>>& classesEnrolled) {
+
+    // Check if overlap occurs
+    if(this->checkOverlap(newClasses, classesEnrolled)){
+        std::cout << "Overlaping hours. Couldn't add student to uc!\n";
         return true;
     }
     return false;
 }
 
+bool CourseManager::switchClass(int studentId, const std::string &ucIdRegistered, const std::string &classRegistered, const std::string &classToRegister) {
+
+    // Check for class cap
+
+    if(this->units[ucIdRegistered]->getClass(classToRegister)->getStudentCount() == this->units[ucIdRegistered]->getClass(classToRegister)->getClassLimit()){
+        std::cout << "Class is already full!\n";
+        return false;
+    }
 
 
+    // Check class balance
+    if(std::abs(this->units[ucIdRegistered]->getClassOccupancy(classToRegister) -
+                this->units[ucIdRegistered]->getClassOccupancy(classRegistered)) > 4){
+        std::cout << "A class change will unbalance the class occupation!\n";
+        return false;
+    }
 
+    // Check schedule overlap
+    this->removeStudentFromUc(ucIdRegistered, studentId);
+    if(this->doStudentClassesOverlap(this->units[ucIdRegistered]->getClassPeriods(classRegistered), this->getStudentSchedule(studentId))){
 
+        std::cout << "Classes overlap with student schedule.\n";
+        this->addStudentToUc(ucIdRegistered,classRegistered, studentId, true);
+        return false;
+    }
 
+    this->removeFromDatabase(studentId, ucIdRegistered);
+    this->addStudentToUc(ucIdRegistered, classToRegister, studentId);
+    return true;
+}
 
+std::vector<std::shared_ptr<Period>> CourseManager::getStudentSchedule(int studentId) {
+    std::vector<std::shared_ptr<Period>> result;
+    result.reserve(this->students[studentId]->getNumberOfClassesRegistered());
+    // Pair uc/class
+    for(std::pair<std::string, std::string> classPair: *this->students[studentId]->getClasses()){
+        for(const std::shared_ptr<Period>& period: this->units[classPair.first]->getClassPeriods(classPair.second)){
+            result.push_back(period);
+        }
+    }
+    return result;
+}
 
+bool CourseManager::addRequest(short requestType,int studentId_, const std::pair<std::string, std::string>& adding, const std::pair<std::string, std::string>& removing) {
+    this->requests.emplace(requestType, studentId_, adding, removing);
+    return true;
+}
 
+// This function handles oldest request
+void CourseManager::handleRequest() {
+    if(this->requests.empty()){
+        std::cout << "There are no request to handle!\n";
+        return;
+    }
 
+    Request requestToHandle = this->requests.front();
+    switch(requestToHandle.requestType){
+        case 1:
+            this->addStudentToUc(requestToHandle.adding.first, requestToHandle.adding.second, requestToHandle.studentId);
+            break;
+        case 2:
+            this->removeStudentFromUc(requestToHandle.removing.first, requestToHandle.studentId);
+            break;
+        case 3:
+            this->switchUc(requestToHandle.studentId, requestToHandle.adding.first, requestToHandle.removing.first);
+            break;
+        case 4:
+            this->switchClass(requestToHandle.studentId, requestToHandle.adding.first, requestToHandle.adding.second, requestToHandle.removing.second);
+            break;
+        default:
+            std::cout << "Invalid request type!\n";
+            return;
+    }
+    this->requests.pop();
+}
+
+void CourseManager::saveToDatabase(int studentId, const std::string &studentName, const std::string &ucId, const std::string &classId) {
+    // FUNCTION TO ADD A LINE TO THE DATABASE
+    std::ofstream out("../data/students_classes.csv", std::ios::app);
+    out << studentId << "," << studentName << "," << ucId << "," << classId << std::endl;
+}
+
+void CourseManager::removeFromDatabase(int studentId, const std::string &ucId) {
+    std::ifstream in("../data/students_classes.csv");
+    std::ofstream out("../data/students_classes_temp.csv");
+    std::string line;
+
+    while(std::getline(in, line)){
+        std::string currentStudentId = line.substr(0, line.find(','));
+        line = line.substr(line.find(',') + 1, line.length() - line.find(',') - 1);
+
+        std::string studentName = line.substr(0, line.find(','));
+        line = line.substr(line.find(',') + 1, line.length() - line.find(',') - 1);
+
+        std::string unitId = line.substr(0, line.find(','));
+        line = line.substr(line.find(',') + 1, line.length() - line.find(',') - 1);
+
+        std::string classCode = line.substr(0, line.find(','));
+
+        if(!(std::to_string(studentId) == currentStudentId && unitId == ucId)){
+            out << currentStudentId << "," << studentName << "," << unitId << "," << classCode << std::endl;
+        }
+    }
+
+    remove("../data/students_classes.csv");
+    rename("../data/students_classes_temp.csv", "../data/students_classes.csv");
+
+}
+
+Request::Request(short requestType_, int studentId_, const std::pair<std::string, std::string> &adding_,const std::pair<std::string, std::string> &removing_) {
+    this->requestType = requestType_;
+    this->studentId = studentId_;
+    this->adding = adding_;
+    this->removing = removing_;
+}

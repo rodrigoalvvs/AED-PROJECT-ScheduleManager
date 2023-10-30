@@ -47,6 +47,11 @@ public:
     std::shared_ptr<std::vector<int>> getStudentList();
 
     bool removeStudentFromClass(const std::string& classId, int studentId);
+    std::string getClassWithVacancy() const;
+
+    int getClassOccupancy(const std::string& classId) const;
+
+
 };
 
 #endif //AED_PROJ_COURSEUNIT_H

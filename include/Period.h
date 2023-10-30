@@ -6,10 +6,38 @@
 #define AED_PROJ_PERIOD_H
 
 #include <string>
+#include <memory>
 
 struct Hour{
     int hour;
     int minute;
+
+    bool operator<(const Hour& other) const {
+        int totalMinutesA = this->hour * 60 + this->minute;
+        int totalMinutesB = other.hour * 60 + other.minute;
+
+        return totalMinutesA < totalMinutesB;
+    }
+    bool operator>(const Hour& other) const {
+        int totalMinutesA = this->hour * 60 + this->minute;
+        int totalMinutesB = other.hour * 60 + other.minute;
+
+        return totalMinutesA > totalMinutesB;
+    }
+
+    bool operator>=(const Hour& other) const {
+        int totalMinutesA = this->hour * 60 + this->minute;
+        int totalMinutesB = other.hour * 60 + other.minute;
+
+        return totalMinutesA >= totalMinutesB;
+    }
+    bool operator==(const Hour& other) const {
+        int totalMinutesA = this->hour * 60 + this->minute;
+        int totalMinutesB = other.hour * 60 + other.minute;
+
+        return totalMinutesA == totalMinutesB;
+    }
+
 };
 
 class Period{
@@ -34,6 +62,8 @@ public:
     void setPeriodType(const std::string& classType_);
     void setStartHour(float startHour_);
     void setDuration(float duration_);
+
+    bool overlaps(std::shared_ptr<Period> otherPeriod) const;
 
     // Class methods
 };

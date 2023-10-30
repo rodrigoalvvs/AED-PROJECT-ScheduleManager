@@ -6,22 +6,22 @@
 void waitForEnter();
 bool validStudentId(const std::string& id);
 
-void showLists(std::shared_ptr<CourseManager> sharedPtr, int i);
+void showLists(const std::shared_ptr<CourseManager>& sharedPtr, int i);
 
-int getStudentId(){
+int getStudentId(const std::string& message = "Provide the student id: "){
     std::string studentId;
     do {
-        std::cout << "Provide the student id: ";
+        std::cout << message;
         std::cin >> studentId;
     }
     while(!validStudentId(studentId));
     return std::stoi(studentId);
 }
 
-std::string getClassId(){
+std::string getClassId(const std::string& message = "Provide the class id (XLEICXX): "){
     std::string classId;
     do {
-        std::cout << "Provide the class id (XLEICXX): ";
+        std::cout << message;
         std::cin >> classId;
         if(classId.size() != 7) std::cout << "Invalid input.\n";
     }
@@ -29,10 +29,10 @@ std::string getClassId(){
     return classId;
 }
 
-std::string getUcId(){
+std::string getUcId(const std::string& message = "Provide the uc id (L.EICXXX): "){
     std::string ucId;
     do{
-        std::cout << "Provide the uc id (L.EICXXX): ";
+        std::cout << message;
         std::cin >> ucId;
         if(ucId.size() != 8) std::cout << "Invalid input.\n";
     }
@@ -57,7 +57,7 @@ bool validStudentId(const std::string& id){
     }
 }
 
-void showSchedules(const std::shared_ptr<CourseManager>& courseManager) {
+void showSchedules(std::shared_ptr<CourseManager> courseManager) {
     bool running = true;
     char scheduleOption;
 
@@ -107,14 +107,54 @@ void waitForEnter() {
 }
  */
 
-void showRequestMenu(std::shared_ptr<CourseManager> course){
+bool showSwitchMenu(std::shared_ptr<CourseManager> course){
     char option;
-    std::string studentId;
     while(true){
         std::cout << "\nWhat request would you like to make:\n"
-                     "[1] Add a student to a class"
-                     "[2] Remove a student from a class"
-                     "[3] Request a class change"
+                     "[1] UC change\n"
+                     "[2] Class change\n"
+                     "[0] Return to previous menu.\nYour option:";
+        std::cin >> option;
+        if(!std::isdigit(option)){
+            std::cout << "Enter a valid option.\n";
+            continue;
+        }
+        int studentId = getStudentId("Provide the student id: ");
+        std::string ucRegistered;
+        std::string ucToRegister;
+        std::string classRegistered;
+        std::string classToRegister;
+
+        switch (option - '0') {
+            case 1:
+                ucRegistered = getUcId("Enter the uc in wich the student is already enrolled (L.EICXXX):");
+                ucToRegister = getUcId("Enter the uc that the students wishes to enroll (L.EICXXX):");
+                return course->addRequest(3, studentId, {ucRegistered, ""}, {ucToRegister, ""});
+            case 2:
+                ucRegistered = getUcId("Enter the uc to perform the class change (L.EICXXX): ");
+                classRegistered = getClassId("Enter the class that the student is enrolled (XLEICXX): ");
+                classToRegister = getClassId("Enter the class that the student wishes to enroll (XLEICXX): ");
+                return course->addRequest(4, studentId, {ucRegistered, classRegistered}, {ucRegistered, classToRegister});
+            case 0:
+                return true;
+            default:
+                std::cout << "Enter a valid option.\n";
+        }
+    }
+}
+
+bool showRequestMenu(std::shared_ptr<CourseManager> course){
+    char option;
+    std::string studentId;
+    std::string succesfullSentRequest = "Request submitted, will be handled shortly!\n";
+    std::string failedSentRequest = "Request couldn't be submitted!\n";
+
+
+    while(true){
+        std::cout << "\nWhat request would you like to make:\n"
+                     "[1] Add a student to a class\n"
+                     "[2] Remove a student from a class\n"
+                     "[3] Request a class change\n"
                      "[0] Return to main menu\nYour option: ";
         std::cin >> option;
         if(!std::isdigit(option)){
@@ -123,14 +163,28 @@ void showRequestMenu(std::shared_ptr<CourseManager> course){
         }
         switch (option - '0') {
             case 1:
-                // ADD OVERLAP SCHEDULE FUNCTIONALITY [IMPORTANT]
-                course->addStudentToUc(getUcId(), getClassId(), getStudentId());
-                return;
+                if(course->addRequest(1, getStudentId(), {getUcId(), getClassId()}, {"", ""})){
+                    std::cout << succesfullSentRequest;
+                    return true;
+                }
+                std::cout << failedSentRequest;
+                return false;
             case 2:
-                course->removeStudentFromUc(getUcId(), getStudentId());
-                return;
+                if(course->addRequest(2, getStudentId(), {"", ""}, {getUcId(), getClassId()})){
+                    std::cout << succesfullSentRequest;
+                    return true;
+                }
+                std::cout << failedSentRequest;
+                return false;
             case 3:
-                break;
+                if(showSwitchMenu(course)){
+                    std::cout << succesfullSentRequest;
+                    return true;
+                }
+                std::cout << failedSentRequest;
+                return false;
+            case 0:
+                return false;
             default:
                 std::cout << "Enter a valid option.\n";
                 continue;
@@ -143,12 +197,12 @@ void showRequestMenu(std::shared_ptr<CourseManager> course){
 int main() {
     CourseManager informatica;
     bool running = true;
-
     while(running){
         std::cout << "\nSelect an option:\n"
                      "[1] Consult schedule\n"
                      "[2] Consult lists\n"
-                     "[3] Make a request\nYour option:";
+                     "[3] Make a request\n"
+                     "[4] Handle requests\nYour option:";
         char option;
         std::cin >> option;
         if(!std::isdigit(option)){
@@ -173,6 +227,9 @@ int main() {
             case 3:
                 showRequestMenu(std::make_shared<CourseManager>(informatica));
                 break;
+            case 4:
+                informatica.handleRequest();
+                break;
             default:
                 std::cout << "Invalid option, try again!\n";
                 continue;
@@ -185,7 +242,7 @@ int main() {
     return 0;
 }
 
-void showLists(std::shared_ptr<CourseManager> courseManager, int orderType) {
+void showLists(const std::shared_ptr<CourseManager>& courseManager, int orderType) {
     bool running = true;
     int scheduleOption;
     int year;
@@ -243,3 +300,13 @@ void showLists(std::shared_ptr<CourseManager> courseManager, int orderType) {
     }
     return;
 }
+
+
+
+/*
+ *
+ * TO DO
+ * Save changes to file (changes.csv) - (Add class/UC, Remove class/UC, Switch class)
+ * Save changes to database (students_classes.csv) - (Add class/UC, Remove class/UC, Switch class)
+ *
+ */

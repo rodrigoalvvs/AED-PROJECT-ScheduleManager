@@ -44,6 +44,8 @@ public:
     std::vector<std::string> getUnitCourses();
     const std::string& getClass(const std::string& unitCourse);
     void removeClass(const std::string& ucId);
+    std::shared_ptr<std::unordered_map<std::string, std::string>> getClasses();
+    bool checkEnrollment(const std::string& ucId) const;
 };
 
 

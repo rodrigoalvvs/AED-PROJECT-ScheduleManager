@@ -115,20 +115,78 @@ int CourseUnit::getUnitYear() const {
     return -1;
 }
 
+/**
+ * @brief Retrieves the count of students currently enrolled in this specific course unit.
+ *
+ * This function returns an integer value that represents the number of students who are currently enrolled in the course unit.
+
+ * @note This count reflects the current enrollment status and may change over time as students join or leave the unit.
+
+ * @return An integer value indicating the count of students enrolled in the course unit.
+ */
 int CourseUnit::getStudentCount() const {
     return this->studentCount;
 }
 
+
+/**
+ * @brief Removes a student from a specific class within the course unit.
+ *
+ * This function removes a student from a specific class identified by its unique identifier (classId) within the course unit.
+ *
+ * @param classId The unique identifier of the class from which the student is to be removed.
+ * @param studentId The unique identifier of the student to remove.
+ *
+ * @return true if the removal operation was successful, false otherwise.
+ */
+
 bool CourseUnit::removeStudentFromClass(const std::string &classId, int studentId) {
-    bool operationStatus = this->classes[classId]->removeStudent(studentId);
+    bool removalStatus = this->classes[classId]->removeStudent(studentId);
     this->studentCount--;
-    return operationStatus;
+    return removalStatus;
 }
+
+
+/**
+ * @brief Retrieves the current order of students in the course unit.
+ *
+ * This function returns an integer value indicating the current order of students within the course unit. The order can have different meanings:
+ *
+ * - 1: Order by studentId.
+ * - 2: Order alphabetically.
+ *
+ * @return An integer value representing the current order of students in the course unit.
+ */
 
 int CourseUnit::getCurrentOrder() const {
     return this->currentOrderOfStudents;
 }
 
+/**
+ * @brief Set the current order of students in the course unit.
+ *
+ * This function allows setting the current order of students within the course unit. The order can have different meanings:
+ *
+ * - 1: Order by studentId.
+ * - 2: Order alphabetically.
+ *
+ * @param orderType An integer value indicating the desired order type (1 for studentId, 2 for alphabetical order).
+ */
+
 void CourseUnit::setCurrentOrder(int orderType) {
     this->currentOrderOfStudents = orderType;
+}
+
+std::string CourseUnit::getClassWithVacancy() const {
+    for(std::pair<std::string, std::shared_ptr<CourseClass>> class_: this->classes){
+        if(class_.second->getStudentCount() < class_.second->getClassLimit()){
+            return class_.first;
+        }
+    }
+    return "";
+}
+
+int CourseUnit::getClassOccupancy(const std::string &classId) const {
+    if(this->classes.find(classId) == this->classes.end()) return -1;
+    return this->classes.find(classId)->second->getStudentCount();
 }

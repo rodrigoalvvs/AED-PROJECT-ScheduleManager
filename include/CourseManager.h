@@ -11,9 +11,18 @@
 #include <iostream>
 #include <vector>
 #include <map>
+#include <queue>
 #include "Student.h"
 #include "CourseUnit.h"
-#include "Request.h"
+struct Request{
+    short requestType; // 1 for add class, 2 for remove class, 3 for change uc, 4 for change class
+    int studentId;
+    std::pair<std::string, std::string> adding;
+    std::pair<std::string, std::string> removing;
+
+    Request(short requestType_,int studentId_, const std::pair<std::string, std::string>& adding_, const std::pair<std::string, std::string>& removing_);
+};
+
 
 
 class CourseManager {
@@ -23,8 +32,8 @@ private:
 
     // Field for the students {studentID : Student}
     std::unordered_map<int, std::shared_ptr<Student>> students;
+    std::queue<Request> requests;
 
-    //std::queue<Request> requests;
 public:
 
     // Constructors and destructors
@@ -41,7 +50,7 @@ public:
     void printSchedule(std::unordered_map<std::string, std::vector<std::shared_ptr<Period>>> schedule);
 
     // Student list handler
-    void showStudentListInCourse(const std::string& courstseUnit, int orderType, int firstN = -1);
+    void showStudentListInCourse(const std::string& courseUnit, int orderType, int firstN = -1);
     void showStudentListInClass(const std::string &courseUnit, const std::string& classId, int orderType,int firstN = -1);
     void showStudentListInYear(int year, int orderType, int firstN = -1);
     void showUnitCoursesWithMostStudents(int firstN = 5);
@@ -50,11 +59,21 @@ public:
     void showStudentCountOnNUnits(int n);
 
     bool removeStudentFromUc(const std::string& ucId, int studentId);
-    bool addStudentToUc(const std::string& ucId, const std::string& classId, int studentId);
+    bool addStudentToUc(const std::string& ucId, const std::string& classId, int studentId, bool isChange = false);
+    std::vector<std::shared_ptr<Period>> getStudentSchedule(int studentId);
 
     void orderList(std::shared_ptr<std::vector<int>> studentsId, int orderType);
+    bool checkOverlap(const std::vector<std::shared_ptr<Period>>& classesA, const std::vector<std::shared_ptr<Period>>& classesB);
 
+    bool switchUc(int studentId, const std::string& ucIdRegistered, const std::string& ucIdToRegister);
+    bool switchClass(int studentId, const std::string& ucIdRegistered, const std::string& classRegistered, const std::string& classToRegister);
+    bool doStudentClassesOverlap(const std::vector<std::shared_ptr<Period>>& newClasses, const std::vector<std::shared_ptr<Period>>& classesEnrolled);
+
+    void handleRequest();
+    bool addRequest(short requestType,int studentId_, const std::pair<std::string, std::string>& adding, const std::pair<std::string, std::string>& removing);
+
+    void saveToDatabase(int studentId, const std::string& studentName, const std::string& ucId, const std::string& classId);
+    void removeFromDatabase(int studentId, const std::string& ucId);
 };
-
 
 #endif //AED_PROJ_COURSEMANAGER_H

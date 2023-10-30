@@ -16,6 +16,4 @@ add_executable(AED_PROJ
         src/Period.cpp
         include/CourseClass.h
         src/CourseClass.cpp
-        src/Request.cpp
-        include/Request.h
 )

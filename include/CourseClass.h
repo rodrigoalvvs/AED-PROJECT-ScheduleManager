@@ -28,8 +28,9 @@ public:
     // Class getters and setters
     const std::string& getClassId() const;
     int getStudentCount() const;
-    int getClassesPerWeek() const;
+    int getClassesCountPerWeek() const;
     int getCurrentOrder() const;
+    int getClassLimit() const;
 
     void setCurrentOrder(int orderType);
 

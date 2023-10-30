@@ -59,6 +59,15 @@ void Student::removeClass(const std::string &ucId) {
     this->classesRegistered.erase(ucId);
 }
 
+std::shared_ptr<std::unordered_map<std::string, std::string>> Student::getClasses(){
+    return std::make_shared<std::unordered_map<std::string, std::string>>(this->classesRegistered);
+}
+
+bool Student::checkEnrollment(const std::string &ucId) const {
+    return this->classesRegistered.find(ucId) != this->classesRegistered.end();
+}
+
+
 
 
 

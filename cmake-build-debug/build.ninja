@@ -85,12 +85,6 @@ build CMakeFiles/AED_PROJ.dir/src/CourseClass.cpp.o: CXX_COMPILER__AED_PROJ_unsc
   OBJECT_DIR = CMakeFiles/AED_PROJ.dir
   OBJECT_FILE_DIR = CMakeFiles/AED_PROJ.dir/src
 
-build CMakeFiles/AED_PROJ.dir/src/Request.cpp.o: CXX_COMPILER__AED_PROJ_unscanned_Debug /home/admin1/Documents/AED_PROJ/src/Request.cpp || cmake_object_order_depends_target_AED_PROJ
-  DEP_FILE = CMakeFiles/AED_PROJ.dir/src/Request.cpp.o.d
-  FLAGS = -g -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles/AED_PROJ.dir
-  OBJECT_FILE_DIR = CMakeFiles/AED_PROJ.dir/src
-
 
 # =============================================================================
 # Link build statements for EXECUTABLE target AED_PROJ
@@ -99,7 +93,7 @@ build CMakeFiles/AED_PROJ.dir/src/Request.cpp.o: CXX_COMPILER__AED_PROJ_unscanne
 #############################################
 # Link the executable AED_PROJ
 
-build AED_PROJ: CXX_EXECUTABLE_LINKER__AED_PROJ_Debug CMakeFiles/AED_PROJ.dir/src/main.cpp.o CMakeFiles/AED_PROJ.dir/src/Student.cpp.o CMakeFiles/AED_PROJ.dir/src/CourseManager.cpp.o CMakeFiles/AED_PROJ.dir/src/CourseUnit.cpp.o CMakeFiles/AED_PROJ.dir/src/Period.cpp.o CMakeFiles/AED_PROJ.dir/src/CourseClass.cpp.o CMakeFiles/AED_PROJ.dir/src/Request.cpp.o
+build AED_PROJ: CXX_EXECUTABLE_LINKER__AED_PROJ_Debug CMakeFiles/AED_PROJ.dir/src/main.cpp.o CMakeFiles/AED_PROJ.dir/src/Student.cpp.o CMakeFiles/AED_PROJ.dir/src/CourseManager.cpp.o CMakeFiles/AED_PROJ.dir/src/CourseUnit.cpp.o CMakeFiles/AED_PROJ.dir/src/Period.cpp.o CMakeFiles/AED_PROJ.dir/src/CourseClass.cpp.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/AED_PROJ.dir
   POST_BUILD = :
