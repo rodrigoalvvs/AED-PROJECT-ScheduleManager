@@ -155,7 +155,7 @@ bool showRequestMenu(CourseManager* course){
         std::cout << "\nWhat request would you like to make:\n"
                      "[1] Add a student to a class\n"
                      "[2] Remove a student from a class\n"
-                     "[3] Request a class change\n"
+                     "[3] Request a change\n"
                      "[0] Return to main menu\nYour option: ";
         std::cin >> option;
         if(!std::isdigit(option)){
@@ -195,6 +195,117 @@ bool showRequestMenu(CourseManager* course){
 
 }
 
+
+void removeLineFromLog(int lineToRemove){
+    std::ifstream in("../data/changes.csv");
+    std::ofstream out("../data/changes_temp.csv");
+    std::string line;
+    int lineNum = 0;
+    while(std::getline(in,line)){
+        if(lineNum++ == lineToRemove) continue;
+        out << line << std::endl;
+    }
+
+    remove("../data/changes.csv");
+    rename("../data/changes_temp.csv", "../data/changes.csv");
+
+}
+
+void manageLog(CourseManager* course, int lineToChange = -1){
+    std::ifstream in("../data/changes.csv");
+    std::string line;
+
+    int lineNum = 1;
+    std::getline(in, line); // SKIP FIRST LINE
+    while(std::getline(in, line)){
+        if(line.find('\r') != std::string::npos) line.pop_back();
+        int studentId = std::stoi(line.substr(0, line.find(',')));
+        line = line.substr(line.find(',') + 1, line.length() - line.find(',') - 1);
+
+        int operationType = std::stoi(line.substr(0, line.find(',')));
+        line = line.substr(line.find(',') + 1, line.length() - line.find(',') - 1);
+
+        std::string addingUc = line.substr(0, line.find('/'));
+        line = line.substr(line.find('/') + 1, line.length() - line.find('/') - 1);
+        std::string addingClass = line.substr(0, line.find(','));
+
+        line = line.substr(line.find(',') + 1, line.length() - line.find(',') - 1);
+        std::string removingUc = line.substr(0, line.find('/'));
+        line = line.substr(line.find('/') + 1, line.length() - line.find('/') - 1);
+        std::string removingClass = line.substr(0, line.find(','));
+
+        if(lineNum == lineToChange){
+            switch (operationType) {
+                case 1: // Removing a student from a class
+                    if(course->addStudentToUc(removingUc, removingClass, studentId, false, false)){
+                        std::cout << "Operation succesfull!\n";
+                        removeLineFromLog(lineToChange);
+                        return;
+                    }
+                    std::cout << "Couldn't revert operation!\n";
+                    removeLineFromLog(lineToChange);
+                    break;
+                case 2: // Adding a student to a class
+                    if(course->removeStudentFromUc(addingUc, studentId, false)){
+                        std::cout << "Operation succesfull!\n";
+                        removeLineFromLog(lineToChange);
+                        return;
+                    }
+                    std::cout << "Couldn't revert operation!\n";
+                    removeLineFromLog(lineToChange);
+                    break;
+                case 3: // switching uc
+                    if(course->switchUc(studentId, addingUc, removingUc, false)){
+                        std::cout << "Operation succesfull!\n";
+                        removeLineFromLog(lineToChange);
+                        return;
+                    }
+                    std::cout << "Couldn't revert operation!\n";
+                    removeLineFromLog(lineToChange);
+                    break;
+                case 4: // switching class
+                    if(course->switchClass(studentId, addingUc, addingClass, removingClass, false)){
+                        std::cout << "Operation succesfull!\n";
+                        removeLineFromLog(lineToChange);
+                        return;
+                    }
+                    std::cout << "Couldn't revert operation!\n";
+                    removeLineFromLog(lineToChange);
+                    break;
+            }
+        }
+
+
+        switch (operationType) {
+            case 1: // Removing a student from a class
+                std::cout << lineNum++ << " - Student with ID: " << studentId << " was removed from the UC/Class -> " << removingUc << "/" << removingClass << std::endl;
+                break;
+            case 2: // Adding a student to a class
+                std::cout << lineNum++ << " - Student with ID: " << studentId << " was added from the UC/Class -> " << addingUc << "/" << addingClass << std::endl;
+                break;
+            case 3: // switching uc
+                std::cout << lineNum++ << " - Student with ID: " << studentId << " was switched from UC -> " << removingUc << " To UC -> " << addingUc  << std::endl;
+                break;
+            case 4: // switching class
+                std::cout << lineNum++ << " - Student with ID: " << studentId << " was switched from UC/Class -> " << removingUc << "/" << removingClass << " To UC/Class -> " << addingUc << "/" << addingClass << std::endl;
+                break;
+        }
+    }
+    if(lineNum == 1){
+        std::cout << "No entries to show, history is clean.\n";
+        return;
+    }
+    std::cout << "Enter the id of the operation to revert (-1 to return to main menu):";
+    int option;
+    std::cin >> option;
+    if(option > lineNum){
+        std::cout << "Invalid option\n";
+        return;
+    }
+    if(option == -1) return;
+    else manageLog(course, option);
+}
+
 int main() {
     CourseManager* informatica = new CourseManager;
     bool running = true;
@@ -204,7 +315,8 @@ int main() {
                      "[2] Consult lists\n"
                      "[3] Consult occupancies\n"
                      "[4] Make a request\n"
-                     "[5] Handle requests\nYour option:";
+                     "[5] Handle requests\n"
+                     "[6] Consult system log\nYour option:";
         char option;
         int orderType;
         std::cin >> option;
@@ -239,6 +351,9 @@ int main() {
             case 5:
                 std::cout << "Handling oldest request!\n";
                 informatica->handleRequest();
+                break;
+            case 6:
+                manageLog(informatica);
                 break;
             default:
                 std::cout << "Invalid option, try again!\n";
@@ -351,7 +466,6 @@ void showOccupancies(CourseManager* course, int orderType){
 /*
  *
  * TO DO
- * Save changes to file (changes.csv) - (Add class/UC, Remove class/UC, Switch class)
- * Save changes to database (students_classes.csv) - (Add class/UC, Remove class/UC, Switch class)
+ * Add records (Id unico, id de operaçao, estudante, adding, removing)
  *
  */

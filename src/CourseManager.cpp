@@ -502,15 +502,16 @@ void CourseManager::showUnitCoursesWithMostStudents(int firstN){
  *
  * @return true if the student was successfully removed from the unit course, false otherwise.
  */
-bool CourseManager::removeStudentFromUc(const std::string &ucId, int studentId) {
+bool CourseManager::removeStudentFromUc(const std::string &ucId, int studentId, bool saveToChanges) {
     if(!this->students[studentId]->checkEnrollment(ucId)){
         std::cout << "Student is not enrolled in this unit!\n";
         return false;
     }
-
+    std::string formerClass = this->students[studentId]->getClass(ucId);
     if(this->units[ucId]->removeStudentFromClass(this->students[studentId]->getClass(ucId), studentId)){
         this->students[studentId]->removeClass(ucId);
         this->removeFromDatabase(studentId, ucId);
+        if(saveToChanges) this->saveToChanges(studentId, 1, {"", ""}, {ucId, formerClass});
         return true;
     }
     return false;
@@ -531,7 +532,7 @@ bool CourseManager::removeStudentFromUc(const std::string &ucId, int studentId) 
  *
  * @return true if the student was successfully added to the unit course and class, false otherwise.
  */
-bool CourseManager::addStudentToUc(const std::string &ucId, const std::string &classId, int studentId, bool isChange) {
+bool CourseManager::addStudentToUc(const std::string &ucId, const std::string &classId, int studentId, bool isChange, bool saveToChanges) {
     if(this->students[studentId]->checkEnrollment(ucId) && !isChange){
         std::cout << "Student already registered in this unit!\n";
         return false;
@@ -557,7 +558,7 @@ bool CourseManager::addStudentToUc(const std::string &ucId, const std::string &c
 
     // studentId, studentName, UcCode, ClassCode (Adding e removing - operation types (1 for adding, 2 for removing))
     this->saveToDatabase(studentId, this->students[studentId]->getName(), ucId, classId);
-
+    if(saveToChanges) this->saveToChanges(studentId, 2, {ucId, classId},{"", ""});
     return true;
 }
 
@@ -582,7 +583,7 @@ bool CourseManager::checkOverlap(const std::vector<std::shared_ptr<Period>>& cla
     return false;
 }
 
-bool CourseManager::switchUc(int studentId, const std::string &ucIdRegistered, const std::string &ucIdToRegister) {
+bool CourseManager::switchUc(int studentId, const std::string &ucIdRegistered, const std::string &ucIdToRegister, bool saveToChanges) {
     // Check if student is enrolled in the uc given
     if(!this->students[studentId]->checkEnrollment(ucIdRegistered)){
         std::cout << "Student is not enrolled in the given uc!\n";
@@ -597,22 +598,24 @@ bool CourseManager::switchUc(int studentId, const std::string &ucIdRegistered, c
 
     // There must be a vacancy in a class in the new UC, find first available
     std::string classIdWithVacancy = this->units[ucIdToRegister]->getClassWithVacancy();
+
     if(classIdWithVacancy.empty()){
         std::cout << "The given Uc has no vacancy.\n";
         return false;
     }
 
     std::string classIdRegistered = this->students[studentId]->getClass(ucIdRegistered);
-    this->removeStudentFromUc(ucIdRegistered, studentId);
+    this->removeStudentFromUc(ucIdRegistered, studentId, false);
 
     if(this->doStudentClassesOverlap(this->units[ucIdToRegister]->getClass(classIdWithVacancy)->getClasses(),this->getStudentSchedule(studentId))){
         std::cout << "Classes schedules overlap.\n";
-        this->addStudentToUc(ucIdRegistered, classIdRegistered,studentId);
+        this->addStudentToUc(ucIdRegistered, classIdRegistered,studentId, false, false);
         return false;
     }
 
-    this->addStudentToUc(ucIdToRegister, classIdWithVacancy, studentId);
+    this->addStudentToUc(ucIdToRegister, classIdWithVacancy, studentId, true, false);
     this->removeFromDatabase(studentId, ucIdRegistered);
+    if(saveToChanges) this->saveToChanges(studentId, 3, {ucIdToRegister, classIdWithVacancy}, {ucIdRegistered, classIdRegistered});
     return true;
 }
 
@@ -628,7 +631,7 @@ bool CourseManager::doStudentClassesOverlap(const std::vector<std::shared_ptr<Pe
     return false;
 }
 
-bool CourseManager::switchClass(int studentId, const std::string &ucIdRegistered, const std::string &classRegistered, const std::string &classToRegister) {
+bool CourseManager::switchClass(int studentId, const std::string &ucIdRegistered, const std::string &classRegistered, const std::string &classToRegister, bool saveToChanges) {
 
     // Check for class cap
 
@@ -646,16 +649,17 @@ bool CourseManager::switchClass(int studentId, const std::string &ucIdRegistered
     }
 
     // Check schedule overlap
-    this->removeStudentFromUc(ucIdRegistered, studentId);
+    this->removeStudentFromUc(ucIdRegistered, studentId, false);
     if(this->doStudentClassesOverlap(this->units[ucIdRegistered]->getClassPeriods(classRegistered), this->getStudentSchedule(studentId))){
 
         std::cout << "Classes overlap with student schedule.\n";
-        this->addStudentToUc(ucIdRegistered,classRegistered, studentId, true);
+        this->addStudentToUc(ucIdRegistered,classRegistered, studentId, true, false);
         return false;
     }
 
     this->removeFromDatabase(studentId, ucIdRegistered);
-    this->addStudentToUc(ucIdRegistered, classToRegister, studentId);
+    this->addStudentToUc(ucIdRegistered, classToRegister, studentId, true, false);
+    if(saveToChanges) this->saveToChanges(studentId, 4, {ucIdRegistered, classToRegister} , {ucIdRegistered, classRegistered});
     return true;
 }
 
@@ -799,6 +803,12 @@ bool CourseManager::showUcOccupancy(int orderType) {
 
     return false;
 }
+
+void CourseManager::saveToChanges(int studentId, int operationType, const std::pair<std::string, std::string>& adding,const std::pair<std::string, std::string>& removing) const {
+    std::ofstream out("../data/changes.csv", std::ios::app);
+    out << studentId << "," << operationType << "," << adding.first << "/" << adding.second << "," << removing.first << "/" << removing.second << std::endl;
+}
+
 
 
 Request::Request(short requestType_, int studentId_, const std::pair<std::string, std::string> &adding_,const std::pair<std::string, std::string> &removing_) {

@@ -58,13 +58,13 @@ public:
     // Student count
     void showStudentCountOnNUnits(int n);
 
-    bool removeStudentFromUc(const std::string& ucId, int studentId);
-    bool addStudentToUc(const std::string& ucId, const std::string& classId, int studentId, bool isChange = false);
+    bool removeStudentFromUc(const std::string& ucId, int studentId, bool saveToChanges = true);
+    bool addStudentToUc(const std::string& ucId, const std::string& classId, int studentId, bool isChange = false, bool saveToChanges = true);
     std::vector<std::shared_ptr<Period>> getStudentSchedule(int studentId);
 
     void orderList(std::shared_ptr<std::vector<int>> studentsId, int orderType);
-    bool switchUc(int studentId, const std::string& ucIdRegistered, const std::string& ucIdToRegister);
-    bool switchClass(int studentId, const std::string& ucIdRegistered, const std::string& classRegistered, const std::string& classToRegister);
+    bool switchUc(int studentId, const std::string& ucIdRegistered, const std::string& ucIdToRegister, bool saveToChanges = true);
+    bool switchClass(int studentId, const std::string& ucIdRegistered, const std::string& classRegistered, const std::string& classToRegister, bool saveToChanges = true);
     bool doStudentClassesOverlap(const std::vector<std::shared_ptr<Period>>& newClasses, const std::vector<std::shared_ptr<Period>>& classesEnrolled);
 
     void handleRequest();
@@ -78,6 +78,8 @@ public:
     bool showClassOccupancy(int);
     bool showYearOccupancy(int);
     bool showUcOccupancy(int);
+
+    void saveToChanges(int studentId,int operationType, const std::pair<std::string, std::string>& adding, const std::pair<std::string, std::string>& removing) const;
 
     std::vector<int> getStudentListInYear(int year, int orderType);
 };
