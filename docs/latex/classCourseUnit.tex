@@ -1,5 +1,14 @@
 \hypertarget{classCourseUnit}{}\doxysection{Course\+Unit Class Reference}
 \label{classCourseUnit}\index{CourseUnit@{CourseUnit}}
+
+
+Represents a unit course that contains classes and enrolled students.  
+
+
+
+
+{\ttfamily \#include $<$Course\+Unit.\+h$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -7,26 +16,53 @@
 \item 
 int \mbox{\hyperlink{classCourseUnit_ab8d4f4ab1c0ee7d6ab446deb9c702ff5}{get\+Number\+Of\+Classes}} () const
 \item 
+int \mbox{\hyperlink{classCourseUnit_a253092adcea976f94fdbcb23e82557e4}{get\+Current\+Order}} () const
+\begin{DoxyCompactList}\small\item\em Retrieves the current order of students in the course unit. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classCourseUnit_acad9fa85794a0cccbd1fb94f098bd536}{get\+Unit\+Year}} () const
+\item 
+void \mbox{\hyperlink{classCourseUnit_a64c5154d45f27763ba90fd15b7e5770c}{set\+Current\+Order}} (int order\+Type)
+\begin{DoxyCompactList}\small\item\em Set the current order of students in the course unit. \end{DoxyCompactList}\item 
+std\+::list$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCourseClass}{Course\+Class}} $>$ $>$ \mbox{\hyperlink{classCourseUnit_af0a971d3bcd322dd888e60af8511483e}{get\+Classes}} ()
+\begin{DoxyCompactList}\small\item\em Get a list of all classes in the course unit. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classCourseUnit_a7a05b74c4b3f54903ed85c3fa273586a}{add\+Class}} (const std\+::string \&class\+Id)
 \item 
-bool \mbox{\hyperlink{classCourseUnit_a6e2d0b90171f994e3459ef84b1b1d926}{add\+Student}} (const std\+::string \&class\+Id, int student\+Id)
-\item 
-\mbox{\Hypertarget{classCourseUnit_a2b6c747c4f52a7d544e7783a0d54d38a}\label{classCourseUnit_a2b6c747c4f52a7d544e7783a0d54d38a}} 
-int {\bfseries get\+Student\+Count} ()
-\item 
-std\+::shared\+\_\+ptr$<$ std\+::list$<$ int $>$ $>$ \mbox{\hyperlink{classCourseUnit_a78f6c6579f2d18a5ae0d19b179505fc9}{get\+Student\+List}} ()
-\item 
 int \mbox{\hyperlink{classCourseUnit_ab5115068fe8a684cccbb8ed8bba4876d}{get\+Student\+Count\+On\+Class}} (const std\+::string \&class\+Id)
-\item 
-const std\+::vector$<$ int $>$ \& \mbox{\hyperlink{classCourseUnit_a26a17f6a7816ab3b5c83471842212e3e}{get\+Student\+List\+On\+Class}} (const std\+::string \&class\+Id)
 \item 
 std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCourseClass}{Course\+Class}} $>$ \mbox{\hyperlink{classCourseUnit_a31a308fc1e54ab2ebbf396d43c6bc80e}{get\+Class}} (const std\+::string \&class\+Id)
 \item 
 const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classPeriod}{Period}} $>$ $>$ \& \mbox{\hyperlink{classCourseUnit_a0ae2aa40e772f081ecccb2fca26adcfb}{get\+Class\+Periods}} (const std\+::string \&class\+Id)
 \item 
-int \mbox{\hyperlink{classCourseUnit_acad9fa85794a0cccbd1fb94f098bd536}{get\+Unit\+Year}} () const
-\end{DoxyCompactItemize}
+std\+::shared\+\_\+ptr$<$ std\+::vector$<$ int $>$ $>$ \mbox{\hyperlink{classCourseUnit_a67b2a8d6830b1e467bfe4360f2500483}{get\+Student\+List\+On\+Class}} (const std\+::string \&class\+Id)
+\item 
+bool \mbox{\hyperlink{classCourseUnit_a6e2d0b90171f994e3459ef84b1b1d926}{add\+Student}} (const std\+::string \&class\+Id, int student\+Id)
+\item 
+int \mbox{\hyperlink{classCourseUnit_a94a81f3511248e602db819648ce0b7a2}{get\+Student\+Count}} () const
+\begin{DoxyCompactList}\small\item\em Retrieves the count of students currently enrolled in this specific course unit. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ std\+::vector$<$ int $>$ $>$ \mbox{\hyperlink{classCourseUnit_aa0751096a779b9033bf396393b2d7a6b}{get\+Student\+List}} ()
+\item 
+bool \mbox{\hyperlink{classCourseUnit_a83675f2a19aa3532af60ddbc630f2519}{remove\+Student\+From\+Class}} (const std\+::string \&class\+Id, int student\+Id)
+\begin{DoxyCompactList}\small\item\em Removes a student from a specific class within the course unit. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classCourseUnit_afd5e69e601938cc8a1e414cf3f0bc88e}{get\+Class\+With\+Vacancy}} () const
+\begin{DoxyCompactList}\small\item\em Find and return a class with available vacancies. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classCourseUnit_a58880251393882b42e14bcf17178d7b4}{get\+Class\+Occupancy}} (const std\+::string \&class\+Id) const
+\begin{DoxyCompactList}\small\item\em Get the current occupancy of a specific class within the course unit. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classCourseUnit_a6f90539e3f0e44e47cc9b6289a2a1f31}{get\+Occupancy}} () const
+\begin{DoxyCompactList}\small\item\em Get the total occupancy of the course unit. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unordered\+\_\+map$<$ std\+::string, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCourseClass}{Course\+Class}} $>$ $>$ \mbox{\hyperlink{classCourseUnit_a091371310bc1ad23295f739b4fe7edfe}{classes}}
+\begin{DoxyCompactList}\small\item\em Map of class IDs to class objects. \end{DoxyCompactList}\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{classCourseUnit_a2e04e782220b174f5d6a51462c9047e7}{all\+Students}}
+\begin{DoxyCompactList}\small\item\em Vector of student IDs enrolled in the unit course. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classCourseUnit_a3065d15b9abac1f6b5ad3f5ece1f2336}{current\+Order\+Of\+Students}}
+\begin{DoxyCompactList}\small\item\em The current order of students. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classCourseUnit_aa6cc5ad52fb80d5c2bcd5bd0f9b41d03}{student\+Count}}
+\begin{DoxyCompactList}\small\item\em The total count of students enrolled in the unit course. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Represents a unit course that contains classes and enrolled students. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classCourseUnit_a3bd0795975928c5be65cd4cd9acf93cf}\label{classCourseUnit_a3bd0795975928c5be65cd4cd9acf93cf}} 
@@ -44,7 +80,10 @@ This is the constructor that handles the creation of a course unit.
 \doxysubsubsection{\texorpdfstring{addClass()}{addClass()}}
 {\footnotesize\ttfamily bool Course\+Unit\+::add\+Class (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{class\+Id }\end{DoxyParamCaption})}
 
-This is a function that attempts to add a class to a course unit. \begin{DoxyReturn}{Returns}
+This is a function that attempts to add a class to a course unit. \begin{DoxyNote}{Note}
+Complexity O(1) 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
 boolean value which specifies if the operation was succesfull. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classCourseUnit_a6e2d0b90171f994e3459ef84b1b1d926}\label{classCourseUnit_a6e2d0b90171f994e3459ef84b1b1d926}} 
@@ -62,6 +101,9 @@ Retrieves a boolean value based on the possibility to add a new student.
 {\em student\+Id} & A string representing the ID of the student to add. \\
 \hline
 \end{DoxyParams}
+\begin{DoxyNote}{Note}
+Complexity O(1) 
+\end{DoxyNote}
 \begin{DoxyReturn}{Returns}
 A boolean, true if the student was successfuly added to the class, false otherwise. 
 \end{DoxyReturn}
@@ -78,8 +120,50 @@ Retrieves a reference to a class within the course unit by its ID.
 {\em class\+Id} & A string representing the ID of the class to retrieve. \\
 \hline
 \end{DoxyParams}
+\begin{DoxyNote}{Note}
+Complexity O(1) 
+\end{DoxyNote}
 \begin{DoxyReturn}{Returns}
 A reference to a class if found; returns nullptr if the class is not found. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCourseUnit_af0a971d3bcd322dd888e60af8511483e}\label{classCourseUnit_af0a971d3bcd322dd888e60af8511483e}} 
+\index{CourseUnit@{CourseUnit}!getClasses@{getClasses}}
+\index{getClasses@{getClasses}!CourseUnit@{CourseUnit}}
+\doxysubsubsection{\texorpdfstring{getClasses()}{getClasses()}}
+{\footnotesize\ttfamily std\+::list$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCourseClass}{Course\+Class}} $>$ $>$ Course\+Unit\+::get\+Classes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get a list of all classes in the course unit. 
+
+This function retrieves a list of all classes within the course unit. \begin{DoxyNote}{Note}
+Complexity O(\+N) 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+A list of shared pointers to \mbox{\hyperlink{classCourseClass}{Course\+Class}} objects representing the classes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCourseUnit_a58880251393882b42e14bcf17178d7b4}\label{classCourseUnit_a58880251393882b42e14bcf17178d7b4}} 
+\index{CourseUnit@{CourseUnit}!getClassOccupancy@{getClassOccupancy}}
+\index{getClassOccupancy@{getClassOccupancy}!CourseUnit@{CourseUnit}}
+\doxysubsubsection{\texorpdfstring{getClassOccupancy()}{getClassOccupancy()}}
+{\footnotesize\ttfamily int Course\+Unit\+::get\+Class\+Occupancy (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{class\+Id }\end{DoxyParamCaption}) const}
+
+
+
+Get the current occupancy of a specific class within the course unit. 
+
+This function retrieves the current number of students enrolled in a specific class of the course unit.
+
+
+\begin{DoxyParams}{Parameters}
+{\em class\+Id} & The identifier of the class to check occupancy for. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Complexity O(1) 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+The number of students currently enrolled in the class, or -\/1 if the class does not exist. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classCourseUnit_a0ae2aa40e772f081ecccb2fca26adcfb}\label{classCourseUnit_a0ae2aa40e772f081ecccb2fca26adcfb}} 
 \index{CourseUnit@{CourseUnit}!getClassPeriods@{getClassPeriods}}
@@ -92,8 +176,53 @@ Retrieves the list of weekly periods in a specific class.
 {\em class\+Id} & A string representing the ID of the class to get the periods from. \\
 \hline
 \end{DoxyParams}
+\begin{DoxyNote}{Note}
+Complexity O(1) 
+\end{DoxyNote}
 \begin{DoxyReturn}{Returns}
 A constant reference to a vector of shared pointers of Periods in the class. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCourseUnit_afd5e69e601938cc8a1e414cf3f0bc88e}\label{classCourseUnit_afd5e69e601938cc8a1e414cf3f0bc88e}} 
+\index{CourseUnit@{CourseUnit}!getClassWithVacancy@{getClassWithVacancy}}
+\index{getClassWithVacancy@{getClassWithVacancy}!CourseUnit@{CourseUnit}}
+\doxysubsubsection{\texorpdfstring{getClassWithVacancy()}{getClassWithVacancy()}}
+{\footnotesize\ttfamily std\+::string Course\+Unit\+::get\+Class\+With\+Vacancy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Find and return a class with available vacancies. 
+
+This function iterates through the classes within the course unit and checks if any of them have available vacancies for students.
+
+\begin{DoxyNote}{Note}
+Complexity O(\+N) 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+The identifier of a class with available vacancies, or an empty string if no class has vacancies. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCourseUnit_a253092adcea976f94fdbcb23e82557e4}\label{classCourseUnit_a253092adcea976f94fdbcb23e82557e4}} 
+\index{CourseUnit@{CourseUnit}!getCurrentOrder@{getCurrentOrder}}
+\index{getCurrentOrder@{getCurrentOrder}!CourseUnit@{CourseUnit}}
+\doxysubsubsection{\texorpdfstring{getCurrentOrder()}{getCurrentOrder()}}
+{\footnotesize\ttfamily int Course\+Unit\+::get\+Current\+Order (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Retrieves the current order of students in the course unit. 
+
+This function returns an integer value indicating the current order of students within the course unit. The order can have different meanings\+:
+
+
+\begin{DoxyItemize}
+\item 1\+: Order by student\+Id.
+\item 2\+: Order alphabetically.
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Note}
+Complexity O(1) 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+An integer value representing the current order of students in the course unit. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classCourseUnit_ab8d4f4ab1c0ee7d6ab446deb9c702ff5}\label{classCourseUnit_ab8d4f4ab1c0ee7d6ab446deb9c702ff5}} 
 \index{CourseUnit@{CourseUnit}!getNumberOfClasses@{getNumberOfClasses}}
@@ -101,8 +230,47 @@ A constant reference to a vector of shared pointers of Periods in the class.
 \doxysubsubsection{\texorpdfstring{getNumberOfClasses()}{getNumberOfClasses()}}
 {\footnotesize\ttfamily int Course\+Unit\+::get\+Number\+Of\+Classes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-This is a function that gets the numbers of classes in the course unit. \begin{DoxyReturn}{Returns}
+This is a function that gets the numbers of classes in the course unit. \begin{DoxyNote}{Note}
+Complexity O(1) 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
 the number of classes in the course unit. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCourseUnit_a6f90539e3f0e44e47cc9b6289a2a1f31}\label{classCourseUnit_a6f90539e3f0e44e47cc9b6289a2a1f31}} 
+\index{CourseUnit@{CourseUnit}!getOccupancy@{getOccupancy}}
+\index{getOccupancy@{getOccupancy}!CourseUnit@{CourseUnit}}
+\doxysubsubsection{\texorpdfstring{getOccupancy()}{getOccupancy()}}
+{\footnotesize\ttfamily int Course\+Unit\+::get\+Occupancy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the total occupancy of the course unit. 
+
+This function calculates and returns the total number of students enrolled in all classes of the course unit. \begin{DoxyNote}{Note}
+Complexity O(1) 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+The total occupancy of the course unit. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCourseUnit_a94a81f3511248e602db819648ce0b7a2}\label{classCourseUnit_a94a81f3511248e602db819648ce0b7a2}} 
+\index{CourseUnit@{CourseUnit}!getStudentCount@{getStudentCount}}
+\index{getStudentCount@{getStudentCount}!CourseUnit@{CourseUnit}}
+\doxysubsubsection{\texorpdfstring{getStudentCount()}{getStudentCount()}}
+{\footnotesize\ttfamily int Course\+Unit\+::get\+Student\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Retrieves the count of students currently enrolled in this specific course unit. 
+
+This function returns an integer value that represents the number of students who are currently enrolled in the course unit.
+
+\begin{DoxyNote}{Note}
+This count reflects the current enrollment status and may change over time as students join or leave the unit. 
+
+Complexity O(1)
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+An integer value indicating the count of students enrolled in the course unit. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classCourseUnit_ab5115068fe8a684cccbb8ed8bba4876d}\label{classCourseUnit_ab5115068fe8a684cccbb8ed8bba4876d}} 
 \index{CourseUnit@{CourseUnit}!getStudentCountOnClass@{getStudentCountOnClass}}
@@ -110,27 +278,29 @@ the number of classes in the course unit.
 \doxysubsubsection{\texorpdfstring{getStudentCountOnClass()}{getStudentCountOnClass()}}
 {\footnotesize\ttfamily int Course\+Unit\+::get\+Student\+Count\+On\+Class (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{class\+Id }\end{DoxyParamCaption})}
 
-Retrieves the count of students in the course unit.
-
+Retrieves the count of students in the course unit. \begin{DoxyNote}{Note}
+Complexity O(1) 
+\end{DoxyNote}
 \begin{DoxyReturn}{Returns}
 An integer representing the count of students. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classCourseUnit_a78f6c6579f2d18a5ae0d19b179505fc9}\label{classCourseUnit_a78f6c6579f2d18a5ae0d19b179505fc9}} 
+\mbox{\Hypertarget{classCourseUnit_aa0751096a779b9033bf396393b2d7a6b}\label{classCourseUnit_aa0751096a779b9033bf396393b2d7a6b}} 
 \index{CourseUnit@{CourseUnit}!getStudentList@{getStudentList}}
 \index{getStudentList@{getStudentList}!CourseUnit@{CourseUnit}}
 \doxysubsubsection{\texorpdfstring{getStudentList()}{getStudentList()}}
-{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ std\+::list$<$ int $>$ $>$ Course\+Unit\+::get\+Student\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ std\+::vector$<$ int $>$ $>$ Course\+Unit\+::get\+Student\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Retrieves a list of students in the course unit.
-
+Retrieves a list of students in the course unit. \begin{DoxyNote}{Note}
+Complexity O(1) 
+\end{DoxyNote}
 \begin{DoxyReturn}{Returns}
 A shared pointer to a list of integer values containing the student IDs. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classCourseUnit_a26a17f6a7816ab3b5c83471842212e3e}\label{classCourseUnit_a26a17f6a7816ab3b5c83471842212e3e}} 
+\mbox{\Hypertarget{classCourseUnit_a67b2a8d6830b1e467bfe4360f2500483}\label{classCourseUnit_a67b2a8d6830b1e467bfe4360f2500483}} 
 \index{CourseUnit@{CourseUnit}!getStudentListOnClass@{getStudentListOnClass}}
 \index{getStudentListOnClass@{getStudentListOnClass}!CourseUnit@{CourseUnit}}
 \doxysubsubsection{\texorpdfstring{getStudentListOnClass()}{getStudentListOnClass()}}
-{\footnotesize\ttfamily const std\+::vector$<$ int $>$ \& Course\+Unit\+::get\+Student\+List\+On\+Class (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{class\+Id }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ std\+::vector$<$ int $>$ $>$ Course\+Unit\+::get\+Student\+List\+On\+Class (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{class\+Id }\end{DoxyParamCaption})}
 
 Retrieves the list of students in a specific class.
 
@@ -139,6 +309,9 @@ Retrieves the list of students in a specific class.
 {\em class\+Id} & A string representing the ID of the class to get the students from. \\
 \hline
 \end{DoxyParams}
+\begin{DoxyNote}{Note}
+Complexity O(1) 
+\end{DoxyNote}
 \begin{DoxyReturn}{Returns}
 A constant reference to a vector of integers representing the students in the class. 
 \end{DoxyReturn}
@@ -148,14 +321,109 @@ A constant reference to a vector of integers representing the students in the cl
 \doxysubsubsection{\texorpdfstring{getUnitYear()}{getUnitYear()}}
 {\footnotesize\ttfamily int Course\+Unit\+::get\+Unit\+Year (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-Retrieves the academic year in which this course unit is taught.
-
+Retrieves the academic year in which this course unit is taught. \begin{DoxyNote}{Note}
+Complexity O(1) 
+\end{DoxyNote}
 \begin{DoxyReturn}{Returns}
 An integer value representing the academic year, or -\/1 if no classes are found. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classCourseUnit_a83675f2a19aa3532af60ddbc630f2519}\label{classCourseUnit_a83675f2a19aa3532af60ddbc630f2519}} 
+\index{CourseUnit@{CourseUnit}!removeStudentFromClass@{removeStudentFromClass}}
+\index{removeStudentFromClass@{removeStudentFromClass}!CourseUnit@{CourseUnit}}
+\doxysubsubsection{\texorpdfstring{removeStudentFromClass()}{removeStudentFromClass()}}
+{\footnotesize\ttfamily bool Course\+Unit\+::remove\+Student\+From\+Class (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{class\+Id,  }\item[{int}]{student\+Id }\end{DoxyParamCaption})}
+
+
+
+Removes a student from a specific class within the course unit. 
+
+This function removes a student from a specific class identified by its unique identifier (class\+Id) within the course unit.
+
+
+\begin{DoxyParams}{Parameters}
+{\em class\+Id} & The unique identifier of the class from which the student is to be removed. \\
+\hline
+{\em student\+Id} & The unique identifier of the student to remove. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Complexity O(1)
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+true if the removal operation was successful, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCourseUnit_a64c5154d45f27763ba90fd15b7e5770c}\label{classCourseUnit_a64c5154d45f27763ba90fd15b7e5770c}} 
+\index{CourseUnit@{CourseUnit}!setCurrentOrder@{setCurrentOrder}}
+\index{setCurrentOrder@{setCurrentOrder}!CourseUnit@{CourseUnit}}
+\doxysubsubsection{\texorpdfstring{setCurrentOrder()}{setCurrentOrder()}}
+{\footnotesize\ttfamily void Course\+Unit\+::set\+Current\+Order (\begin{DoxyParamCaption}\item[{int}]{order\+Type }\end{DoxyParamCaption})}
+
+
+
+Set the current order of students in the course unit. 
+
+This function allows setting the current order of students within the course unit. The order can have different meanings\+:
+
+
+\begin{DoxyItemize}
+\item 1\+: Order by student\+Id.
+\item 2\+: Order alphabetically.
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Note}
+Complexity O(1) 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em order\+Type} & An integer value indicating the desired order type (1 for student\+Id, 2 for alphabetical order). \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classCourseUnit_a2e04e782220b174f5d6a51462c9047e7}\label{classCourseUnit_a2e04e782220b174f5d6a51462c9047e7}} 
+\index{CourseUnit@{CourseUnit}!allStudents@{allStudents}}
+\index{allStudents@{allStudents}!CourseUnit@{CourseUnit}}
+\doxysubsubsection{\texorpdfstring{allStudents}{allStudents}}
+{\footnotesize\ttfamily std\+::vector$<$int$>$ Course\+Unit\+::all\+Students\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Vector of student IDs enrolled in the unit course. 
+
+\mbox{\Hypertarget{classCourseUnit_a091371310bc1ad23295f739b4fe7edfe}\label{classCourseUnit_a091371310bc1ad23295f739b4fe7edfe}} 
+\index{CourseUnit@{CourseUnit}!classes@{classes}}
+\index{classes@{classes}!CourseUnit@{CourseUnit}}
+\doxysubsubsection{\texorpdfstring{classes}{classes}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$std\+::string, std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classCourseClass}{Course\+Class}}$>$ $>$ Course\+Unit\+::classes\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Map of class IDs to class objects. 
+
+\mbox{\Hypertarget{classCourseUnit_a3065d15b9abac1f6b5ad3f5ece1f2336}\label{classCourseUnit_a3065d15b9abac1f6b5ad3f5ece1f2336}} 
+\index{CourseUnit@{CourseUnit}!currentOrderOfStudents@{currentOrderOfStudents}}
+\index{currentOrderOfStudents@{currentOrderOfStudents}!CourseUnit@{CourseUnit}}
+\doxysubsubsection{\texorpdfstring{currentOrderOfStudents}{currentOrderOfStudents}}
+{\footnotesize\ttfamily int Course\+Unit\+::current\+Order\+Of\+Students\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The current order of students. 
+
+\mbox{\Hypertarget{classCourseUnit_aa6cc5ad52fb80d5c2bcd5bd0f9b41d03}\label{classCourseUnit_aa6cc5ad52fb80d5c2bcd5bd0f9b41d03}} 
+\index{CourseUnit@{CourseUnit}!studentCount@{studentCount}}
+\index{studentCount@{studentCount}!CourseUnit@{CourseUnit}}
+\doxysubsubsection{\texorpdfstring{studentCount}{studentCount}}
+{\footnotesize\ttfamily int Course\+Unit\+::student\+Count\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The total count of students enrolled in the unit course. 
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-include/Course\+Unit.\+h\item 
-src/Course\+Unit.\+cpp\end{DoxyCompactItemize}
+include/\mbox{\hyperlink{CourseUnit_8h}{Course\+Unit.\+h}}\item 
+src/\mbox{\hyperlink{CourseUnit_8cpp}{Course\+Unit.\+cpp}}\end{DoxyCompactItemize}

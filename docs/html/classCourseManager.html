@@ -63,48 +63,135 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classCourseManager-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">CourseManager Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Manages course units, students, and requests for course changes.  
+ <a href="classCourseManager.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="CourseManager_8h_source.html">CourseManager.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:afba31bde00e392e28062c978c74a32f6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseManager.html#afba31bde00e392e28062c978c74a32f6">CourseManager</a> ()</td></tr>
 <tr class="separator:afba31bde00e392e28062c978c74a32f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a73549432695f27d99670118cbb3a1ea6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseManager.html#a73549432695f27d99670118cbb3a1ea6">getClasses</a> ()</td></tr>
+<tr class="memdesc:a73549432695f27d99670118cbb3a1ea6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read and parse class data from a CSV file and add class periods to <a class="el" href="classCourseClass.html" title="Represents a class within a course unit.">CourseClass</a> objects.  <a href="classCourseManager.html#a73549432695f27d99670118cbb3a1ea6">More...</a><br /></td></tr>
 <tr class="separator:a73549432695f27d99670118cbb3a1ea6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeaad5b7b50fa47ca2766d0452dca3ecd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseManager.html#aeaad5b7b50fa47ca2766d0452dca3ecd">getStudentsClasses</a> ()</td></tr>
+<tr class="memdesc:aeaad5b7b50fa47ca2766d0452dca3ecd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read and parse student-class enrollment data from a CSV file and associate students with their enrolled classes.  <a href="classCourseManager.html#aeaad5b7b50fa47ca2766d0452dca3ecd">More...</a><br /></td></tr>
 <tr class="separator:aeaad5b7b50fa47ca2766d0452dca3ecd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a376acc99ef5ac456ce54fa437f7bac9a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseManager.html#a376acc99ef5ac456ce54fa437f7bac9a">getClassesPerUc</a> ()</td></tr>
+<tr class="memdesc:a376acc99ef5ac456ce54fa437f7bac9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read and parse class-per-course-unit data from a CSV file and create CourseUnits with associated classes.  <a href="classCourseManager.html#a376acc99ef5ac456ce54fa437f7bac9a">More...</a><br /></td></tr>
 <tr class="separator:a376acc99ef5ac456ce54fa437f7bac9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab2b06918934f8b7e89a4c7508dc2a134"><td class="memItemLeft" align="right" valign="top"><a id="ab2b06918934f8b7e89a4c7508dc2a134"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>showStudentSchedule</b> (int id)</td></tr>
+<tr class="memitem:ab2b06918934f8b7e89a4c7508dc2a134"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseManager.html#ab2b06918934f8b7e89a4c7508dc2a134">showStudentSchedule</a> (int id)</td></tr>
+<tr class="memdesc:ab2b06918934f8b7e89a4c7508dc2a134"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display the class schedule for a specific student.  <a href="classCourseManager.html#ab2b06918934f8b7e89a4c7508dc2a134">More...</a><br /></td></tr>
 <tr class="separator:ab2b06918934f8b7e89a4c7508dc2a134"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a03637079f0e780a9b0e11d6d8f10071b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseManager.html#a03637079f0e780a9b0e11d6d8f10071b">showClassSchedule</a> (const std::string &amp;ucId, const std::string &amp;classId)</td></tr>
-<tr class="memdesc:a03637079f0e780a9b0e11d6d8f10071b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display the schedule for a specific class in a course unit.  <a href="classCourseManager.html#a03637079f0e780a9b0e11d6d8f10071b">More...</a><br /></td></tr>
+<tr class="memdesc:a03637079f0e780a9b0e11d6d8f10071b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display the class schedule for a specific course unit and class.  <a href="classCourseManager.html#a03637079f0e780a9b0e11d6d8f10071b">More...</a><br /></td></tr>
 <tr class="separator:a03637079f0e780a9b0e11d6d8f10071b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ac7213c679d0796c6c47ac02acf832b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseManager.html#a0ac7213c679d0796c6c47ac02acf832b">printSchedule</a> (std::unordered_map&lt; std::string, std::vector&lt; std::shared_ptr&lt; <a class="el" href="classPeriod.html">Period</a> &gt;&gt;&gt; schedule)</td></tr>
-<tr class="memdesc:a0ac7213c679d0796c6c47ac02acf832b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the schedule of course periods for each weekday.  <a href="classCourseManager.html#a0ac7213c679d0796c6c47ac02acf832b">More...</a><br /></td></tr>
-<tr class="separator:a0ac7213c679d0796c6c47ac02acf832b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a11358fd1dbfd411bbfefc2077ef7ed79"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseManager.html#a11358fd1dbfd411bbfefc2077ef7ed79">showStudentListInCourse</a> (const std::string &amp;courstseUnit, int firstN=-1)</td></tr>
-<tr class="memdesc:a11358fd1dbfd411bbfefc2077ef7ed79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Show a list of students registered in a specific course unit.  <a href="classCourseManager.html#a11358fd1dbfd411bbfefc2077ef7ed79">More...</a><br /></td></tr>
-<tr class="separator:a11358fd1dbfd411bbfefc2077ef7ed79"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6bb2bb61152dca231ac6bd4e779bc0a7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseManager.html#a6bb2bb61152dca231ac6bd4e779bc0a7">showStudentListInClass</a> (const std::string &amp;courseUnit, const std::string &amp;classId)</td></tr>
-<tr class="memdesc:a6bb2bb61152dca231ac6bd4e779bc0a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Show a list of students registered in a specific class of a course unit.  <a href="classCourseManager.html#a6bb2bb61152dca231ac6bd4e779bc0a7">More...</a><br /></td></tr>
-<tr class="separator:a6bb2bb61152dca231ac6bd4e779bc0a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a06b268a8e72dc5b2895982718cd98f9a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseManager.html#a06b268a8e72dc5b2895982718cd98f9a">showStudentListInYear</a> (int year, int firstN=-1)</td></tr>
-<tr class="memdesc:a06b268a8e72dc5b2895982718cd98f9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Show a list of students registered in a specific year.  <a href="classCourseManager.html#a06b268a8e72dc5b2895982718cd98f9a">More...</a><br /></td></tr>
-<tr class="separator:a06b268a8e72dc5b2895982718cd98f9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af4df7a608215bcfb3c23dd4e96e5dc0e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseManager.html#af4df7a608215bcfb3c23dd4e96e5dc0e">showUnitCoursesWithMostStudents</a> (int firstN=5)</td></tr>
-<tr class="memdesc:af4df7a608215bcfb3c23dd4e96e5dc0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display a list of Unit Courses with the most students.  <a href="classCourseManager.html#af4df7a608215bcfb3c23dd4e96e5dc0e">More...</a><br /></td></tr>
-<tr class="separator:af4df7a608215bcfb3c23dd4e96e5dc0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80e5132a5f1032ee1281b5362ae7daea"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="classPeriod.html">Period</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseManager.html#a80e5132a5f1032ee1281b5362ae7daea">getStudentSchedule</a> (int studentId)</td></tr>
+<tr class="memdesc:a80e5132a5f1032ee1281b5362ae7daea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the schedule of a specific student.  <a href="classCourseManager.html#a80e5132a5f1032ee1281b5362ae7daea">More...</a><br /></td></tr>
+<tr class="separator:a80e5132a5f1032ee1281b5362ae7daea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d7d8b7e38f7ba44184f4567f7e1b6ef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseManager.html#a9d7d8b7e38f7ba44184f4567f7e1b6ef">showStudentListInCourse</a> (const std::string &amp;courseUnit, int orderType, int firstN=-1)</td></tr>
+<tr class="memdesc:a9d7d8b7e38f7ba44184f4567f7e1b6ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Show a list of students registered in a specific course unit.  <a href="classCourseManager.html#a9d7d8b7e38f7ba44184f4567f7e1b6ef">More...</a><br /></td></tr>
+<tr class="separator:a9d7d8b7e38f7ba44184f4567f7e1b6ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1dd460ed9b42a2f62dde26bbb292a165"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseManager.html#a1dd460ed9b42a2f62dde26bbb292a165">showStudentListInClass</a> (const std::string &amp;courseUnit, const std::string &amp;classId, int orderType, int firstN=-1)</td></tr>
+<tr class="memdesc:a1dd460ed9b42a2f62dde26bbb292a165"><td class="mdescLeft">&#160;</td><td class="mdescRight">Show a list of students in a specific class of a course unit.  <a href="classCourseManager.html#a1dd460ed9b42a2f62dde26bbb292a165">More...</a><br /></td></tr>
+<tr class="separator:a1dd460ed9b42a2f62dde26bbb292a165"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52cbcff6eeb34ba4d7d42f7c34d1d8bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseManager.html#a52cbcff6eeb34ba4d7d42f7c34d1d8bf">showStudentListInYear</a> (int year, int orderType, int firstN=-1)</td></tr>
+<tr class="memdesc:a52cbcff6eeb34ba4d7d42f7c34d1d8bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Show a list of students registered in a specific year.  <a href="classCourseManager.html#a52cbcff6eeb34ba4d7d42f7c34d1d8bf">More...</a><br /></td></tr>
+<tr class="separator:a52cbcff6eeb34ba4d7d42f7c34d1d8bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b23cac16f8c98398130b2c683f72bbd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseManager.html#a1b23cac16f8c98398130b2c683f72bbd">orderStudentsVector</a> (std::shared_ptr&lt; std::vector&lt; int &gt;&gt; studentsId, int orderType)</td></tr>
+<tr class="memdesc:a1b23cac16f8c98398130b2c683f72bbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Order a vector of student IDs based on the specified order type.  <a href="classCourseManager.html#a1b23cac16f8c98398130b2c683f72bbd">More...</a><br /></td></tr>
+<tr class="separator:a1b23cac16f8c98398130b2c683f72bbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5746660dd37be12f55736706b66dc2bd"><td class="memItemLeft" align="right" valign="top">std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseManager.html#a5746660dd37be12f55736706b66dc2bd">getStudentListInYear</a> (int year, int orderType)</td></tr>
+<tr class="memdesc:a5746660dd37be12f55736706b66dc2bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a list of student IDs enrolled in units of a specific year.  <a href="classCourseManager.html#a5746660dd37be12f55736706b66dc2bd">More...</a><br /></td></tr>
+<tr class="separator:a5746660dd37be12f55736706b66dc2bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aface14383a421ce45fd46ac95b396416"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseManager.html#aface14383a421ce45fd46ac95b396416">showStudentCountOnNUnits</a> (int n)</td></tr>
 <tr class="memdesc:aface14383a421ce45fd46ac95b396416"><td class="mdescLeft">&#160;</td><td class="mdescRight">Count the number of students registered in at least a specified number of course units.  <a href="classCourseManager.html#aface14383a421ce45fd46ac95b396416">More...</a><br /></td></tr>
 <tr class="separator:aface14383a421ce45fd46ac95b396416"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a429a0e33da427c3c4d9bfa7dd6a0277d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseManager.html#a429a0e33da427c3c4d9bfa7dd6a0277d">showUnitCoursesWithMostStudents</a> (int firstN=-1)</td></tr>
+<tr class="memdesc:a429a0e33da427c3c4d9bfa7dd6a0277d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display a list of Unit Courses with the most students.  <a href="classCourseManager.html#a429a0e33da427c3c4d9bfa7dd6a0277d">More...</a><br /></td></tr>
+<tr class="separator:a429a0e33da427c3c4d9bfa7dd6a0277d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a403881c3ca23cf9bcd03abd5193360f7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseManager.html#a403881c3ca23cf9bcd03abd5193360f7">handleRequests</a> ()</td></tr>
+<tr class="memdesc:a403881c3ca23cf9bcd03abd5193360f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle pending requests for student enrollment changes.  <a href="classCourseManager.html#a403881c3ca23cf9bcd03abd5193360f7">More...</a><br /></td></tr>
+<tr class="separator:a403881c3ca23cf9bcd03abd5193360f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5e017b7aa1dc6a8227268f843fd6eaa"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseManager.html#aa5e017b7aa1dc6a8227268f843fd6eaa">addRequest</a> (short requestType, int studentId_, const std::pair&lt; std::string, std::string &gt; &amp;adding, const std::pair&lt; std::string, std::string &gt; &amp;removing)</td></tr>
+<tr class="memdesc:aa5e017b7aa1dc6a8227268f843fd6eaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a request to the queue for processing.  <a href="classCourseManager.html#aa5e017b7aa1dc6a8227268f843fd6eaa">More...</a><br /></td></tr>
+<tr class="separator:aa5e017b7aa1dc6a8227268f843fd6eaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e5591f8683dfce9db5f9faadb6d5e0e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseManager.html#a1e5591f8683dfce9db5f9faadb6d5e0e">removeStudentFromUc</a> (const std::string &amp;ucId, int studentId, bool <a class="el" href="classCourseManager.html#a928cc9c81d7c5ab629cf4477d5b5980b">saveToChanges</a>=true)</td></tr>
+<tr class="memdesc:a1e5591f8683dfce9db5f9faadb6d5e0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a student from a specific unit course.  <a href="classCourseManager.html#a1e5591f8683dfce9db5f9faadb6d5e0e">More...</a><br /></td></tr>
+<tr class="separator:a1e5591f8683dfce9db5f9faadb6d5e0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83285b508d24b4bb9befe2808ceb768d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseManager.html#a83285b508d24b4bb9befe2808ceb768d">addStudentToUc</a> (const std::string &amp;ucId, const std::string &amp;classId, int studentId, bool isChange=false, bool <a class="el" href="classCourseManager.html#a928cc9c81d7c5ab629cf4477d5b5980b">saveToChanges</a>=true)</td></tr>
+<tr class="memdesc:a83285b508d24b4bb9befe2808ceb768d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a student to a specific unit course and class.  <a href="classCourseManager.html#a83285b508d24b4bb9befe2808ceb768d">More...</a><br /></td></tr>
+<tr class="separator:a83285b508d24b4bb9befe2808ceb768d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4810b194a457a5221b5605b38c5b6230"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseManager.html#a4810b194a457a5221b5605b38c5b6230">switchUc</a> (int studentId, const std::string &amp;ucIdRegistered, const std::string &amp;ucIdToRegister, bool <a class="el" href="classCourseManager.html#a928cc9c81d7c5ab629cf4477d5b5980b">saveToChanges</a>=true)</td></tr>
+<tr class="memdesc:a4810b194a457a5221b5605b38c5b6230"><td class="mdescLeft">&#160;</td><td class="mdescRight">Switch a student's enrollment from one UC to another.  <a href="classCourseManager.html#a4810b194a457a5221b5605b38c5b6230">More...</a><br /></td></tr>
+<tr class="separator:a4810b194a457a5221b5605b38c5b6230"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94fe328afc936209d92a3fc066b756c0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseManager.html#a94fe328afc936209d92a3fc066b756c0">switchClass</a> (int studentId, const std::string &amp;ucIdRegistered, const std::string &amp;classRegistered, const std::string &amp;classToRegister, bool <a class="el" href="classCourseManager.html#a928cc9c81d7c5ab629cf4477d5b5980b">saveToChanges</a>=true)</td></tr>
+<tr class="memdesc:a94fe328afc936209d92a3fc066b756c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Switch a student's class within the same UC.  <a href="classCourseManager.html#a94fe328afc936209d92a3fc066b756c0">More...</a><br /></td></tr>
+<tr class="separator:a94fe328afc936209d92a3fc066b756c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1eee5846a8f27ad91ff39915476ced8a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseManager.html#a1eee5846a8f27ad91ff39915476ced8a">saveToDatabase</a> (int studentId, const std::string &amp;studentName, const std::string &amp;ucId, const std::string &amp;classId)</td></tr>
+<tr class="memdesc:a1eee5846a8f27ad91ff39915476ced8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Save student enrollment information to the database.  <a href="classCourseManager.html#a1eee5846a8f27ad91ff39915476ced8a">More...</a><br /></td></tr>
+<tr class="separator:a1eee5846a8f27ad91ff39915476ced8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab03c2dc997b38e32a2f7593173e62021"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseManager.html#ab03c2dc997b38e32a2f7593173e62021">removeFromDatabase</a> (int studentId, const std::string &amp;ucId)</td></tr>
+<tr class="memdesc:ab03c2dc997b38e32a2f7593173e62021"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove student enrollment information from the database.  <a href="classCourseManager.html#ab03c2dc997b38e32a2f7593173e62021">More...</a><br /></td></tr>
+<tr class="separator:ab03c2dc997b38e32a2f7593173e62021"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff354c653d3812e14bde90991be13f18"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseManager.html#aff354c653d3812e14bde90991be13f18">showClassOccupancy</a> (int)</td></tr>
+<tr class="memdesc:aff354c653d3812e14bde90991be13f18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display class occupancy information.  <a href="classCourseManager.html#aff354c653d3812e14bde90991be13f18">More...</a><br /></td></tr>
+<tr class="separator:aff354c653d3812e14bde90991be13f18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7811ae6dbb532ec083ec496c1f2dcde"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseManager.html#ae7811ae6dbb532ec083ec496c1f2dcde">showYearOccupancy</a> (int)</td></tr>
+<tr class="memdesc:ae7811ae6dbb532ec083ec496c1f2dcde"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display year-based student occupancy information.  <a href="classCourseManager.html#ae7811ae6dbb532ec083ec496c1f2dcde">More...</a><br /></td></tr>
+<tr class="separator:ae7811ae6dbb532ec083ec496c1f2dcde"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeca46b3d2eb0a55f899827489028ffd8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseManager.html#aeca46b3d2eb0a55f899827489028ffd8">showUcOccupancy</a> (int)</td></tr>
+<tr class="memdesc:aeca46b3d2eb0a55f899827489028ffd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display unit-based student occupancy information.  <a href="classCourseManager.html#aeca46b3d2eb0a55f899827489028ffd8">More...</a><br /></td></tr>
+<tr class="separator:aeca46b3d2eb0a55f899827489028ffd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a928cc9c81d7c5ab629cf4477d5b5980b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseManager.html#a928cc9c81d7c5ab629cf4477d5b5980b">saveToChanges</a> (int studentId, int operationType, const std::pair&lt; std::string, std::string &gt; &amp;adding, const std::pair&lt; std::string, std::string &gt; &amp;removing) const</td></tr>
+<tr class="memdesc:a928cc9c81d7c5ab629cf4477d5b5980b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Save course changes to the changes log.  <a href="classCourseManager.html#a928cc9c81d7c5ab629cf4477d5b5980b">More...</a><br /></td></tr>
+<tr class="separator:a928cc9c81d7c5ab629cf4477d5b5980b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adbe60d0d8f97b42ee0e930aca5f61383"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseManager.html#adbe60d0d8f97b42ee0e930aca5f61383">revertChanges</a> ()</td></tr>
+<tr class="memdesc:adbe60d0d8f97b42ee0e930aca5f61383"><td class="mdescLeft">&#160;</td><td class="mdescRight">Revert all changes made to the course according to the change history.  <a href="classCourseManager.html#adbe60d0d8f97b42ee0e930aca5f61383">More...</a><br /></td></tr>
+<tr class="separator:adbe60d0d8f97b42ee0e930aca5f61383"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5443736d7902432bbdf60c5408c90fd3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseManager.html#a5443736d7902432bbdf60c5408c90fd3">revertRequest</a> (const <a class="el" href="classRequest.html">Request</a> &amp;currentRequest)</td></tr>
+<tr class="memdesc:a5443736d7902432bbdf60c5408c90fd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Revert a previously handled course change request.  <a href="classCourseManager.html#a5443736d7902432bbdf60c5408c90fd3">More...</a><br /></td></tr>
+<tr class="separator:a5443736d7902432bbdf60c5408c90fd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a19c19918f072119e4ec0488affd0d0d6"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseManager.html#a19c19918f072119e4ec0488affd0d0d6">checkPeriodOverlap</a> (const std::vector&lt; std::shared_ptr&lt; <a class="el" href="classPeriod.html">Period</a> &gt;&gt; &amp;classesA, const std::vector&lt; std::shared_ptr&lt; <a class="el" href="classPeriod.html">Period</a> &gt;&gt; &amp;classesB)</td></tr>
+<tr class="memdesc:a19c19918f072119e4ec0488affd0d0d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks for time overlap between two sets of class periods.  <a href="classCourseManager.html#a19c19918f072119e4ec0488affd0d0d6">More...</a><br /></td></tr>
+<tr class="separator:a19c19918f072119e4ec0488affd0d0d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b9f3f16f96004a19d232fee7e2ac9b1"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseManager.html#a3b9f3f16f96004a19d232fee7e2ac9b1">checkScheduleOverlap</a> (const std::vector&lt; std::shared_ptr&lt; <a class="el" href="classPeriod.html">Period</a> &gt;&gt; &amp;newClasses, const std::vector&lt; std::shared_ptr&lt; <a class="el" href="classPeriod.html">Period</a> &gt;&gt; &amp;classesEnrolled)</td></tr>
+<tr class="memdesc:a3b9f3f16f96004a19d232fee7e2ac9b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check for schedule overlap between new and enrolled classes.  <a href="classCourseManager.html#a3b9f3f16f96004a19d232fee7e2ac9b1">More...</a><br /></td></tr>
+<tr class="separator:a3b9f3f16f96004a19d232fee7e2ac9b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ac7213c679d0796c6c47ac02acf832b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseManager.html#a0ac7213c679d0796c6c47ac02acf832b">printSchedule</a> (std::unordered_map&lt; std::string, std::vector&lt; std::shared_ptr&lt; <a class="el" href="classPeriod.html">Period</a> &gt;&gt;&gt; schedule)</td></tr>
+<tr class="memdesc:a0ac7213c679d0796c6c47ac02acf832b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display the class schedule for a specific day of the week.  <a href="classCourseManager.html#a0ac7213c679d0796c6c47ac02acf832b">More...</a><br /></td></tr>
+<tr class="separator:a0ac7213c679d0796c6c47ac02acf832b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ad971f7e29b08529a7244195ffbf3ca96"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::string, std::shared_ptr&lt; <a class="el" href="classCourseUnit.html">CourseUnit</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseManager.html#ad971f7e29b08529a7244195ffbf3ca96">units</a></td></tr>
+<tr class="memdesc:ad971f7e29b08529a7244195ffbf3ca96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Map of unit codes to unit objects.  <a href="classCourseManager.html#ad971f7e29b08529a7244195ffbf3ca96">More...</a><br /></td></tr>
+<tr class="separator:ad971f7e29b08529a7244195ffbf3ca96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bc9c0f817c8883aefc9fa671de3066f"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; int, std::shared_ptr&lt; <a class="el" href="classStudent.html">Student</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseManager.html#a8bc9c0f817c8883aefc9fa671de3066f">students</a></td></tr>
+<tr class="memdesc:a8bc9c0f817c8883aefc9fa671de3066f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Map of student IDs to student objects.  <a href="classCourseManager.html#a8bc9c0f817c8883aefc9fa671de3066f">More...</a><br /></td></tr>
+<tr class="separator:a8bc9c0f817c8883aefc9fa671de3066f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22c5b564da3b7231814d71bf8f2270eb"><td class="memItemLeft" align="right" valign="top">std::queue&lt; <a class="el" href="classRequest.html">Request</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseManager.html#a22c5b564da3b7231814d71bf8f2270eb">requests</a></td></tr>
+<tr class="memdesc:a22c5b564da3b7231814d71bf8f2270eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queue for pending course change requests.  <a href="classCourseManager.html#a22c5b564da3b7231814d71bf8f2270eb">More...</a><br /></td></tr>
+<tr class="separator:a22c5b564da3b7231814d71bf8f2270eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a232cd5472376384a6acee7ca7401c4db"><td class="memItemLeft" align="right" valign="top">std::stack&lt; <a class="el" href="classRequest.html">Request</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseManager.html#a232cd5472376384a6acee7ca7401c4db">history</a></td></tr>
+<tr class="memdesc:a232cd5472376384a6acee7ca7401c4db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stack for storing the history of processed requests.  <a href="classCourseManager.html#a232cd5472376384a6acee7ca7401c4db">More...</a><br /></td></tr>
+<tr class="separator:a232cd5472376384a6acee7ca7401c4db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Manages course units, students, and requests for course changes. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="afba31bde00e392e28062c978c74a32f6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afba31bde00e392e28062c978c74a32f6">&#9670;&nbsp;</a></span>CourseManager()</h2>
 
@@ -124,6 +211,215 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>showStudentSchedule</
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="aa5e017b7aa1dc6a8227268f843fd6eaa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5e017b7aa1dc6a8227268f843fd6eaa">&#9670;&nbsp;</a></span>addRequest()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CourseManager::addRequest </td>
+          <td>(</td>
+          <td class="paramtype">short&#160;</td>
+          <td class="paramname"><em>requestType</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>studentId_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::pair&lt; std::string, std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>adding</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::pair&lt; std::string, std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>removing</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Add a request to the queue for processing. </p>
+<p>This function adds a request to the queue for processing. Requests are used to change a student's enrollment status in UCs and classes. Each request includes the student's ID, the type of request, and details about the changes to their enrollment.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">requestType</td><td>The type of the request (1 for add class, 2 for remove class, 3 for change UC, 4 for change class). </td></tr>
+    <tr><td class="paramname">studentId_</td><td>The ID of the student for whom the request is made. </td></tr>
+    <tr><td class="paramname">adding</td><td>A pair specifying the UC and class to add (format: {UC ID, Class ID}). </td></tr>
+    <tr><td class="paramname">removing</td><td>A pair specifying the UC and class to remove (format: {UC ID, Class ID}). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Complexity O(1) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the request was successfully added to the queue; false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a83285b508d24b4bb9befe2808ceb768d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83285b508d24b4bb9befe2808ceb768d">&#9670;&nbsp;</a></span>addStudentToUc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CourseManager::addStudentToUc </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>ucId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>classId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>studentId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>isChange</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>saveToChanges</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds a student to a specific unit course and class. </p>
+<p>This function adds a student to a unit course and class, provided that the student is not already enrolled in the unit course and there is no time overlap between the new class and the student's existing classes.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ucId</td><td>The unique identifier of the unit course. </td></tr>
+    <tr><td class="paramname">classId</td><td>The unique identifier of the class. </td></tr>
+    <tr><td class="paramname">studentId</td><td>The unique identifier of the student.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Complexity O(1) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the student was successfully added to the unit course and class, false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a19c19918f072119e4ec0488affd0d0d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19c19918f072119e4ec0488affd0d0d6">&#9670;&nbsp;</a></span>checkPeriodOverlap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CourseManager::checkPeriodOverlap </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; std::shared_ptr&lt; <a class="el" href="classPeriod.html">Period</a> &gt;&gt; &amp;&#160;</td>
+          <td class="paramname"><em>classesA</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; std::shared_ptr&lt; <a class="el" href="classPeriod.html">Period</a> &gt;&gt; &amp;&#160;</td>
+          <td class="paramname"><em>classesB</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks for time overlap between two sets of class periods. </p>
+<p>This function checks for time overlap between two sets of class periods (classesA and classesB).</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">classesA</td><td>A vector of shared pointers to class periods from the first set. </td></tr>
+    <tr><td class="paramname">classesB</td><td>A vector of shared pointers to class periods from the second set.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Complexity O(N^2) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>true if there is a time overlap between the two sets of class periods, false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a3b9f3f16f96004a19d232fee7e2ac9b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b9f3f16f96004a19d232fee7e2ac9b1">&#9670;&nbsp;</a></span>checkScheduleOverlap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CourseManager::checkScheduleOverlap </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; std::shared_ptr&lt; <a class="el" href="classPeriod.html">Period</a> &gt;&gt; &amp;&#160;</td>
+          <td class="paramname"><em>newClasses</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; std::shared_ptr&lt; <a class="el" href="classPeriod.html">Period</a> &gt;&gt; &amp;&#160;</td>
+          <td class="paramname"><em>classesEnrolled</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check for schedule overlap between new and enrolled classes. </p>
+<p>This function checks if there is a schedule overlap between a student's newly requested classes (newClasses) and their already enrolled classes (classesEnrolled).</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">newClasses</td><td>A vector of newly requested class periods. </td></tr>
+    <tr><td class="paramname">classesEnrolled</td><td>A vector of class periods in which the student is already enrolled.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Complexity O(N^2)</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>True if there is a schedule overlap, indicating that the student cannot be added to the new classes; otherwise, false. </dd></dl>
+
+</div>
+</div>
 <a id="a73549432695f27d99670118cbb3a1ea6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a73549432695f27d99670118cbb3a1ea6">&#9670;&nbsp;</a></span>getClasses()</h2>
 
@@ -138,7 +434,23 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>showStudentSchedule</
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This is a function that gets information about course classes from a file. </p><dl class="section return"><dt>Returns</dt><dd>void. </dd></dl>
+
+<p>Read and parse class data from a CSV file and add class periods to <a class="el" href="classCourseClass.html" title="Represents a class within a course unit.">CourseClass</a> objects. </p>
+<p>This function reads class data from a CSV file, parses the data, and associates class periods with <a class="el" href="classCourseClass.html" title="Represents a class within a course unit.">CourseClass</a> objects.</p>
+<dl class="section note"><dt>Note</dt><dd>The CSV file is expected to have the following format: classId, unitId, weekDay, startHour, duration, type where:<ul>
+<li>classId is the unique identifier of the class.</li>
+<li>unitId is the unique identifier of the course unit to which the class belongs.</li>
+<li>weekDay is the day of the week on which the class period occurs.</li>
+<li>startHour is the start hour of the class period.</li>
+<li>duration is the duration of the class period.</li>
+<li>type is the type of the class period (e.g., T, TP, PL).</li>
+</ul>
+</dd>
+<dd>
+The function assumes that the CSV file is properly formatted, with comma-separated values for each class. Lines that are not comma-separated or contain additional literals are ignored. </dd>
+<dd>
+Complexity O(N) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>None. </dd></dl>
 
 </div>
 </div>
@@ -156,7 +468,92 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>showStudentSchedule</
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This is a function that gets the list of classes per course unit. </p><dl class="section return"><dt>Returns</dt><dd>void. </dd></dl>
+
+<p>Read and parse class-per-course-unit data from a CSV file and create CourseUnits with associated classes. </p>
+<p>This function reads data from a CSV file containing class-per-course-unit information, parses the data, and creates <a class="el" href="classCourseUnit.html" title="Represents a unit course that contains classes and enrolled students.">CourseUnit</a> objects with associated classes.</p>
+<dl class="section note"><dt>Note</dt><dd>The CSV file is expected to have the following format: unitId, classId where:<ul>
+<li>unitId is the unique identifier of the course unit.</li>
+<li>classId is the unique identifier of the class associated with the course unit.</li>
+</ul>
+</dd>
+<dd>
+The function assumes that the CSV file is properly formatted with comma-separated values for each entry. Lines that are not comma-separated or contain additional literals are ignored. </dd>
+<dd>
+Complexity O(N) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>None. </dd></dl>
+
+</div>
+</div>
+<a id="a5746660dd37be12f55736706b66dc2bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5746660dd37be12f55736706b66dc2bd">&#9670;&nbsp;</a></span>getStudentListInYear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; int &gt; CourseManager::getStudentListInYear </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>year</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>orderType</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get a list of student IDs enrolled in units of a specific year. </p>
+<p>This function retrieves a list of student IDs who are enrolled in course units of a specified year. The list can be ordered either by student ID or alphabetically by student name based on the order type.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">year</td><td>The year for which to retrieve the student list. </td></tr>
+    <tr><td class="paramname">orderType</td><td>An integer representing the order type:<ul>
+<li>1 for ordering by student ID.</li>
+<li>2 for ordering alphabetically by student name. </li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Complexity O(N^2) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A vector of student IDs in the specified year. </dd></dl>
+
+</div>
+</div>
+<a id="a80e5132a5f1032ee1281b5362ae7daea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80e5132a5f1032ee1281b5362ae7daea">&#9670;&nbsp;</a></span>getStudentSchedule()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::shared_ptr&lt; <a class="el" href="classPeriod.html">Period</a> &gt; &gt; CourseManager::getStudentSchedule </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>studentId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the schedule of a specific student. </p>
+<p>This function retrieves and returns the class schedule for a specific student based on their enrolled UCs and classes. It compiles all the class periods associated with the student's enrolled classes.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">studentId</td><td>The ID of the student for whom to retrieve the schedule. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Complexity O(N^2) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A vector of shared pointers to the class periods in the student's schedule. </dd></dl>
 
 </div>
 </div>
@@ -174,7 +571,84 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>showStudentSchedule</
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This is a function that gets information about the student's classes. </p><dl class="section return"><dt>Returns</dt><dd>void. </dd></dl>
+
+<p>Read and parse student-class enrollment data from a CSV file and associate students with their enrolled classes. </p>
+<p>This function reads data from a CSV file containing student-class enrollment information, parses the data, and associates students with their enrolled classes.</p>
+<dl class="section note"><dt>Note</dt><dd>The CSV file is expected to have the following format: studentId, studentName, unitId, classId where:<ul>
+<li>studentId is the unique identifier of the student.</li>
+<li>studentName is the name of the student.</li>
+<li>unitId is the unique identifier of the course unit to which the student is enrolled.</li>
+<li>classId is the unique identifier of the class in which the student is enrolled.</li>
+</ul>
+</dd>
+<dd>
+The function assumes that the CSV file is properly formatted with comma-separated values for each entry. Lines that are not comma-separated or contain additional literals are ignored. </dd>
+<dd>
+Complexity O(N) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>None. </dd></dl>
+
+</div>
+</div>
+<a id="a403881c3ca23cf9bcd03abd5193360f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a403881c3ca23cf9bcd03abd5193360f7">&#9670;&nbsp;</a></span>handleRequests()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CourseManager::handleRequests </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Handle pending requests for student enrollment changes. </p>
+<p>This function processes pending requests for student enrollment changes. Requests can include adding or removing a student from a class or switching their enrollment between UCs or classes. Each request is processed in the order it was received. </p><dl class="section note"><dt>Note</dt><dd>Complexity O(N) </dd></dl>
+
+</div>
+</div>
+<a id="a1b23cac16f8c98398130b2c683f72bbd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b23cac16f8c98398130b2c683f72bbd">&#9670;&nbsp;</a></span>orderStudentsVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CourseManager::orderStudentsVector </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; std::vector&lt; int &gt;&gt;&#160;</td>
+          <td class="paramname"><em>studentsId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>orderType</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Order a vector of student IDs based on the specified order type. </p>
+<p>This function orders a vector of student IDs either by their ID or alphabetically by their names based on the specified order type.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">studentsId</td><td>A shared pointer to a vector of student IDs to be ordered. </td></tr>
+    <tr><td class="paramname">orderType</td><td>An integer representing the order type:<ul>
+<li>1 for ordering by student ID.</li>
+<li>2 for ordering alphabetically by student name. </li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Complexity O(N * LOG N) </dd></dl>
 
 </div>
 </div>
@@ -183,6 +657,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>showStudentSchedule</
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void CourseManager::printSchedule </td>
@@ -192,16 +669,301 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>showStudentSchedule</
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Print the schedule of course periods for each weekday. </p>
-<p>This function prints the schedule of course periods for each weekday. It takes an unordered_map containing course periods, organizes them by weekday, and then sorts and displays the schedule for each weekday.</p>
+<p>Display the class schedule for a specific day of the week. </p>
+<p>This function displays the class schedule for a specific day of the week by sorting and formatting the provided schedule data.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">schedule</td><td>An unordered_map containing course periods with keys as "&lt;ucId/classId&gt;" and values as shared_ptr&lt;Period&gt;. </td></tr>
+    <tr><td class="paramname">schedule</td><td>An unordered_map containing keys in the format "&lt;unitId/classId&gt;" and values as vectors of shared_ptr&lt;Period&gt; objects, representing the schedule for various classes. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>Note</dt><dd>Complexity O(N^2) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>None. </dd></dl>
+
+</div>
+</div>
+<a id="ab03c2dc997b38e32a2f7593173e62021"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab03c2dc997b38e32a2f7593173e62021">&#9670;&nbsp;</a></span>removeFromDatabase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CourseManager::removeFromDatabase </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>studentId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>ucId</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Remove student enrollment information from the database. </p>
+<p>This function removes a line from the database containing student enrollment information based on the student's ID and UC ID.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">studentId</td><td>The ID of the student to be unenrolled. </td></tr>
+    <tr><td class="paramname">ucId</td><td>The UC ID from which the student is unenrolled. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Complexity O(N) </dd></dl>
+
+</div>
+</div>
+<a id="a1e5591f8683dfce9db5f9faadb6d5e0e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e5591f8683dfce9db5f9faadb6d5e0e">&#9670;&nbsp;</a></span>removeStudentFromUc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CourseManager::removeStudentFromUc </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>ucId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>studentId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>saveToChanges</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Removes a student from a specific unit course. </p>
+<p>This function removes a student from a unit course, provided that the student is currently enrolled in the specified unit course.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ucId</td><td>The unique identifier of the unit course. </td></tr>
+    <tr><td class="paramname">studentId</td><td>The unique identifier of the student to remove.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Complexity O(1)</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the student was successfully removed from the unit course, false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="adbe60d0d8f97b42ee0e930aca5f61383"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbe60d0d8f97b42ee0e930aca5f61383">&#9670;&nbsp;</a></span>revertChanges()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CourseManager::revertChanges </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Revert all changes made to the course according to the change history. </p>
+<p>This function reverts all changes made to the course based on the change history. It iterates through the history of handled requests, reverts each one, and removes it from the change log. </p>
+
+</div>
+</div>
+<a id="a5443736d7902432bbdf60c5408c90fd3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5443736d7902432bbdf60c5408c90fd3">&#9670;&nbsp;</a></span>revertRequest()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CourseManager::revertRequest </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classRequest.html">Request</a> &amp;&#160;</td>
+          <td class="paramname"><em>currentRequest</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Revert a previously handled course change request. </p>
+<p>This function allows reverting a previously handled course change request by undoing the corresponding operation.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">currentRequest</td><td>The course change request to be reverted.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the request is successfully reverted, <code>false</code> otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a928cc9c81d7c5ab629cf4477d5b5980b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a928cc9c81d7c5ab629cf4477d5b5980b">&#9670;&nbsp;</a></span>saveToChanges()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CourseManager::saveToChanges </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>studentId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>operationType</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::pair&lt; std::string, std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>adding</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::pair&lt; std::string, std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>removing</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Save course changes to the changes log. </p>
+<p>This function is responsible for recording course changes in the changes log file. It appends information about student-related operations, such as adding, removing, or switching academic units or classes, to the log file.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">studentId</td><td>An integer representing the unique identifier of the student involved in the operation. </td></tr>
+    <tr><td class="paramname">operationType</td><td>An integer specifying the type of operation:<ul>
+<li>1 for removing a student to an academic unit or class.</li>
+<li>2 for adding a student from an academic unit or class.</li>
+<li>3 for switching to a different academic unit.</li>
+<li>4 for switching to a different class within the same academic unit. </li>
+</ul>
+</td></tr>
+    <tr><td class="paramname">adding</td><td>A pair representing the academic unit or class being added, formatted as "unitID/classID". </td></tr>
+    <tr><td class="paramname">removing</td><td>A pair representing the academic unit or class being removed, formatted as "unitID/classID". </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Complexity O(1) </dd></dl>
+
+</div>
+</div>
+<a id="a1eee5846a8f27ad91ff39915476ced8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1eee5846a8f27ad91ff39915476ced8a">&#9670;&nbsp;</a></span>saveToDatabase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CourseManager::saveToDatabase </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>studentId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>studentName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>ucId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>classId</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Save student enrollment information to the database. </p>
+<p>This function adds a line to the database with student enrollment information, including their student ID, name, UC ID, and class ID.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">studentId</td><td>The ID of the student to be enrolled. </td></tr>
+    <tr><td class="paramname">studentName</td><td>The name of the student. </td></tr>
+    <tr><td class="paramname">ucId</td><td>The UC ID to which the student is enrolled. </td></tr>
+    <tr><td class="paramname">classId</td><td>The class ID within the UC to which the student is enrolled. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Complexity O(1) </dd></dl>
+
+</div>
+</div>
+<a id="aff354c653d3812e14bde90991be13f18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff354c653d3812e14bde90991be13f18">&#9670;&nbsp;</a></span>showClassOccupancy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CourseManager::showClassOccupancy </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>orderType</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Display class occupancy information. </p>
+<p>This function displays information about the occupancy of classes within each UC, sorted in ascending or descending order based on the orderType. The output includes the number of students in each class.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">orderType</td><td>An integer specifying the order in which to display the class occupancy:<ul>
+<li>1 for ascending order (low to high occupancy).</li>
+<li>2 for descending order (high to low occupancy). </li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Complexity O(N^2) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Always returns false since it's a display function. </dd></dl>
 
 </div>
 </div>
@@ -231,15 +993,17 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>showStudentSchedule</
       </table>
 </div><div class="memdoc">
 
-<p>Display the schedule for a specific class in a course unit. </p>
-<p>This function displays the schedule for a specific class in a course unit identified by 'ucId' and 'classId'.</p>
+<p>Display the class schedule for a specific course unit and class. </p>
+<p>This function displays the class schedule for a specific course unit and class, identified by their unique identifiers (ucId and classId).</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ucId</td><td>The unique identifier of the course unit. </td></tr>
-    <tr><td class="paramname">classId</td><td>The unique identifier of the class within the course unit. </td></tr>
+    <tr><td class="paramname">ucId</td><td>The unique identifier of the course unit for which the class schedule is to be displayed. </td></tr>
+    <tr><td class="paramname">classId</td><td>The unique identifier of the class for which the schedule is to be displayed. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>Note</dt><dd>Complexity O(N^2) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>None. </dd></dl>
 
 </div>
 </div>
@@ -267,11 +1031,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>showStudentSchedule</
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>Note</dt><dd>Complexity O(N) </dd></dl>
 
 </div>
 </div>
-<a id="a6bb2bb61152dca231ac6bd4e779bc0a7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6bb2bb61152dca231ac6bd4e779bc0a7">&#9670;&nbsp;</a></span>showStudentListInClass()</h2>
+<a id="a1dd460ed9b42a2f62dde26bbb292a165"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1dd460ed9b42a2f62dde26bbb292a165">&#9670;&nbsp;</a></span>showStudentListInClass()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -286,7 +1051,19 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>showStudentSchedule</
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>classId</em>&#160;</td>
+          <td class="paramname"><em>classId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>orderType</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>firstN</em> = <code>-1</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -296,20 +1073,27 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>showStudentSchedule</
       </table>
 </div><div class="memdoc">
 
-<p>Show a list of students registered in a specific class of a course unit. </p>
-<p>This function displays a list of students who are registered in a specific class of the given course unit. It first checks if the course unit and class exist, and if they do, it lists the students along with their names and student IDs.</p>
+<p>Show a list of students in a specific class of a course unit. </p>
+<p>This function displays a list of students who are enrolled in a particular class of a course unit.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">courseUnit</td><td>The ID of the course unit to query. </td></tr>
-    <tr><td class="paramname">classId</td><td>The ID of the specific class within the course unit. </td></tr>
+    <tr><td class="paramname">courseUnit</td><td>The name of the course unit. </td></tr>
+    <tr><td class="paramname">classId</td><td>The ID of the class for which you want to list students. </td></tr>
+    <tr><td class="paramname">orderType</td><td>The sorting order for the list (1 for by student ID, 2 for by student name). </td></tr>
+    <tr><td class="paramname">firstN</td><td>The maximum number of students to display. Use -1 to display all students.</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>Note</dt><dd>The students are sorted based on the specified sorting order and then displayed. </dd>
+<dd>
+If the course unit or class does not exist, appropriate error messages are displayed. </dd>
+<dd>
+Complexity O(N) </dd></dl>
 
 </div>
 </div>
-<a id="a11358fd1dbfd411bbfefc2077ef7ed79"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a11358fd1dbfd411bbfefc2077ef7ed79">&#9670;&nbsp;</a></span>showStudentListInCourse()</h2>
+<a id="a9d7d8b7e38f7ba44184f4567f7e1b6ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d7d8b7e38f7ba44184f4567f7e1b6ef">&#9670;&nbsp;</a></span>showStudentListInCourse()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -319,6 +1103,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>showStudentSchedule</
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>courseUnit</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>orderType</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -343,11 +1133,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>showStudentSchedule</
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>Note</dt><dd>Complexity O(N) </dd></dl>
 
 </div>
 </div>
-<a id="a06b268a8e72dc5b2895982718cd98f9a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a06b268a8e72dc5b2895982718cd98f9a">&#9670;&nbsp;</a></span>showStudentListInYear()</h2>
+<a id="a52cbcff6eeb34ba4d7d42f7c34d1d8bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52cbcff6eeb34ba4d7d42f7c34d1d8bf">&#9670;&nbsp;</a></span>showStudentListInYear()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -357,6 +1148,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>showStudentSchedule</
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>year</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>orderType</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -381,12 +1178,75 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>showStudentSchedule</
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>The students are sorted in ascending order of their IDs. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>The students are sorted in ascending order of their IDs. </dd>
+<dd>
+Complexity O(N) </dd></dl>
 
 </div>
 </div>
-<a id="af4df7a608215bcfb3c23dd4e96e5dc0e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af4df7a608215bcfb3c23dd4e96e5dc0e">&#9670;&nbsp;</a></span>showUnitCoursesWithMostStudents()</h2>
+<a id="ab2b06918934f8b7e89a4c7508dc2a134"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2b06918934f8b7e89a4c7508dc2a134">&#9670;&nbsp;</a></span>showStudentSchedule()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CourseManager::showStudentSchedule </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Display the class schedule for a specific student. </p>
+<p>This function displays the class schedule for a specific student with the given student ID. It compiles the schedule by collecting class periods from the course units and classes in which the student is enrolled. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>The unique identifier of the student for whom the schedule is to be displayed. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Complexity O(N^2) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>None. </dd></dl>
+
+</div>
+</div>
+<a id="aeca46b3d2eb0a55f899827489028ffd8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeca46b3d2eb0a55f899827489028ffd8">&#9670;&nbsp;</a></span>showUcOccupancy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CourseManager::showUcOccupancy </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>orderType</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Display unit-based student occupancy information. </p>
+<p>This function displays information about the number of students in each academic unit (course unit) within the course. The output can be sorted in either ascending or descending order based on the orderType.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">orderType</td><td>An integer specifying the order in which to display the unit-based occupancy:<ul>
+<li>1 for ascending order (low to high student count).</li>
+<li>2 for descending order (high to low student count). </li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Complexity O(N) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Always returns false since it's a display function. </dd></dl>
+
+</div>
+</div>
+<a id="a429a0e33da427c3c4d9bfa7dd6a0277d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a429a0e33da427c3c4d9bfa7dd6a0277d">&#9670;&nbsp;</a></span>showUnitCoursesWithMostStudents()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -395,7 +1255,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>showStudentSchedule</
           <td class="memname">void CourseManager::showUnitCoursesWithMostStudents </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>firstN</em> = <code>5</code></td><td>)</td>
+          <td class="paramname"><em>firstN</em> = <code>-1</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -409,12 +1269,258 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>showStudentSchedule</
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>Note</dt><dd>Complexity O(N) </dd></dl>
+
+</div>
+</div>
+<a id="ae7811ae6dbb532ec083ec496c1f2dcde"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7811ae6dbb532ec083ec496c1f2dcde">&#9670;&nbsp;</a></span>showYearOccupancy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CourseManager::showYearOccupancy </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>orderType</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Display year-based student occupancy information. </p>
+<p>This function displays information about the number of students in each academic year (unit year) within the course. The output can be sorted in either ascending or descending order based on the orderType.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">orderType</td><td>An integer specifying the order in which to display the year-based occupancy:<ul>
+<li>1 for ascending order (low to high student count).</li>
+<li>2 for descending order (high to low student count). </li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Complexity O(N^2) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Always returns false since it's a display function. </dd></dl>
+
+</div>
+</div>
+<a id="a94fe328afc936209d92a3fc066b756c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94fe328afc936209d92a3fc066b756c0">&#9670;&nbsp;</a></span>switchClass()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CourseManager::switchClass </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>studentId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>ucIdRegistered</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>classRegistered</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>classToRegister</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>saveToChanges</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Switch a student's class within the same UC. </p>
+<p>This function allows a student to switch from one class (classRegistered) to another class (classToRegister) within the same UC (ucIdRegistered). It performs several checks to ensure that the switch is valid, including class capacity, class balance, and schedule overlap.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">studentId</td><td>The ID of the student requesting the class switch. </td></tr>
+    <tr><td class="paramname">ucIdRegistered</td><td>The UC in which the student is currently enrolled (L.EICXXX). </td></tr>
+    <tr><td class="paramname">classRegistered</td><td>The class from which the student wants to switch (XLEICXX). </td></tr>
+    <tr><td class="paramname">classToRegister</td><td>The class to which the student wants to switch (XLEICXX). </td></tr>
+    <tr><td class="paramname">saveToChanges</td><td>Indicates whether to save this switch request to the changes log. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Complexity O(N^2) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the class switch is successful, false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a4810b194a457a5221b5605b38c5b6230"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4810b194a457a5221b5605b38c5b6230">&#9670;&nbsp;</a></span>switchUc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CourseManager::switchUc </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>studentId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>ucIdRegistered</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>ucIdToRegister</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>saveToChanges</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Switch a student's enrollment from one UC to another. </p>
+<p>This function allows a student to switch their enrollment from one UC to another within the system.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">studentId</td><td>The ID of the student who wants to switch enrollment. </td></tr>
+    <tr><td class="paramname">ucIdRegistered</td><td>The UC in which the student is currently enrolled. </td></tr>
+    <tr><td class="paramname">ucIdToRegister</td><td>The target UC to which the student wants to switch enrollment. </td></tr>
+    <tr><td class="paramname">saveToChanges</td><td>Set to true to save the operation to the change log; false to skip saving.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Complexity O(1) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the switch was successful, or false if the operation failed. </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a232cd5472376384a6acee7ca7401c4db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a232cd5472376384a6acee7ca7401c4db">&#9670;&nbsp;</a></span>history</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::stack&lt;<a class="el" href="classRequest.html">Request</a>&gt; CourseManager::history</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Stack for storing the history of processed requests. </p>
+
+</div>
+</div>
+<a id="a22c5b564da3b7231814d71bf8f2270eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22c5b564da3b7231814d71bf8f2270eb">&#9670;&nbsp;</a></span>requests</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::queue&lt;<a class="el" href="classRequest.html">Request</a>&gt; CourseManager::requests</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Queue for pending course change requests. </p>
+
+</div>
+</div>
+<a id="a8bc9c0f817c8883aefc9fa671de3066f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8bc9c0f817c8883aefc9fa671de3066f">&#9670;&nbsp;</a></span>students</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;int, std::shared_ptr&lt;<a class="el" href="classStudent.html">Student</a>&gt; &gt; CourseManager::students</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Map of student IDs to student objects. </p>
+
+</div>
+</div>
+<a id="ad971f7e29b08529a7244195ffbf3ca96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad971f7e29b08529a7244195ffbf3ca96">&#9670;&nbsp;</a></span>units</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;std::string, std::shared_ptr&lt;<a class="el" href="classCourseUnit.html">CourseUnit</a>&gt; &gt; CourseManager::units</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Map of unit codes to unit objects. </p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>include/<a class="el" href="CourseManager_8h_source.html">CourseManager.h</a></li>
-<li>src/CourseManager.cpp</li>
+<li>src/<a class="el" href="CourseManager_8cpp.html">CourseManager.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -38,7 +38,7 @@ CourseManager::CourseManager() {
  *
  * @note The function assumes that the CSV file is properly formatted, with comma-separated values for each class.
  *       Lines that are not comma-separated or contain additional literals are ignored.
- *
+ * @note Complexity O(N)
  * @return None.
  */
 void CourseManager::getClasses() {
@@ -92,7 +92,7 @@ void CourseManager::getClasses() {
  *       - classId is the unique identifier of the class associated with the course unit.
 
  * @note The function assumes that the CSV file is properly formatted with comma-separated values for each entry. Lines that are not comma-separated or contain additional literals are ignored.
-
+   @note Complexity O(N)
  * @return None.
  */
 void CourseManager::getClassesPerUc() {
@@ -147,7 +147,7 @@ void CourseManager::getClassesPerUc() {
  *       - classId is the unique identifier of the class in which the student is enrolled.
 
  * @note The function assumes that the CSV file is properly formatted with comma-separated values for each entry. Lines that are not comma-separated or contain additional literals are ignored.
-
+ * @note Complexity O(N)
  * @return None.
  */
 void CourseManager::getStudentsClasses() {
@@ -208,6 +208,7 @@ void CourseManager::getStudentsClasses() {
  *
  * This function displays the class schedule for a specific student with the given student ID. It compiles the schedule by collecting class periods from the course units and classes in which the student is enrolled.
  * @param id The unique identifier of the student for whom the schedule is to be displayed.
+ * @note Complexity O(N^2)
  * @return None.
  */
 void CourseManager::showStudentSchedule(int id) {
@@ -251,6 +252,7 @@ void CourseManager::showStudentSchedule(int id) {
 
  * @param ucId The unique identifier of the course unit for which the class schedule is to be displayed.
  * @param classId The unique identifier of the class for which the schedule is to be displayed.
+ * @note Complexity O(N^2)
  * @return None.
  */
 void CourseManager::showClassSchedule(const std::string &ucId, const std::string &classId) {
@@ -284,6 +286,7 @@ void CourseManager::showClassSchedule(const std::string &ucId, const std::string
  *
  * @param a The first pair to compare.
  * @param b The second pair to compare.
+ * @note Complexity O(1)
  * @return true if the start hour of 'a' is less than the start hour of 'b', false otherwise.
  */
 bool cmpHours(const std::pair<std::string,std::shared_ptr<Period>>& a, const std::pair<std::string,std::shared_ptr<Period>>& b){
@@ -299,6 +302,7 @@ bool cmpHours(const std::pair<std::string,std::shared_ptr<Period>>& a, const std
  * This function displays the class schedule for a specific day of the week by sorting and formatting the provided schedule data.
 
  * @param schedule An unordered_map containing keys in the format "<unitId/classId>" and values as vectors of shared_ptr<Period> objects, representing the schedule for various classes.
+ * @note Complexity O(N^2)
  * @return None.
  */
 void CourseManager::printSchedule(std::unordered_map<std::string, std::vector<std::shared_ptr<Period>>> schedule) {
@@ -338,6 +342,7 @@ void CourseManager::printSchedule(std::unordered_map<std::string, std::vector<st
  * @param orderType An integer representing the order type:
  *                  - 1 for ordering by student ID.
  *                  - 2 for ordering alphabetically by student name.
+ * @note Complexity O(N * LOG N)
  */
 void CourseManager::orderStudentsVector(std::shared_ptr<std::vector<int>> studentsId, int orderType) {
     if(orderType == 1){
@@ -361,6 +366,7 @@ void CourseManager::orderStudentsVector(std::shared_ptr<std::vector<int>> studen
  *
  * @param courseUnit The ID of the course unit for which you want to list registered students.
  * @param firstN The maximum number of students to display (use -1 to display all).
+ * @note Complexity O(N)
  */
 
 void CourseManager::showStudentListInCourse(const std::string &courseUnit, int orderType,int firstN) {
@@ -400,7 +406,7 @@ void CourseManager::showStudentListInCourse(const std::string &courseUnit, int o
  *
  * @note The students are sorted based on the specified sorting order and then displayed.
  * @note If the course unit or class does not exist, appropriate error messages are displayed.
- *
+ * @note Complexity O(N)
  * */
 
 void CourseManager::showStudentListInClass(const std::string &courseUnit, const std::string& classId, int orderType,int firstN) {
@@ -445,7 +451,7 @@ void CourseManager::showStudentListInClass(const std::string &courseUnit, const 
  * @param orderType An integer representing the order type:
  *                  - 1 for ordering by student ID.
  *                  - 2 for ordering alphabetically by student name.
- *
+ * @note Complexity O(N^2)
  * @return A vector of student IDs in the specified year.
  */
 std::vector<int> CourseManager::getStudentListInYear(int year, int orderType) {
@@ -487,6 +493,7 @@ std::vector<int> CourseManager::getStudentListInYear(int year, int orderType) {
  * @param firstN The maximum number of students to display. Use -1 to display all students.
  *
  * @note The students are sorted in ascending order of their IDs.
+ * @note Complexity O(N)
  */
 
 void CourseManager::showStudentListInYear(int year, int orderType,int firstN){
@@ -516,6 +523,7 @@ void CourseManager::showStudentListInYear(int year, int orderType,int firstN){
  * if each student is registered in the required number of course units (or more).
  *
  * @param n The minimum number of course units a student must be registered in to be counted.
+ * @note Complexity O(N)
  */
 
 void CourseManager::showStudentCountOnNUnits(int n) {
@@ -538,6 +546,7 @@ void CourseManager::showStudentCountOnNUnits(int n) {
  * identifies the top N Unit Courses with the most students, and displays their information.
  *
  * @param firstN The number of top Unit Courses to display. The default value is 5.
+ * @note Complexity O(N)
  */
 
 void CourseManager::showUnitCoursesWithMostStudents(int firstN){
@@ -565,6 +574,8 @@ void CourseManager::showUnitCoursesWithMostStudents(int firstN){
  *
  * @param ucId The unique identifier of the unit course.
  * @param studentId The unique identifier of the student to remove.
+ *
+ * @note Complexity O(1)
  *
  * @return true if the student was successfully removed from the unit course, false otherwise.
  */
@@ -596,6 +607,7 @@ bool CourseManager::removeStudentFromUc(const std::string &ucId, int studentId, 
  * @param classId The unique identifier of the class.
  * @param studentId The unique identifier of the student.
  *
+ * @note Complexity O(1)
  * @return true if the student was successfully added to the unit course and class, false otherwise.
  */
 bool CourseManager::addStudentToUc(const std::string &ucId, const std::string &classId, int studentId, bool isChange, bool saveToChanges) {
@@ -642,6 +654,7 @@ bool CourseManager::addStudentToUc(const std::string &ucId, const std::string &c
  * @param classesA A vector of shared pointers to class periods from the first set.
  * @param classesB A vector of shared pointers to class periods from the second set.
  *
+ * @note Complexity O(N^2)
  * @return true if there is a time overlap between the two sets of class periods, false otherwise.
  */
 bool CourseManager::checkPeriodOverlap(const std::vector<std::shared_ptr<Period>>& classesA,
@@ -665,6 +678,8 @@ bool CourseManager::checkPeriodOverlap(const std::vector<std::shared_ptr<Period>
  * @param ucIdRegistered The UC in which the student is currently enrolled.
  * @param ucIdToRegister The target UC to which the student wants to switch enrollment.
  * @param saveToChanges Set to true to save the operation to the change log; false to skip saving.
+ *
+ * @note Complexity O(1)
  * @return True if the switch was successful, or false if the operation failed.
  */
 bool CourseManager::switchUc(int studentId, const std::string &ucIdRegistered, const std::string &ucIdToRegister, bool saveToChanges) {
@@ -712,6 +727,9 @@ bool CourseManager::switchUc(int studentId, const std::string &ucIdRegistered, c
  *
  * @param newClasses A vector of newly requested class periods.
  * @param classesEnrolled A vector of class periods in which the student is already enrolled.
+ *
+ * @note Complexity O(N^2)
+ *
  * @return True if there is a schedule overlap, indicating that the student cannot be added to the new classes; otherwise, false.
  */
 bool CourseManager::checkScheduleOverlap(const std::vector<std::shared_ptr<Period>>& newClasses, const std::vector<std::shared_ptr<Period>>& classesEnrolled) {
@@ -734,6 +752,7 @@ bool CourseManager::checkScheduleOverlap(const std::vector<std::shared_ptr<Perio
  * @param classRegistered The class from which the student wants to switch (XLEICXX).
  * @param classToRegister The class to which the student wants to switch (XLEICXX).
  * @param saveToChanges Indicates whether to save this switch request to the changes log.
+ * @note Complexity O(N^2)
  * @return True if the class switch is successful, false otherwise.
  */
 bool CourseManager::switchClass(int studentId, const std::string &ucIdRegistered, const std::string &classRegistered, const std::string &classToRegister, bool saveToChanges) {
@@ -775,6 +794,7 @@ bool CourseManager::switchClass(int studentId, const std::string &ucIdRegistered
  * This function retrieves and returns the class schedule for a specific student based on their enrolled UCs and classes. It compiles all the class periods associated with the student's enrolled classes.
  *
  * @param studentId The ID of the student for whom to retrieve the schedule.
+ * @note Complexity O(N^2)
  * @return A vector of shared pointers to the class periods in the student's schedule.
  */
 std::vector<std::shared_ptr<Period>> CourseManager::getStudentSchedule(int studentId) {
@@ -800,6 +820,7 @@ std::vector<std::shared_ptr<Period>> CourseManager::getStudentSchedule(int stude
  * @param studentId_ The ID of the student for whom the request is made.
  * @param adding A pair specifying the UC and class to add (format: {UC ID, Class ID}).
  * @param removing A pair specifying the UC and class to remove (format: {UC ID, Class ID}).
+ * @note Complexity O(1)
  * @return True if the request was successfully added to the queue; false otherwise.
  */
 bool CourseManager::addRequest(short requestType,int studentId_, const std::pair<std::string, std::string>& adding, const std::pair<std::string, std::string>& removing) {
@@ -812,6 +833,7 @@ bool CourseManager::addRequest(short requestType,int studentId_, const std::pair
  * @brief Handle pending requests for student enrollment changes.
  *
  * This function processes pending requests for student enrollment changes. Requests can include adding or removing a student from a class or switching their enrollment between UCs or classes. Each request is processed in the order it was received.
+ * @note Complexity O(N)
  */
 void CourseManager::handleRequests() {
     if(this->requests.empty()){
@@ -850,6 +872,7 @@ void CourseManager::handleRequests() {
  * @param studentName The name of the student.
  * @param ucId The UC ID to which the student is enrolled.
  * @param classId The class ID within the UC to which the student is enrolled.
+ * @note Complexity O(1)
  */
 void CourseManager::saveToDatabase(int studentId, const std::string &studentName, const std::string &ucId, const std::string &classId) {
     // FUNCTION TO ADD A LINE TO THE DATABASE
@@ -865,6 +888,7 @@ void CourseManager::saveToDatabase(int studentId, const std::string &studentName
  *
  * @param studentId The ID of the student to be unenrolled.
  * @param ucId The UC ID from which the student is unenrolled.
+ * @note Complexity O(N)
  */
 void CourseManager::removeFromDatabase(int studentId, const std::string &ucId) {
     std::ifstream in("../data/students_classes.csv");
@@ -902,6 +926,7 @@ void CourseManager::removeFromDatabase(int studentId, const std::string &ucId) {
  * @param orderType An integer specifying the order in which to display the class occupancy:
  *                  - 1 for ascending order (low to high occupancy).
  *                  - 2 for descending order (high to low occupancy).
+ * @note Complexity O(N^2)
  * @return Always returns false since it's a display function.
  */
 
@@ -934,6 +959,7 @@ bool CourseManager::showClassOccupancy(int orderType) {
  * @param orderType An integer specifying the order in which to display the year-based occupancy:
  *                  - 1 for ascending order (low to high student count).
  *                  - 2 for descending order (high to low student count).
+ * @note Complexity O(N^2)
  * @return Always returns false since it's a display function.
  */
 bool CourseManager::showYearOccupancy(int orderType) {
@@ -971,6 +997,7 @@ bool CourseManager::showYearOccupancy(int orderType) {
  * @param orderType An integer specifying the order in which to display the unit-based occupancy:
  *                  - 1 for ascending order (low to high student count).
  *                  - 2 for descending order (high to low student count).
+ * @note Complexity O(N)
  * @return Always returns false since it's a display function.
  */
 bool CourseManager::showUcOccupancy(int orderType) {
@@ -1004,6 +1031,7 @@ bool CourseManager::showUcOccupancy(int orderType) {
  *                     - 4 for switching to a different class within the same academic unit.
  * @param adding A pair representing the academic unit or class being added, formatted as "unitID/classID".
  * @param removing A pair representing the academic unit or class being removed, formatted as "unitID/classID".
+ * @note Complexity O(1)
  */
 void CourseManager::saveToChanges(int studentId, int operationType, const std::pair<std::string, std::string>& adding,const std::pair<std::string, std::string>& removing) const {
     std::ofstream out("../data/changes.csv", std::ios::app);
@@ -1016,6 +1044,7 @@ void CourseManager::saveToChanges(int studentId, int operationType, const std::p
  * This function allows reverting a previously handled course change request by undoing the corresponding operation.
  *
  * @param currentRequest The course change request to be reverted.
+ *
  * @return `true` if the request is successfully reverted, `false` otherwise.
  */
 bool CourseManager::revertRequest(const Request& currentRequest){

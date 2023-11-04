@@ -1,16 +1,155 @@
 \hypertarget{structHour}{}\doxysection{Hour Struct Reference}
 \label{structHour}\index{Hour@{Hour}}
+
+
+Represents a time of day in hours and minutes.  
+
+
+
+
+{\ttfamily \#include $<$Period.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{structHour_a9684c3a72935472577918e62bc372585}{operator$<$}} (const \mbox{\hyperlink{structHour}{Hour}} \&other) const
+\begin{DoxyCompactList}\small\item\em Compare two \mbox{\hyperlink{structHour}{Hour}} objects. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{structHour_a9e1ac7721e0350fef5ca6edb20eb3ba0}{operator$>$}} (const \mbox{\hyperlink{structHour}{Hour}} \&other) const
+\begin{DoxyCompactList}\small\item\em Compare two \mbox{\hyperlink{structHour}{Hour}} objects. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{structHour_a3be57b16fd272f5eb52878346432b88d}{operator$>$=}} (const \mbox{\hyperlink{structHour}{Hour}} \&other) const
+\begin{DoxyCompactList}\small\item\em Compare two \mbox{\hyperlink{structHour}{Hour}} objects. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{structHour_a4b272535f13a1625e6cb231e2b85c3e9}{operator$<$=}} (const \mbox{\hyperlink{structHour}{Hour}} \&other) const
+\begin{DoxyCompactList}\small\item\em Compare two \mbox{\hyperlink{structHour}{Hour}} objects. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{structHour_afd25e19a7210a2acb89e1897dcc1b1b8}{operator==}} (const \mbox{\hyperlink{structHour}{Hour}} \&other) const
+\begin{DoxyCompactList}\small\item\em Compare two \mbox{\hyperlink{structHour}{Hour}} objects for equality. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
+int \mbox{\hyperlink{structHour_ac9509fa4f6fe9d9c6dc5794c2bd634ea}{hour}}
+\begin{DoxyCompactList}\small\item\em The hour component. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structHour_a4bc7fbce117cbe61cc2d50701b50f8d1}{minute}}
+\begin{DoxyCompactList}\small\item\em The minute component. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a time of day in hours and minutes. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structHour_a9684c3a72935472577918e62bc372585}\label{structHour_a9684c3a72935472577918e62bc372585}} 
+\index{Hour@{Hour}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Hour@{Hour}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily bool Hour\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structHour}{Hour}} \&}]{other }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Compare two \mbox{\hyperlink{structHour}{Hour}} objects. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Another \mbox{\hyperlink{structHour}{Hour}} object to compare with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if this \mbox{\hyperlink{structHour}{Hour}} is less than other, otherwise false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{structHour_a4b272535f13a1625e6cb231e2b85c3e9}\label{structHour_a4b272535f13a1625e6cb231e2b85c3e9}} 
+\index{Hour@{Hour}!operator$<$=@{operator$<$=}}
+\index{operator$<$=@{operator$<$=}!Hour@{Hour}}
+\doxysubsubsection{\texorpdfstring{operator$<$=()}{operator<=()}}
+{\footnotesize\ttfamily bool Hour\+::operator$<$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structHour}{Hour}} \&}]{other }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Compare two \mbox{\hyperlink{structHour}{Hour}} objects. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Another \mbox{\hyperlink{structHour}{Hour}} object to compare with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if this \mbox{\hyperlink{structHour}{Hour}} is inferior than or equal to other, otherwise false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{structHour_afd25e19a7210a2acb89e1897dcc1b1b8}\label{structHour_afd25e19a7210a2acb89e1897dcc1b1b8}} 
+\index{Hour@{Hour}!operator==@{operator==}}
+\index{operator==@{operator==}!Hour@{Hour}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Hour\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structHour}{Hour}} \&}]{other }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Compare two \mbox{\hyperlink{structHour}{Hour}} objects for equality. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Another \mbox{\hyperlink{structHour}{Hour}} object to compare with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if this \mbox{\hyperlink{structHour}{Hour}} is equal to other, otherwise false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{structHour_a9e1ac7721e0350fef5ca6edb20eb3ba0}\label{structHour_a9e1ac7721e0350fef5ca6edb20eb3ba0}} 
+\index{Hour@{Hour}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!Hour@{Hour}}
+\doxysubsubsection{\texorpdfstring{operator$>$()}{operator>()}}
+{\footnotesize\ttfamily bool Hour\+::operator$>$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structHour}{Hour}} \&}]{other }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Compare two \mbox{\hyperlink{structHour}{Hour}} objects. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Another \mbox{\hyperlink{structHour}{Hour}} object to compare with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if this \mbox{\hyperlink{structHour}{Hour}} is greater than other, otherwise false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{structHour_a3be57b16fd272f5eb52878346432b88d}\label{structHour_a3be57b16fd272f5eb52878346432b88d}} 
+\index{Hour@{Hour}!operator$>$=@{operator$>$=}}
+\index{operator$>$=@{operator$>$=}!Hour@{Hour}}
+\doxysubsubsection{\texorpdfstring{operator$>$=()}{operator>=()}}
+{\footnotesize\ttfamily bool Hour\+::operator$>$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structHour}{Hour}} \&}]{other }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Compare two \mbox{\hyperlink{structHour}{Hour}} objects. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Another \mbox{\hyperlink{structHour}{Hour}} object to compare with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if this \mbox{\hyperlink{structHour}{Hour}} is greater than or equal to other, otherwise false. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
 \mbox{\Hypertarget{structHour_ac9509fa4f6fe9d9c6dc5794c2bd634ea}\label{structHour_ac9509fa4f6fe9d9c6dc5794c2bd634ea}} 
-int {\bfseries hour}
-\item 
+\index{Hour@{Hour}!hour@{hour}}
+\index{hour@{hour}!Hour@{Hour}}
+\doxysubsubsection{\texorpdfstring{hour}{hour}}
+{\footnotesize\ttfamily int Hour\+::hour}
+
+
+
+The hour component. 
+
 \mbox{\Hypertarget{structHour_a4bc7fbce117cbe61cc2d50701b50f8d1}\label{structHour_a4bc7fbce117cbe61cc2d50701b50f8d1}} 
-int {\bfseries minute}
-\end{DoxyCompactItemize}
+\index{Hour@{Hour}!minute@{minute}}
+\index{minute@{minute}!Hour@{Hour}}
+\doxysubsubsection{\texorpdfstring{minute}{minute}}
+{\footnotesize\ttfamily int Hour\+::minute}
+
+
+
+The minute component. 
+
 
 
 The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-include/Period.\+h\end{DoxyCompactItemize}
+include/\mbox{\hyperlink{Period_8h}{Period.\+h}}\end{DoxyCompactItemize}

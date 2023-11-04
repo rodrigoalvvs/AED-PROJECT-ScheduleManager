@@ -69,7 +69,7 @@ $(function() {
 <div class="title">Student.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
+<a href="Student_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Created by admin1 on 14-10-2023.</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
@@ -79,47 +79,60 @@ $(function() {
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;CourseClass.h&quot;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;CourseUnit.h&quot;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">class </span><a class="code" href="classCourseClass.html">CourseClass</a>;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classStudent.html">   16</a></span>&#160;<span class="keyword">class </span><a class="code" href="classStudent.html">Student</a> {</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="comment">// Student name</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    std::string name;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="comment">// Student id</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">int</span> identifier;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="CourseClass_8h.html">CourseClass.h</a>&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="CourseUnit_8h.html">CourseUnit.h</a>&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">class </span><a class="code" href="classCourseClass.html">CourseClass</a>;</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classStudent.html">   18</a></span>&#160;<span class="keyword">class </span><a class="code" href="classStudent.html">Student</a> {</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classStudent.html#a9aeb48a925f370292564def17482f0ec">   20</a></span>&#160;    std::string <a class="code" href="classStudent.html#a9aeb48a925f370292564def17482f0ec">name</a>; </div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="classStudent.html#a3b4d80b9501c9969074409069518188e">   21</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classStudent.html#a3b4d80b9501c9969074409069518188e">identifier</a>;  </div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classStudent.html#a35818ed2a0f05ce3728f406841718291">   22</a></span>&#160;    std::unordered_map&lt;std::string, std::string&gt; <a class="code" href="classStudent.html#a35818ed2a0f05ce3728f406841718291">classesRegistered</a>; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="comment">// unordered_map with &lt;&quot;ucID&quot;, &quot;classId&quot;&gt;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    std::unordered_map&lt;std::string, std::string&gt; classesRegistered;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="comment">// Constructors and destructors</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="classStudent.html">Student</a>(<span class="keyword">const</span> std::string&amp; name_, <span class="keywordtype">int</span> id_);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="comment">// Class accessers and getters</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">const</span> std::string&amp; getName() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">int</span> getId() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">int</span> getNumberOfClassesRegistered() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="comment">// Constructors and destructors</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="classStudent.html#ad6cc11ee3371c408dfcb037d35dbfef5">Student</a>(<span class="keyword">const</span> std::string&amp; name_, <span class="keywordtype">int</span> id_);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="comment">// Class accessers and getters</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">const</span> std::string&amp; <a class="code" href="classStudent.html#acc849acfcbd423f589b643653dd98630">getName</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classStudent.html#a10a87a766d0de17564c9a958fa10b7d8">getId</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classStudent.html#aec9aff17d7d3ed5c517708a615335237">getNumberOfClassesRegistered</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classStudent.html#a650b4f46b719b61ade7613c959e758b1">setStudentName</a>(<span class="keyword">const</span> std::string&amp; name_);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classStudent.html#ab2396dea564a1ba152c8010e1aec7f66">setStudentId</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">void</span> setStudentName(<span class="keyword">const</span> std::string&amp; name_);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">void</span> setStudentId(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="comment">// Class methods</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">void</span> addClass(<span class="keyword">const</span> std::string&amp; ucCode, <span class="keyword">const</span> std::string&amp; classCode);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    std::vector&lt;std::string&gt; getUnitCourses();</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">const</span> std::string&amp; getClass(<span class="keyword">const</span> std::string&amp; unitCourse);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="comment">// Class methods</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classStudent.html#a6fe983a18e5da92886e7c66d5b57be2a">addClass</a>(<span class="keyword">const</span> std::string&amp; ucCode, <span class="keyword">const</span> std::string&amp; classCode);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    std::vector&lt;std::string&gt; <a class="code" href="classStudent.html#a425397e94f682dd28b0dac1cb4c53156">getUnitCourses</a>();</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">const</span> std::string&amp; <a class="code" href="classStudent.html#adaf1046680199dd646d29f7eb731afc6">getClass</a>(<span class="keyword">const</span> std::string&amp; unitCourse);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classStudent.html#a2ac51e196f0689227b99a90588cbeb96">removeClass</a>(<span class="keyword">const</span> std::string&amp; ucId);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    std::shared_ptr&lt;std::unordered_map&lt;std::string, std::string&gt;&gt; <a class="code" href="classStudent.html#aff9c85351f157ea71b0587f749333ad6">getClasses</a>();</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classStudent.html#a55f1076d55c8039a4e3bc7d57c23d4fa">checkEnrollment</a>(<span class="keyword">const</span> std::string&amp; ucId) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;};</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//AED_PROJ_STUDENT_H</span></div>
-<div class="ttc" id="aclassCourseClass_html"><div class="ttname"><a href="classCourseClass.html">CourseClass</a></div><div class="ttdef"><b>Definition:</b> CourseClass.h:15</div></div>
-<div class="ttc" id="aclassStudent_html"><div class="ttname"><a href="classStudent.html">Student</a></div><div class="ttdef"><b>Definition:</b> Student.h:16</div></div>
+<div class="ttc" id="aCourseClass_8h_html"><div class="ttname"><a href="CourseClass_8h.html">CourseClass.h</a></div></div>
+<div class="ttc" id="aCourseUnit_8h_html"><div class="ttname"><a href="CourseUnit_8h.html">CourseUnit.h</a></div></div>
+<div class="ttc" id="aclassCourseClass_html"><div class="ttname"><a href="classCourseClass.html">CourseClass</a></div><div class="ttdoc">Represents a class within a course unit.</div><div class="ttdef"><b>Definition:</b> CourseClass.h:21</div></div>
+<div class="ttc" id="aclassStudent_html"><div class="ttname"><a href="classStudent.html">Student</a></div><div class="ttdoc">Represents a student with associated course registrations.</div><div class="ttdef"><b>Definition:</b> Student.h:18</div></div>
+<div class="ttc" id="aclassStudent_html_a10a87a766d0de17564c9a958fa10b7d8"><div class="ttname"><a href="classStudent.html#a10a87a766d0de17564c9a958fa10b7d8">Student::getId</a></div><div class="ttdeci">int getId() const</div><div class="ttdoc">Get the unique identifier (ID) of the student.</div><div class="ttdef"><b>Definition:</b> Student.cpp:87</div></div>
+<div class="ttc" id="aclassStudent_html_a2ac51e196f0689227b99a90588cbeb96"><div class="ttname"><a href="classStudent.html#a2ac51e196f0689227b99a90588cbeb96">Student::removeClass</a></div><div class="ttdeci">void removeClass(const std::string &amp;ucId)</div><div class="ttdoc">Remove a unit course from the student's registered courses.</div><div class="ttdef"><b>Definition:</b> Student.cpp:131</div></div>
+<div class="ttc" id="aclassStudent_html_a35818ed2a0f05ce3728f406841718291"><div class="ttname"><a href="classStudent.html#a35818ed2a0f05ce3728f406841718291">Student::classesRegistered</a></div><div class="ttdeci">std::unordered_map&lt; std::string, std::string &gt; classesRegistered</div><div class="ttdoc">A map of unit course IDs to class IDs.</div><div class="ttdef"><b>Definition:</b> Student.h:22</div></div>
+<div class="ttc" id="aclassStudent_html_a3b4d80b9501c9969074409069518188e"><div class="ttname"><a href="classStudent.html#a3b4d80b9501c9969074409069518188e">Student::identifier</a></div><div class="ttdeci">int identifier</div><div class="ttdoc">The unique identifier (ID) of the student.</div><div class="ttdef"><b>Definition:</b> Student.h:21</div></div>
+<div class="ttc" id="aclassStudent_html_a425397e94f682dd28b0dac1cb4c53156"><div class="ttname"><a href="classStudent.html#a425397e94f682dd28b0dac1cb4c53156">Student::getUnitCourses</a></div><div class="ttdeci">std::vector&lt; std::string &gt; getUnitCourses()</div><div class="ttdoc">Get a list of unit course codes in which the student is enrolled.</div><div class="ttdef"><b>Definition:</b> Student.cpp:71</div></div>
+<div class="ttc" id="aclassStudent_html_a55f1076d55c8039a4e3bc7d57c23d4fa"><div class="ttname"><a href="classStudent.html#a55f1076d55c8039a4e3bc7d57c23d4fa">Student::checkEnrollment</a></div><div class="ttdeci">bool checkEnrollment(const std::string &amp;ucId) const</div><div class="ttdoc">Check if the student is enrolled in a specific unit course (UC).</div><div class="ttdef"><b>Definition:</b> Student.cpp:156</div></div>
+<div class="ttc" id="aclassStudent_html_a650b4f46b719b61ade7613c959e758b1"><div class="ttname"><a href="classStudent.html#a650b4f46b719b61ade7613c959e758b1">Student::setStudentName</a></div><div class="ttdeci">void setStudentName(const std::string &amp;name_)</div><div class="ttdoc">Set the name of the student.</div><div class="ttdef"><b>Definition:</b> Student.cpp:109</div></div>
+<div class="ttc" id="aclassStudent_html_a6fe983a18e5da92886e7c66d5b57be2a"><div class="ttname"><a href="classStudent.html#a6fe983a18e5da92886e7c66d5b57be2a">Student::addClass</a></div><div class="ttdeci">bool addClass(const std::string &amp;ucCode, const std::string &amp;classCode)</div><div class="ttdoc">Register the student in a class within a specific course unit.</div><div class="ttdef"><b>Definition:</b> Student.cpp:32</div></div>
+<div class="ttc" id="aclassStudent_html_a9aeb48a925f370292564def17482f0ec"><div class="ttname"><a href="classStudent.html#a9aeb48a925f370292564def17482f0ec">Student::name</a></div><div class="ttdeci">std::string name</div><div class="ttdoc">The name of the student.</div><div class="ttdef"><b>Definition:</b> Student.h:20</div></div>
+<div class="ttc" id="aclassStudent_html_ab2396dea564a1ba152c8010e1aec7f66"><div class="ttname"><a href="classStudent.html#ab2396dea564a1ba152c8010e1aec7f66">Student::setStudentId</a></div><div class="ttdeci">void setStudentId(int id)</div><div class="ttdoc">Set the ID of the student.</div><div class="ttdef"><b>Definition:</b> Student.cpp:120</div></div>
+<div class="ttc" id="aclassStudent_html_acc849acfcbd423f589b643653dd98630"><div class="ttname"><a href="classStudent.html#acc849acfcbd423f589b643653dd98630">Student::getName</a></div><div class="ttdeci">const std::string &amp; getName() const</div><div class="ttdoc">Get the name of the student.</div><div class="ttdef"><b>Definition:</b> Student.cpp:48</div></div>
+<div class="ttc" id="aclassStudent_html_ad6cc11ee3371c408dfcb037d35dbfef5"><div class="ttname"><a href="classStudent.html#ad6cc11ee3371c408dfcb037d35dbfef5">Student::Student</a></div><div class="ttdeci">Student(const std::string &amp;name_, int id_)</div><div class="ttdoc">Construct a new Student object.</div><div class="ttdef"><b>Definition:</b> Student.cpp:16</div></div>
+<div class="ttc" id="aclassStudent_html_adaf1046680199dd646d29f7eb731afc6"><div class="ttname"><a href="classStudent.html#adaf1046680199dd646d29f7eb731afc6">Student::getClass</a></div><div class="ttdeci">const std::string &amp; getClass(const std::string &amp;unitCourse)</div><div class="ttdoc">Get the class code of the student in a specific unit course.</div><div class="ttdef"><b>Definition:</b> Student.cpp:60</div></div>
+<div class="ttc" id="aclassStudent_html_aec9aff17d7d3ed5c517708a615335237"><div class="ttname"><a href="classStudent.html#aec9aff17d7d3ed5c517708a615335237">Student::getNumberOfClassesRegistered</a></div><div class="ttdeci">int getNumberOfClassesRegistered() const</div><div class="ttdoc">Get the number of classes (unit courses) registered by the student.</div><div class="ttdef"><b>Definition:</b> Student.cpp:98</div></div>
+<div class="ttc" id="aclassStudent_html_aff9c85351f157ea71b0587f749333ad6"><div class="ttname"><a href="classStudent.html#aff9c85351f157ea71b0587f749333ad6">Student::getClasses</a></div><div class="ttdeci">std::shared_ptr&lt; std::unordered_map&lt; std::string, std::string &gt; &gt; getClasses()</div><div class="ttdoc">Get a shared pointer to the list of unit courses and their associated classes.</div><div class="ttdef"><b>Definition:</b> Student.cpp:144</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

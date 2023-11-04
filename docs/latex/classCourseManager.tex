@@ -1,34 +1,97 @@
 \hypertarget{classCourseManager}{}\doxysection{Course\+Manager Class Reference}
 \label{classCourseManager}\index{CourseManager@{CourseManager}}
+
+
+Manages course units, students, and requests for course changes.  
+
+
+
+
+{\ttfamily \#include $<$Course\+Manager.\+h$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classCourseManager_afba31bde00e392e28062c978c74a32f6}{Course\+Manager}} ()
 \item 
 void \mbox{\hyperlink{classCourseManager_a73549432695f27d99670118cbb3a1ea6}{get\+Classes}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Read and parse class data from a CSV file and add class periods to \mbox{\hyperlink{classCourseClass}{Course\+Class}} objects. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classCourseManager_aeaad5b7b50fa47ca2766d0452dca3ecd}{get\+Students\+Classes}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Read and parse student-\/class enrollment data from a CSV file and associate students with their enrolled classes. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classCourseManager_a376acc99ef5ac456ce54fa437f7bac9a}{get\+Classes\+Per\+Uc}} ()
-\item 
-\mbox{\Hypertarget{classCourseManager_ab2b06918934f8b7e89a4c7508dc2a134}\label{classCourseManager_ab2b06918934f8b7e89a4c7508dc2a134}} 
-void {\bfseries show\+Student\+Schedule} (int id)
-\item 
+\begin{DoxyCompactList}\small\item\em Read and parse class-\/per-\/course-\/unit data from a CSV file and create Course\+Units with associated classes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCourseManager_ab2b06918934f8b7e89a4c7508dc2a134}{show\+Student\+Schedule}} (int id)
+\begin{DoxyCompactList}\small\item\em Display the class schedule for a specific student. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classCourseManager_a03637079f0e780a9b0e11d6d8f10071b}{show\+Class\+Schedule}} (const std\+::string \&uc\+Id, const std\+::string \&class\+Id)
-\begin{DoxyCompactList}\small\item\em Display the schedule for a specific class in a course unit. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classCourseManager_a0ac7213c679d0796c6c47ac02acf832b}{print\+Schedule}} (std\+::unordered\+\_\+map$<$ std\+::string, std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classPeriod}{Period}} $>$$>$$>$ schedule)
-\begin{DoxyCompactList}\small\item\em Print the schedule of course periods for each weekday. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classCourseManager_a11358fd1dbfd411bbfefc2077ef7ed79}{show\+Student\+List\+In\+Course}} (const std\+::string \&courstse\+Unit, int firstN=-\/1)
+\begin{DoxyCompactList}\small\item\em Display the class schedule for a specific course unit and class. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classPeriod}{Period}} $>$ $>$ \mbox{\hyperlink{classCourseManager_a80e5132a5f1032ee1281b5362ae7daea}{get\+Student\+Schedule}} (int student\+Id)
+\begin{DoxyCompactList}\small\item\em Get the schedule of a specific student. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCourseManager_a9d7d8b7e38f7ba44184f4567f7e1b6ef}{show\+Student\+List\+In\+Course}} (const std\+::string \&course\+Unit, int order\+Type, int firstN=-\/1)
 \begin{DoxyCompactList}\small\item\em Show a list of students registered in a specific course unit. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classCourseManager_a6bb2bb61152dca231ac6bd4e779bc0a7}{show\+Student\+List\+In\+Class}} (const std\+::string \&course\+Unit, const std\+::string \&class\+Id)
-\begin{DoxyCompactList}\small\item\em Show a list of students registered in a specific class of a course unit. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classCourseManager_a06b268a8e72dc5b2895982718cd98f9a}{show\+Student\+List\+In\+Year}} (int year, int firstN=-\/1)
+void \mbox{\hyperlink{classCourseManager_a1dd460ed9b42a2f62dde26bbb292a165}{show\+Student\+List\+In\+Class}} (const std\+::string \&course\+Unit, const std\+::string \&class\+Id, int order\+Type, int firstN=-\/1)
+\begin{DoxyCompactList}\small\item\em Show a list of students in a specific class of a course unit. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCourseManager_a52cbcff6eeb34ba4d7d42f7c34d1d8bf}{show\+Student\+List\+In\+Year}} (int year, int order\+Type, int firstN=-\/1)
 \begin{DoxyCompactList}\small\item\em Show a list of students registered in a specific year. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classCourseManager_af4df7a608215bcfb3c23dd4e96e5dc0e}{show\+Unit\+Courses\+With\+Most\+Students}} (int firstN=5)
-\begin{DoxyCompactList}\small\item\em Display a list of Unit Courses with the most students. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCourseManager_a1b23cac16f8c98398130b2c683f72bbd}{order\+Students\+Vector}} (std\+::shared\+\_\+ptr$<$ std\+::vector$<$ int $>$$>$ students\+Id, int order\+Type)
+\begin{DoxyCompactList}\small\item\em Order a vector of student IDs based on the specified order type. \end{DoxyCompactList}\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{classCourseManager_a5746660dd37be12f55736706b66dc2bd}{get\+Student\+List\+In\+Year}} (int year, int order\+Type)
+\begin{DoxyCompactList}\small\item\em Get a list of student IDs enrolled in units of a specific year. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classCourseManager_aface14383a421ce45fd46ac95b396416}{show\+Student\+Count\+On\+NUnits}} (int n)
-\begin{DoxyCompactList}\small\item\em Count the number of students registered in at least a specified number of course units. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Count the number of students registered in at least a specified number of course units. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCourseManager_a429a0e33da427c3c4d9bfa7dd6a0277d}{show\+Unit\+Courses\+With\+Most\+Students}} (int firstN=-\/1)
+\begin{DoxyCompactList}\small\item\em Display a list of Unit Courses with the most students. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCourseManager_a403881c3ca23cf9bcd03abd5193360f7}{handle\+Requests}} ()
+\begin{DoxyCompactList}\small\item\em Handle pending requests for student enrollment changes. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCourseManager_aa5e017b7aa1dc6a8227268f843fd6eaa}{add\+Request}} (short request\+Type, int student\+Id\+\_\+, const std\+::pair$<$ std\+::string, std\+::string $>$ \&adding, const std\+::pair$<$ std\+::string, std\+::string $>$ \&removing)
+\begin{DoxyCompactList}\small\item\em Add a request to the queue for processing. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCourseManager_a1e5591f8683dfce9db5f9faadb6d5e0e}{remove\+Student\+From\+Uc}} (const std\+::string \&uc\+Id, int student\+Id, bool \mbox{\hyperlink{classCourseManager_a928cc9c81d7c5ab629cf4477d5b5980b}{save\+To\+Changes}}=true)
+\begin{DoxyCompactList}\small\item\em Removes a student from a specific unit course. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCourseManager_a83285b508d24b4bb9befe2808ceb768d}{add\+Student\+To\+Uc}} (const std\+::string \&uc\+Id, const std\+::string \&class\+Id, int student\+Id, bool is\+Change=false, bool \mbox{\hyperlink{classCourseManager_a928cc9c81d7c5ab629cf4477d5b5980b}{save\+To\+Changes}}=true)
+\begin{DoxyCompactList}\small\item\em Adds a student to a specific unit course and class. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCourseManager_a4810b194a457a5221b5605b38c5b6230}{switch\+Uc}} (int student\+Id, const std\+::string \&uc\+Id\+Registered, const std\+::string \&uc\+Id\+To\+Register, bool \mbox{\hyperlink{classCourseManager_a928cc9c81d7c5ab629cf4477d5b5980b}{save\+To\+Changes}}=true)
+\begin{DoxyCompactList}\small\item\em Switch a student\textquotesingle{}s enrollment from one UC to another. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCourseManager_a94fe328afc936209d92a3fc066b756c0}{switch\+Class}} (int student\+Id, const std\+::string \&uc\+Id\+Registered, const std\+::string \&class\+Registered, const std\+::string \&class\+To\+Register, bool \mbox{\hyperlink{classCourseManager_a928cc9c81d7c5ab629cf4477d5b5980b}{save\+To\+Changes}}=true)
+\begin{DoxyCompactList}\small\item\em Switch a student\textquotesingle{}s class within the same UC. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCourseManager_a1eee5846a8f27ad91ff39915476ced8a}{save\+To\+Database}} (int student\+Id, const std\+::string \&student\+Name, const std\+::string \&uc\+Id, const std\+::string \&class\+Id)
+\begin{DoxyCompactList}\small\item\em Save student enrollment information to the database. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCourseManager_ab03c2dc997b38e32a2f7593173e62021}{remove\+From\+Database}} (int student\+Id, const std\+::string \&uc\+Id)
+\begin{DoxyCompactList}\small\item\em Remove student enrollment information from the database. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCourseManager_aff354c653d3812e14bde90991be13f18}{show\+Class\+Occupancy}} (int)
+\begin{DoxyCompactList}\small\item\em Display class occupancy information. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCourseManager_ae7811ae6dbb532ec083ec496c1f2dcde}{show\+Year\+Occupancy}} (int)
+\begin{DoxyCompactList}\small\item\em Display year-\/based student occupancy information. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCourseManager_aeca46b3d2eb0a55f899827489028ffd8}{show\+Uc\+Occupancy}} (int)
+\begin{DoxyCompactList}\small\item\em Display unit-\/based student occupancy information. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCourseManager_a928cc9c81d7c5ab629cf4477d5b5980b}{save\+To\+Changes}} (int student\+Id, int operation\+Type, const std\+::pair$<$ std\+::string, std\+::string $>$ \&adding, const std\+::pair$<$ std\+::string, std\+::string $>$ \&removing) const
+\begin{DoxyCompactList}\small\item\em Save course changes to the changes log. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCourseManager_adbe60d0d8f97b42ee0e930aca5f61383}{revert\+Changes}} ()
+\begin{DoxyCompactList}\small\item\em Revert all changes made to the course according to the change history. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCourseManager_a5443736d7902432bbdf60c5408c90fd3}{revert\+Request}} (const \mbox{\hyperlink{classRequest}{Request}} \&current\+Request)
+\begin{DoxyCompactList}\small\item\em Revert a previously handled course change request. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{classCourseManager_a19c19918f072119e4ec0488affd0d0d6}{check\+Period\+Overlap}} (const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classPeriod}{Period}} $>$$>$ \&classesA, const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classPeriod}{Period}} $>$$>$ \&classesB)
+\begin{DoxyCompactList}\small\item\em Checks for time overlap between two sets of class periods. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classCourseManager_a3b9f3f16f96004a19d232fee7e2ac9b1}{check\+Schedule\+Overlap}} (const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classPeriod}{Period}} $>$$>$ \&new\+Classes, const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classPeriod}{Period}} $>$$>$ \&classes\+Enrolled)
+\begin{DoxyCompactList}\small\item\em Check for schedule overlap between new and enrolled classes. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classCourseManager_a0ac7213c679d0796c6c47ac02acf832b}{print\+Schedule}} (std\+::unordered\+\_\+map$<$ std\+::string, std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classPeriod}{Period}} $>$$>$$>$ schedule)
+\begin{DoxyCompactList}\small\item\em Display the class schedule for a specific day of the week. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unordered\+\_\+map$<$ std\+::string, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCourseUnit}{Course\+Unit}} $>$ $>$ \mbox{\hyperlink{classCourseManager_ad971f7e29b08529a7244195ffbf3ca96}{units}}
+\begin{DoxyCompactList}\small\item\em Map of unit codes to unit objects. \end{DoxyCompactList}\item 
+std\+::unordered\+\_\+map$<$ int, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classStudent}{Student}} $>$ $>$ \mbox{\hyperlink{classCourseManager_a8bc9c0f817c8883aefc9fa671de3066f}{students}}
+\begin{DoxyCompactList}\small\item\em Map of student IDs to student objects. \end{DoxyCompactList}\item 
+std\+::queue$<$ \mbox{\hyperlink{classRequest}{Request}} $>$ \mbox{\hyperlink{classCourseManager_a22c5b564da3b7231814d71bf8f2270eb}{requests}}
+\begin{DoxyCompactList}\small\item\em Queue for pending course change requests. \end{DoxyCompactList}\item 
+std\+::stack$<$ \mbox{\hyperlink{classRequest}{Request}} $>$ \mbox{\hyperlink{classCourseManager_a232cd5472376384a6acee7ca7401c4db}{history}}
+\begin{DoxyCompactList}\small\item\em Stack for storing the history of processed requests. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Manages course units, students, and requests for course changes. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classCourseManager_afba31bde00e392e28062c978c74a32f6}\label{classCourseManager_afba31bde00e392e28062c978c74a32f6}} 
@@ -40,14 +103,141 @@ void \mbox{\hyperlink{classCourseManager_aface14383a421ce45fd46ac95b396416}{show
 This is the constructor that handles all information on the system. 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCourseManager_aa5e017b7aa1dc6a8227268f843fd6eaa}\label{classCourseManager_aa5e017b7aa1dc6a8227268f843fd6eaa}} 
+\index{CourseManager@{CourseManager}!addRequest@{addRequest}}
+\index{addRequest@{addRequest}!CourseManager@{CourseManager}}
+\doxysubsubsection{\texorpdfstring{addRequest()}{addRequest()}}
+{\footnotesize\ttfamily bool Course\+Manager\+::add\+Request (\begin{DoxyParamCaption}\item[{short}]{request\+Type,  }\item[{int}]{student\+Id\+\_\+,  }\item[{const std\+::pair$<$ std\+::string, std\+::string $>$ \&}]{adding,  }\item[{const std\+::pair$<$ std\+::string, std\+::string $>$ \&}]{removing }\end{DoxyParamCaption})}
+
+
+
+Add a request to the queue for processing. 
+
+This function adds a request to the queue for processing. Requests are used to change a student\textquotesingle{}s enrollment status in UCs and classes. Each request includes the student\textquotesingle{}s ID, the type of request, and details about the changes to their enrollment.
+
+
+\begin{DoxyParams}{Parameters}
+{\em request\+Type} & The type of the request (1 for add class, 2 for remove class, 3 for change UC, 4 for change class). \\
+\hline
+{\em student\+Id\+\_\+} & The ID of the student for whom the request is made. \\
+\hline
+{\em adding} & A pair specifying the UC and class to add (format\+: \{UC ID, Class ID\}). \\
+\hline
+{\em removing} & A pair specifying the UC and class to remove (format\+: \{UC ID, Class ID\}). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Complexity O(1) 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+True if the request was successfully added to the queue; false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCourseManager_a83285b508d24b4bb9befe2808ceb768d}\label{classCourseManager_a83285b508d24b4bb9befe2808ceb768d}} 
+\index{CourseManager@{CourseManager}!addStudentToUc@{addStudentToUc}}
+\index{addStudentToUc@{addStudentToUc}!CourseManager@{CourseManager}}
+\doxysubsubsection{\texorpdfstring{addStudentToUc()}{addStudentToUc()}}
+{\footnotesize\ttfamily bool Course\+Manager\+::add\+Student\+To\+Uc (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{uc\+Id,  }\item[{const std\+::string \&}]{class\+Id,  }\item[{int}]{student\+Id,  }\item[{bool}]{is\+Change = {\ttfamily false},  }\item[{bool}]{save\+To\+Changes = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+Adds a student to a specific unit course and class. 
+
+This function adds a student to a unit course and class, provided that the student is not already enrolled in the unit course and there is no time overlap between the new class and the student\textquotesingle{}s existing classes.
+
+
+\begin{DoxyParams}{Parameters}
+{\em uc\+Id} & The unique identifier of the unit course. \\
+\hline
+{\em class\+Id} & The unique identifier of the class. \\
+\hline
+{\em student\+Id} & The unique identifier of the student.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Complexity O(1) 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+true if the student was successfully added to the unit course and class, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCourseManager_a19c19918f072119e4ec0488affd0d0d6}\label{classCourseManager_a19c19918f072119e4ec0488affd0d0d6}} 
+\index{CourseManager@{CourseManager}!checkPeriodOverlap@{checkPeriodOverlap}}
+\index{checkPeriodOverlap@{checkPeriodOverlap}!CourseManager@{CourseManager}}
+\doxysubsubsection{\texorpdfstring{checkPeriodOverlap()}{checkPeriodOverlap()}}
+{\footnotesize\ttfamily bool Course\+Manager\+::check\+Period\+Overlap (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classPeriod}{Period}} $>$$>$ \&}]{classesA,  }\item[{const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classPeriod}{Period}} $>$$>$ \&}]{classesB }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Checks for time overlap between two sets of class periods. 
+
+This function checks for time overlap between two sets of class periods (classesA and classesB).
+
+
+\begin{DoxyParams}{Parameters}
+{\em classesA} & A vector of shared pointers to class periods from the first set. \\
+\hline
+{\em classesB} & A vector of shared pointers to class periods from the second set.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Complexity O(\+N$^\wedge$2) 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+true if there is a time overlap between the two sets of class periods, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCourseManager_a3b9f3f16f96004a19d232fee7e2ac9b1}\label{classCourseManager_a3b9f3f16f96004a19d232fee7e2ac9b1}} 
+\index{CourseManager@{CourseManager}!checkScheduleOverlap@{checkScheduleOverlap}}
+\index{checkScheduleOverlap@{checkScheduleOverlap}!CourseManager@{CourseManager}}
+\doxysubsubsection{\texorpdfstring{checkScheduleOverlap()}{checkScheduleOverlap()}}
+{\footnotesize\ttfamily bool Course\+Manager\+::check\+Schedule\+Overlap (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classPeriod}{Period}} $>$$>$ \&}]{new\+Classes,  }\item[{const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classPeriod}{Period}} $>$$>$ \&}]{classes\+Enrolled }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Check for schedule overlap between new and enrolled classes. 
+
+This function checks if there is a schedule overlap between a student\textquotesingle{}s newly requested classes (new\+Classes) and their already enrolled classes (classes\+Enrolled).
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Classes} & A vector of newly requested class periods. \\
+\hline
+{\em classes\+Enrolled} & A vector of class periods in which the student is already enrolled.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Complexity O(\+N$^\wedge$2)
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+True if there is a schedule overlap, indicating that the student cannot be added to the new classes; otherwise, false. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classCourseManager_a73549432695f27d99670118cbb3a1ea6}\label{classCourseManager_a73549432695f27d99670118cbb3a1ea6}} 
 \index{CourseManager@{CourseManager}!getClasses@{getClasses}}
 \index{getClasses@{getClasses}!CourseManager@{CourseManager}}
 \doxysubsubsection{\texorpdfstring{getClasses()}{getClasses()}}
 {\footnotesize\ttfamily void Course\+Manager\+::get\+Classes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-This is a function that gets information about course classes from a file. \begin{DoxyReturn}{Returns}
-void. 
+
+
+Read and parse class data from a CSV file and add class periods to \mbox{\hyperlink{classCourseClass}{Course\+Class}} objects. 
+
+This function reads class data from a CSV file, parses the data, and associates class periods with \mbox{\hyperlink{classCourseClass}{Course\+Class}} objects.
+
+\begin{DoxyNote}{Note}
+The CSV file is expected to have the following format\+: class\+Id, unit\+Id, week\+Day, start\+Hour, duration, type where\+:
+\begin{DoxyItemize}
+\item class\+Id is the unique identifier of the class.
+\item unit\+Id is the unique identifier of the course unit to which the class belongs.
+\item week\+Day is the day of the week on which the class period occurs.
+\item start\+Hour is the start hour of the class period.
+\item duration is the duration of the class period.
+\item type is the type of the class period (e.\+g., T, TP, PL).
+\end{DoxyItemize}
+
+The function assumes that the CSV file is properly formatted, with comma-\/separated values for each class. Lines that are not comma-\/separated or contain additional literals are ignored. 
+
+Complexity O(\+N) 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+None. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classCourseManager_a376acc99ef5ac456ce54fa437f7bac9a}\label{classCourseManager_a376acc99ef5ac456ce54fa437f7bac9a}} 
 \index{CourseManager@{CourseManager}!getClassesPerUc@{getClassesPerUc}}
@@ -55,8 +245,77 @@ void.
 \doxysubsubsection{\texorpdfstring{getClassesPerUc()}{getClassesPerUc()}}
 {\footnotesize\ttfamily void Course\+Manager\+::get\+Classes\+Per\+Uc (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-This is a function that gets the list of classes per course unit. \begin{DoxyReturn}{Returns}
-void. 
+
+
+Read and parse class-\/per-\/course-\/unit data from a CSV file and create Course\+Units with associated classes. 
+
+This function reads data from a CSV file containing class-\/per-\/course-\/unit information, parses the data, and creates \mbox{\hyperlink{classCourseUnit}{Course\+Unit}} objects with associated classes.
+
+\begin{DoxyNote}{Note}
+The CSV file is expected to have the following format\+: unit\+Id, class\+Id where\+:
+\begin{DoxyItemize}
+\item unit\+Id is the unique identifier of the course unit.
+\item class\+Id is the unique identifier of the class associated with the course unit.
+\end{DoxyItemize}
+
+The function assumes that the CSV file is properly formatted with comma-\/separated values for each entry. Lines that are not comma-\/separated or contain additional literals are ignored. 
+
+Complexity O(\+N) 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+None. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCourseManager_a5746660dd37be12f55736706b66dc2bd}\label{classCourseManager_a5746660dd37be12f55736706b66dc2bd}} 
+\index{CourseManager@{CourseManager}!getStudentListInYear@{getStudentListInYear}}
+\index{getStudentListInYear@{getStudentListInYear}!CourseManager@{CourseManager}}
+\doxysubsubsection{\texorpdfstring{getStudentListInYear()}{getStudentListInYear()}}
+{\footnotesize\ttfamily std\+::vector$<$ int $>$ Course\+Manager\+::get\+Student\+List\+In\+Year (\begin{DoxyParamCaption}\item[{int}]{year,  }\item[{int}]{order\+Type }\end{DoxyParamCaption})}
+
+
+
+Get a list of student IDs enrolled in units of a specific year. 
+
+This function retrieves a list of student IDs who are enrolled in course units of a specified year. The list can be ordered either by student ID or alphabetically by student name based on the order type.
+
+
+\begin{DoxyParams}{Parameters}
+{\em year} & The year for which to retrieve the student list. \\
+\hline
+{\em order\+Type} & An integer representing the order type\+:
+\begin{DoxyItemize}
+\item 1 for ordering by student ID.
+\item 2 for ordering alphabetically by student name. 
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Complexity O(\+N$^\wedge$2) 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+A vector of student IDs in the specified year. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCourseManager_a80e5132a5f1032ee1281b5362ae7daea}\label{classCourseManager_a80e5132a5f1032ee1281b5362ae7daea}} 
+\index{CourseManager@{CourseManager}!getStudentSchedule@{getStudentSchedule}}
+\index{getStudentSchedule@{getStudentSchedule}!CourseManager@{CourseManager}}
+\doxysubsubsection{\texorpdfstring{getStudentSchedule()}{getStudentSchedule()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classPeriod}{Period}} $>$ $>$ Course\+Manager\+::get\+Student\+Schedule (\begin{DoxyParamCaption}\item[{int}]{student\+Id }\end{DoxyParamCaption})}
+
+
+
+Get the schedule of a specific student. 
+
+This function retrieves and returns the class schedule for a specific student based on their enrolled UCs and classes. It compiles all the class periods associated with the student\textquotesingle{}s enrolled classes.
+
+
+\begin{DoxyParams}{Parameters}
+{\em student\+Id} & The ID of the student for whom to retrieve the schedule. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Complexity O(\+N$^\wedge$2) 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+A vector of shared pointers to the class periods in the student\textquotesingle{}s schedule. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classCourseManager_aeaad5b7b50fa47ca2766d0452dca3ecd}\label{classCourseManager_aeaad5b7b50fa47ca2766d0452dca3ecd}} 
 \index{CourseManager@{CourseManager}!getStudentsClasses@{getStudentsClasses}}
@@ -64,26 +323,252 @@ void.
 \doxysubsubsection{\texorpdfstring{getStudentsClasses()}{getStudentsClasses()}}
 {\footnotesize\ttfamily void Course\+Manager\+::get\+Students\+Classes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-This is a function that gets information about the student\textquotesingle{}s classes. \begin{DoxyReturn}{Returns}
-void. 
+
+
+Read and parse student-\/class enrollment data from a CSV file and associate students with their enrolled classes. 
+
+This function reads data from a CSV file containing student-\/class enrollment information, parses the data, and associates students with their enrolled classes.
+
+\begin{DoxyNote}{Note}
+The CSV file is expected to have the following format\+: student\+Id, student\+Name, unit\+Id, class\+Id where\+:
+\begin{DoxyItemize}
+\item student\+Id is the unique identifier of the student.
+\item student\+Name is the name of the student.
+\item unit\+Id is the unique identifier of the course unit to which the student is enrolled.
+\item class\+Id is the unique identifier of the class in which the student is enrolled.
+\end{DoxyItemize}
+
+The function assumes that the CSV file is properly formatted with comma-\/separated values for each entry. Lines that are not comma-\/separated or contain additional literals are ignored. 
+
+Complexity O(\+N) 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+None. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classCourseManager_a403881c3ca23cf9bcd03abd5193360f7}\label{classCourseManager_a403881c3ca23cf9bcd03abd5193360f7}} 
+\index{CourseManager@{CourseManager}!handleRequests@{handleRequests}}
+\index{handleRequests@{handleRequests}!CourseManager@{CourseManager}}
+\doxysubsubsection{\texorpdfstring{handleRequests()}{handleRequests()}}
+{\footnotesize\ttfamily void Course\+Manager\+::handle\+Requests (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Handle pending requests for student enrollment changes. 
+
+This function processes pending requests for student enrollment changes. Requests can include adding or removing a student from a class or switching their enrollment between UCs or classes. Each request is processed in the order it was received. \begin{DoxyNote}{Note}
+Complexity O(\+N) 
+\end{DoxyNote}
+\mbox{\Hypertarget{classCourseManager_a1b23cac16f8c98398130b2c683f72bbd}\label{classCourseManager_a1b23cac16f8c98398130b2c683f72bbd}} 
+\index{CourseManager@{CourseManager}!orderStudentsVector@{orderStudentsVector}}
+\index{orderStudentsVector@{orderStudentsVector}!CourseManager@{CourseManager}}
+\doxysubsubsection{\texorpdfstring{orderStudentsVector()}{orderStudentsVector()}}
+{\footnotesize\ttfamily void Course\+Manager\+::order\+Students\+Vector (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ std\+::vector$<$ int $>$$>$}]{students\+Id,  }\item[{int}]{order\+Type }\end{DoxyParamCaption})}
+
+
+
+Order a vector of student IDs based on the specified order type. 
+
+This function orders a vector of student IDs either by their ID or alphabetically by their names based on the specified order type.
+
+
+\begin{DoxyParams}{Parameters}
+{\em students\+Id} & A shared pointer to a vector of student IDs to be ordered. \\
+\hline
+{\em order\+Type} & An integer representing the order type\+:
+\begin{DoxyItemize}
+\item 1 for ordering by student ID.
+\item 2 for ordering alphabetically by student name. 
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Complexity O(\+N $\ast$ LOG N) 
+\end{DoxyNote}
 \mbox{\Hypertarget{classCourseManager_a0ac7213c679d0796c6c47ac02acf832b}\label{classCourseManager_a0ac7213c679d0796c6c47ac02acf832b}} 
 \index{CourseManager@{CourseManager}!printSchedule@{printSchedule}}
 \index{printSchedule@{printSchedule}!CourseManager@{CourseManager}}
 \doxysubsubsection{\texorpdfstring{printSchedule()}{printSchedule()}}
-{\footnotesize\ttfamily void Course\+Manager\+::print\+Schedule (\begin{DoxyParamCaption}\item[{std\+::unordered\+\_\+map$<$ std\+::string, std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classPeriod}{Period}} $>$$>$$>$}]{schedule }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Course\+Manager\+::print\+Schedule (\begin{DoxyParamCaption}\item[{std\+::unordered\+\_\+map$<$ std\+::string, std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classPeriod}{Period}} $>$$>$$>$}]{schedule }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
-Print the schedule of course periods for each weekday. 
+Display the class schedule for a specific day of the week. 
 
-This function prints the schedule of course periods for each weekday. It takes an unordered\+\_\+map containing course periods, organizes them by weekday, and then sorts and displays the schedule for each weekday.
+This function displays the class schedule for a specific day of the week by sorting and formatting the provided schedule data.
 
 
 \begin{DoxyParams}{Parameters}
-{\em schedule} & An unordered\+\_\+map containing course periods with keys as \char`\"{}$<$uc\+Id/class\+Id$>$\char`\"{} and values as shared\+\_\+ptr$<$\+Period$>$. \\
+{\em schedule} & An unordered\+\_\+map containing keys in the format \char`\"{}$<$unit\+Id/class\+Id$>$\char`\"{} and values as vectors of shared\+\_\+ptr$<$\+Period$>$ objects, representing the schedule for various classes. \\
 \hline
 \end{DoxyParams}
+\begin{DoxyNote}{Note}
+Complexity O(\+N$^\wedge$2) 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+None. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCourseManager_ab03c2dc997b38e32a2f7593173e62021}\label{classCourseManager_ab03c2dc997b38e32a2f7593173e62021}} 
+\index{CourseManager@{CourseManager}!removeFromDatabase@{removeFromDatabase}}
+\index{removeFromDatabase@{removeFromDatabase}!CourseManager@{CourseManager}}
+\doxysubsubsection{\texorpdfstring{removeFromDatabase()}{removeFromDatabase()}}
+{\footnotesize\ttfamily void Course\+Manager\+::remove\+From\+Database (\begin{DoxyParamCaption}\item[{int}]{student\+Id,  }\item[{const std\+::string \&}]{uc\+Id }\end{DoxyParamCaption})}
+
+
+
+Remove student enrollment information from the database. 
+
+This function removes a line from the database containing student enrollment information based on the student\textquotesingle{}s ID and UC ID.
+
+
+\begin{DoxyParams}{Parameters}
+{\em student\+Id} & The ID of the student to be unenrolled. \\
+\hline
+{\em uc\+Id} & The UC ID from which the student is unenrolled. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Complexity O(\+N) 
+\end{DoxyNote}
+\mbox{\Hypertarget{classCourseManager_a1e5591f8683dfce9db5f9faadb6d5e0e}\label{classCourseManager_a1e5591f8683dfce9db5f9faadb6d5e0e}} 
+\index{CourseManager@{CourseManager}!removeStudentFromUc@{removeStudentFromUc}}
+\index{removeStudentFromUc@{removeStudentFromUc}!CourseManager@{CourseManager}}
+\doxysubsubsection{\texorpdfstring{removeStudentFromUc()}{removeStudentFromUc()}}
+{\footnotesize\ttfamily bool Course\+Manager\+::remove\+Student\+From\+Uc (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{uc\+Id,  }\item[{int}]{student\+Id,  }\item[{bool}]{save\+To\+Changes = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+Removes a student from a specific unit course. 
+
+This function removes a student from a unit course, provided that the student is currently enrolled in the specified unit course.
+
+
+\begin{DoxyParams}{Parameters}
+{\em uc\+Id} & The unique identifier of the unit course. \\
+\hline
+{\em student\+Id} & The unique identifier of the student to remove.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Complexity O(1)
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+true if the student was successfully removed from the unit course, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCourseManager_adbe60d0d8f97b42ee0e930aca5f61383}\label{classCourseManager_adbe60d0d8f97b42ee0e930aca5f61383}} 
+\index{CourseManager@{CourseManager}!revertChanges@{revertChanges}}
+\index{revertChanges@{revertChanges}!CourseManager@{CourseManager}}
+\doxysubsubsection{\texorpdfstring{revertChanges()}{revertChanges()}}
+{\footnotesize\ttfamily void Course\+Manager\+::revert\+Changes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Revert all changes made to the course according to the change history. 
+
+This function reverts all changes made to the course based on the change history. It iterates through the history of handled requests, reverts each one, and removes it from the change log. \mbox{\Hypertarget{classCourseManager_a5443736d7902432bbdf60c5408c90fd3}\label{classCourseManager_a5443736d7902432bbdf60c5408c90fd3}} 
+\index{CourseManager@{CourseManager}!revertRequest@{revertRequest}}
+\index{revertRequest@{revertRequest}!CourseManager@{CourseManager}}
+\doxysubsubsection{\texorpdfstring{revertRequest()}{revertRequest()}}
+{\footnotesize\ttfamily bool Course\+Manager\+::revert\+Request (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classRequest}{Request}} \&}]{current\+Request }\end{DoxyParamCaption})}
+
+
+
+Revert a previously handled course change request. 
+
+This function allows reverting a previously handled course change request by undoing the corresponding operation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em current\+Request} & The course change request to be reverted.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the request is successfully reverted, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCourseManager_a928cc9c81d7c5ab629cf4477d5b5980b}\label{classCourseManager_a928cc9c81d7c5ab629cf4477d5b5980b}} 
+\index{CourseManager@{CourseManager}!saveToChanges@{saveToChanges}}
+\index{saveToChanges@{saveToChanges}!CourseManager@{CourseManager}}
+\doxysubsubsection{\texorpdfstring{saveToChanges()}{saveToChanges()}}
+{\footnotesize\ttfamily void Course\+Manager\+::save\+To\+Changes (\begin{DoxyParamCaption}\item[{int}]{student\+Id,  }\item[{int}]{operation\+Type,  }\item[{const std\+::pair$<$ std\+::string, std\+::string $>$ \&}]{adding,  }\item[{const std\+::pair$<$ std\+::string, std\+::string $>$ \&}]{removing }\end{DoxyParamCaption}) const}
+
+
+
+Save course changes to the changes log. 
+
+This function is responsible for recording course changes in the changes log file. It appends information about student-\/related operations, such as adding, removing, or switching academic units or classes, to the log file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em student\+Id} & An integer representing the unique identifier of the student involved in the operation. \\
+\hline
+{\em operation\+Type} & An integer specifying the type of operation\+:
+\begin{DoxyItemize}
+\item 1 for removing a student to an academic unit or class.
+\item 2 for adding a student from an academic unit or class.
+\item 3 for switching to a different academic unit.
+\item 4 for switching to a different class within the same academic unit. 
+\end{DoxyItemize}\\
+\hline
+{\em adding} & A pair representing the academic unit or class being added, formatted as \char`\"{}unit\+ID/class\+ID\char`\"{}. \\
+\hline
+{\em removing} & A pair representing the academic unit or class being removed, formatted as \char`\"{}unit\+ID/class\+ID\char`\"{}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Complexity O(1) 
+\end{DoxyNote}
+\mbox{\Hypertarget{classCourseManager_a1eee5846a8f27ad91ff39915476ced8a}\label{classCourseManager_a1eee5846a8f27ad91ff39915476ced8a}} 
+\index{CourseManager@{CourseManager}!saveToDatabase@{saveToDatabase}}
+\index{saveToDatabase@{saveToDatabase}!CourseManager@{CourseManager}}
+\doxysubsubsection{\texorpdfstring{saveToDatabase()}{saveToDatabase()}}
+{\footnotesize\ttfamily void Course\+Manager\+::save\+To\+Database (\begin{DoxyParamCaption}\item[{int}]{student\+Id,  }\item[{const std\+::string \&}]{student\+Name,  }\item[{const std\+::string \&}]{uc\+Id,  }\item[{const std\+::string \&}]{class\+Id }\end{DoxyParamCaption})}
+
+
+
+Save student enrollment information to the database. 
+
+This function adds a line to the database with student enrollment information, including their student ID, name, UC ID, and class ID.
+
+
+\begin{DoxyParams}{Parameters}
+{\em student\+Id} & The ID of the student to be enrolled. \\
+\hline
+{\em student\+Name} & The name of the student. \\
+\hline
+{\em uc\+Id} & The UC ID to which the student is enrolled. \\
+\hline
+{\em class\+Id} & The class ID within the UC to which the student is enrolled. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Complexity O(1) 
+\end{DoxyNote}
+\mbox{\Hypertarget{classCourseManager_aff354c653d3812e14bde90991be13f18}\label{classCourseManager_aff354c653d3812e14bde90991be13f18}} 
+\index{CourseManager@{CourseManager}!showClassOccupancy@{showClassOccupancy}}
+\index{showClassOccupancy@{showClassOccupancy}!CourseManager@{CourseManager}}
+\doxysubsubsection{\texorpdfstring{showClassOccupancy()}{showClassOccupancy()}}
+{\footnotesize\ttfamily bool Course\+Manager\+::show\+Class\+Occupancy (\begin{DoxyParamCaption}\item[{int}]{order\+Type }\end{DoxyParamCaption})}
+
+
+
+Display class occupancy information. 
+
+This function displays information about the occupancy of classes within each UC, sorted in ascending or descending order based on the order\+Type. The output includes the number of students in each class.
+
+
+\begin{DoxyParams}{Parameters}
+{\em order\+Type} & An integer specifying the order in which to display the class occupancy\+:
+\begin{DoxyItemize}
+\item 1 for ascending order (low to high occupancy).
+\item 2 for descending order (high to low occupancy). 
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Complexity O(\+N$^\wedge$2) 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+Always returns false since it\textquotesingle{}s a display function. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classCourseManager_a03637079f0e780a9b0e11d6d8f10071b}\label{classCourseManager_a03637079f0e780a9b0e11d6d8f10071b}} 
 \index{CourseManager@{CourseManager}!showClassSchedule@{showClassSchedule}}
 \index{showClassSchedule@{showClassSchedule}!CourseManager@{CourseManager}}
@@ -92,17 +577,23 @@ This function prints the schedule of course periods for each weekday. It takes a
 
 
 
-Display the schedule for a specific class in a course unit. 
+Display the class schedule for a specific course unit and class. 
 
-This function displays the schedule for a specific class in a course unit identified by \textquotesingle{}uc\+Id\textquotesingle{} and \textquotesingle{}class\+Id\textquotesingle{}.
+This function displays the class schedule for a specific course unit and class, identified by their unique identifiers (uc\+Id and class\+Id).
 
 
 \begin{DoxyParams}{Parameters}
-{\em uc\+Id} & The unique identifier of the course unit. \\
+{\em uc\+Id} & The unique identifier of the course unit for which the class schedule is to be displayed. \\
 \hline
-{\em class\+Id} & The unique identifier of the class within the course unit. \\
+{\em class\+Id} & The unique identifier of the class for which the schedule is to be displayed. \\
 \hline
 \end{DoxyParams}
+\begin{DoxyNote}{Note}
+Complexity O(\+N$^\wedge$2) 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+None. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classCourseManager_aface14383a421ce45fd46ac95b396416}\label{classCourseManager_aface14383a421ce45fd46ac95b396416}} 
 \index{CourseManager@{CourseManager}!showStudentCountOnNUnits@{showStudentCountOnNUnits}}
 \index{showStudentCountOnNUnits@{showStudentCountOnNUnits}!CourseManager@{CourseManager}}
@@ -120,30 +611,44 @@ This function calculates and displays the count of students who are registered i
 {\em n} & The minimum number of course units a student must be registered in to be counted. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classCourseManager_a6bb2bb61152dca231ac6bd4e779bc0a7}\label{classCourseManager_a6bb2bb61152dca231ac6bd4e779bc0a7}} 
+\begin{DoxyNote}{Note}
+Complexity O(\+N) 
+\end{DoxyNote}
+\mbox{\Hypertarget{classCourseManager_a1dd460ed9b42a2f62dde26bbb292a165}\label{classCourseManager_a1dd460ed9b42a2f62dde26bbb292a165}} 
 \index{CourseManager@{CourseManager}!showStudentListInClass@{showStudentListInClass}}
 \index{showStudentListInClass@{showStudentListInClass}!CourseManager@{CourseManager}}
 \doxysubsubsection{\texorpdfstring{showStudentListInClass()}{showStudentListInClass()}}
-{\footnotesize\ttfamily void Course\+Manager\+::show\+Student\+List\+In\+Class (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{course\+Unit,  }\item[{const std\+::string \&}]{class\+Id }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Course\+Manager\+::show\+Student\+List\+In\+Class (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{course\+Unit,  }\item[{const std\+::string \&}]{class\+Id,  }\item[{int}]{order\+Type,  }\item[{int}]{firstN = {\ttfamily -\/1} }\end{DoxyParamCaption})}
 
 
 
-Show a list of students registered in a specific class of a course unit. 
+Show a list of students in a specific class of a course unit. 
 
-This function displays a list of students who are registered in a specific class of the given course unit. It first checks if the course unit and class exist, and if they do, it lists the students along with their names and student IDs.
+This function displays a list of students who are enrolled in a particular class of a course unit.
 
 
 \begin{DoxyParams}{Parameters}
-{\em course\+Unit} & The ID of the course unit to query. \\
+{\em course\+Unit} & The name of the course unit. \\
 \hline
-{\em class\+Id} & The ID of the specific class within the course unit. \\
+{\em class\+Id} & The ID of the class for which you want to list students. \\
+\hline
+{\em order\+Type} & The sorting order for the list (1 for by student ID, 2 for by student name). \\
+\hline
+{\em firstN} & The maximum number of students to display. Use -\/1 to display all students.\\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classCourseManager_a11358fd1dbfd411bbfefc2077ef7ed79}\label{classCourseManager_a11358fd1dbfd411bbfefc2077ef7ed79}} 
+\begin{DoxyNote}{Note}
+The students are sorted based on the specified sorting order and then displayed. 
+
+If the course unit or class does not exist, appropriate error messages are displayed. 
+
+Complexity O(\+N) 
+\end{DoxyNote}
+\mbox{\Hypertarget{classCourseManager_a9d7d8b7e38f7ba44184f4567f7e1b6ef}\label{classCourseManager_a9d7d8b7e38f7ba44184f4567f7e1b6ef}} 
 \index{CourseManager@{CourseManager}!showStudentListInCourse@{showStudentListInCourse}}
 \index{showStudentListInCourse@{showStudentListInCourse}!CourseManager@{CourseManager}}
 \doxysubsubsection{\texorpdfstring{showStudentListInCourse()}{showStudentListInCourse()}}
-{\footnotesize\ttfamily void Course\+Manager\+::show\+Student\+List\+In\+Course (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{course\+Unit,  }\item[{int}]{firstN = {\ttfamily -\/1} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Course\+Manager\+::show\+Student\+List\+In\+Course (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{course\+Unit,  }\item[{int}]{order\+Type,  }\item[{int}]{firstN = {\ttfamily -\/1} }\end{DoxyParamCaption})}
 
 
 
@@ -158,11 +663,14 @@ This function displays a list of students who are registered in the specified co
 {\em firstN} & The maximum number of students to display (use -\/1 to display all). \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classCourseManager_a06b268a8e72dc5b2895982718cd98f9a}\label{classCourseManager_a06b268a8e72dc5b2895982718cd98f9a}} 
+\begin{DoxyNote}{Note}
+Complexity O(\+N) 
+\end{DoxyNote}
+\mbox{\Hypertarget{classCourseManager_a52cbcff6eeb34ba4d7d42f7c34d1d8bf}\label{classCourseManager_a52cbcff6eeb34ba4d7d42f7c34d1d8bf}} 
 \index{CourseManager@{CourseManager}!showStudentListInYear@{showStudentListInYear}}
 \index{showStudentListInYear@{showStudentListInYear}!CourseManager@{CourseManager}}
 \doxysubsubsection{\texorpdfstring{showStudentListInYear()}{showStudentListInYear()}}
-{\footnotesize\ttfamily void Course\+Manager\+::show\+Student\+List\+In\+Year (\begin{DoxyParamCaption}\item[{int}]{year,  }\item[{int}]{firstN = {\ttfamily -\/1} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Course\+Manager\+::show\+Student\+List\+In\+Year (\begin{DoxyParamCaption}\item[{int}]{year,  }\item[{int}]{order\+Type,  }\item[{int}]{firstN = {\ttfamily -\/1} }\end{DoxyParamCaption})}
 
 
 
@@ -179,12 +687,62 @@ This function displays a list of students who are registered in the specified ye
 \end{DoxyParams}
 \begin{DoxyNote}{Note}
 The students are sorted in ascending order of their IDs. 
+
+Complexity O(\+N) 
 \end{DoxyNote}
-\mbox{\Hypertarget{classCourseManager_af4df7a608215bcfb3c23dd4e96e5dc0e}\label{classCourseManager_af4df7a608215bcfb3c23dd4e96e5dc0e}} 
+\mbox{\Hypertarget{classCourseManager_ab2b06918934f8b7e89a4c7508dc2a134}\label{classCourseManager_ab2b06918934f8b7e89a4c7508dc2a134}} 
+\index{CourseManager@{CourseManager}!showStudentSchedule@{showStudentSchedule}}
+\index{showStudentSchedule@{showStudentSchedule}!CourseManager@{CourseManager}}
+\doxysubsubsection{\texorpdfstring{showStudentSchedule()}{showStudentSchedule()}}
+{\footnotesize\ttfamily void Course\+Manager\+::show\+Student\+Schedule (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Display the class schedule for a specific student. 
+
+This function displays the class schedule for a specific student with the given student ID. It compiles the schedule by collecting class periods from the course units and classes in which the student is enrolled. 
+\begin{DoxyParams}{Parameters}
+{\em id} & The unique identifier of the student for whom the schedule is to be displayed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Complexity O(\+N$^\wedge$2) 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+None. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCourseManager_aeca46b3d2eb0a55f899827489028ffd8}\label{classCourseManager_aeca46b3d2eb0a55f899827489028ffd8}} 
+\index{CourseManager@{CourseManager}!showUcOccupancy@{showUcOccupancy}}
+\index{showUcOccupancy@{showUcOccupancy}!CourseManager@{CourseManager}}
+\doxysubsubsection{\texorpdfstring{showUcOccupancy()}{showUcOccupancy()}}
+{\footnotesize\ttfamily bool Course\+Manager\+::show\+Uc\+Occupancy (\begin{DoxyParamCaption}\item[{int}]{order\+Type }\end{DoxyParamCaption})}
+
+
+
+Display unit-\/based student occupancy information. 
+
+This function displays information about the number of students in each academic unit (course unit) within the course. The output can be sorted in either ascending or descending order based on the order\+Type.
+
+
+\begin{DoxyParams}{Parameters}
+{\em order\+Type} & An integer specifying the order in which to display the unit-\/based occupancy\+:
+\begin{DoxyItemize}
+\item 1 for ascending order (low to high student count).
+\item 2 for descending order (high to low student count). 
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Complexity O(\+N) 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+Always returns false since it\textquotesingle{}s a display function. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCourseManager_a429a0e33da427c3c4d9bfa7dd6a0277d}\label{classCourseManager_a429a0e33da427c3c4d9bfa7dd6a0277d}} 
 \index{CourseManager@{CourseManager}!showUnitCoursesWithMostStudents@{showUnitCoursesWithMostStudents}}
 \index{showUnitCoursesWithMostStudents@{showUnitCoursesWithMostStudents}!CourseManager@{CourseManager}}
 \doxysubsubsection{\texorpdfstring{showUnitCoursesWithMostStudents()}{showUnitCoursesWithMostStudents()}}
-{\footnotesize\ttfamily void Course\+Manager\+::show\+Unit\+Courses\+With\+Most\+Students (\begin{DoxyParamCaption}\item[{int}]{firstN = {\ttfamily 5} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Course\+Manager\+::show\+Unit\+Courses\+With\+Most\+Students (\begin{DoxyParamCaption}\item[{int}]{firstN = {\ttfamily -\/1} }\end{DoxyParamCaption})}
 
 
 
@@ -197,9 +755,142 @@ This function retrieves the student count for each Unit Course, identifies the t
 {\em firstN} & The number of top Unit Courses to display. The default value is 5. \\
 \hline
 \end{DoxyParams}
+\begin{DoxyNote}{Note}
+Complexity O(\+N) 
+\end{DoxyNote}
+\mbox{\Hypertarget{classCourseManager_ae7811ae6dbb532ec083ec496c1f2dcde}\label{classCourseManager_ae7811ae6dbb532ec083ec496c1f2dcde}} 
+\index{CourseManager@{CourseManager}!showYearOccupancy@{showYearOccupancy}}
+\index{showYearOccupancy@{showYearOccupancy}!CourseManager@{CourseManager}}
+\doxysubsubsection{\texorpdfstring{showYearOccupancy()}{showYearOccupancy()}}
+{\footnotesize\ttfamily bool Course\+Manager\+::show\+Year\+Occupancy (\begin{DoxyParamCaption}\item[{int}]{order\+Type }\end{DoxyParamCaption})}
+
+
+
+Display year-\/based student occupancy information. 
+
+This function displays information about the number of students in each academic year (unit year) within the course. The output can be sorted in either ascending or descending order based on the order\+Type.
+
+
+\begin{DoxyParams}{Parameters}
+{\em order\+Type} & An integer specifying the order in which to display the year-\/based occupancy\+:
+\begin{DoxyItemize}
+\item 1 for ascending order (low to high student count).
+\item 2 for descending order (high to low student count). 
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Complexity O(\+N$^\wedge$2) 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+Always returns false since it\textquotesingle{}s a display function. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCourseManager_a94fe328afc936209d92a3fc066b756c0}\label{classCourseManager_a94fe328afc936209d92a3fc066b756c0}} 
+\index{CourseManager@{CourseManager}!switchClass@{switchClass}}
+\index{switchClass@{switchClass}!CourseManager@{CourseManager}}
+\doxysubsubsection{\texorpdfstring{switchClass()}{switchClass()}}
+{\footnotesize\ttfamily bool Course\+Manager\+::switch\+Class (\begin{DoxyParamCaption}\item[{int}]{student\+Id,  }\item[{const std\+::string \&}]{uc\+Id\+Registered,  }\item[{const std\+::string \&}]{class\+Registered,  }\item[{const std\+::string \&}]{class\+To\+Register,  }\item[{bool}]{save\+To\+Changes = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+Switch a student\textquotesingle{}s class within the same UC. 
+
+This function allows a student to switch from one class (class\+Registered) to another class (class\+To\+Register) within the same UC (uc\+Id\+Registered). It performs several checks to ensure that the switch is valid, including class capacity, class balance, and schedule overlap.
+
+
+\begin{DoxyParams}{Parameters}
+{\em student\+Id} & The ID of the student requesting the class switch. \\
+\hline
+{\em uc\+Id\+Registered} & The UC in which the student is currently enrolled (L.\+EICXXX). \\
+\hline
+{\em class\+Registered} & The class from which the student wants to switch (XLEICXX). \\
+\hline
+{\em class\+To\+Register} & The class to which the student wants to switch (XLEICXX). \\
+\hline
+{\em save\+To\+Changes} & Indicates whether to save this switch request to the changes log. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Complexity O(\+N$^\wedge$2) 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+True if the class switch is successful, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCourseManager_a4810b194a457a5221b5605b38c5b6230}\label{classCourseManager_a4810b194a457a5221b5605b38c5b6230}} 
+\index{CourseManager@{CourseManager}!switchUc@{switchUc}}
+\index{switchUc@{switchUc}!CourseManager@{CourseManager}}
+\doxysubsubsection{\texorpdfstring{switchUc()}{switchUc()}}
+{\footnotesize\ttfamily bool Course\+Manager\+::switch\+Uc (\begin{DoxyParamCaption}\item[{int}]{student\+Id,  }\item[{const std\+::string \&}]{uc\+Id\+Registered,  }\item[{const std\+::string \&}]{uc\+Id\+To\+Register,  }\item[{bool}]{save\+To\+Changes = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+Switch a student\textquotesingle{}s enrollment from one UC to another. 
+
+This function allows a student to switch their enrollment from one UC to another within the system.
+
+
+\begin{DoxyParams}{Parameters}
+{\em student\+Id} & The ID of the student who wants to switch enrollment. \\
+\hline
+{\em uc\+Id\+Registered} & The UC in which the student is currently enrolled. \\
+\hline
+{\em uc\+Id\+To\+Register} & The target UC to which the student wants to switch enrollment. \\
+\hline
+{\em save\+To\+Changes} & Set to true to save the operation to the change log; false to skip saving.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Complexity O(1) 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+True if the switch was successful, or false if the operation failed. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classCourseManager_a232cd5472376384a6acee7ca7401c4db}\label{classCourseManager_a232cd5472376384a6acee7ca7401c4db}} 
+\index{CourseManager@{CourseManager}!history@{history}}
+\index{history@{history}!CourseManager@{CourseManager}}
+\doxysubsubsection{\texorpdfstring{history}{history}}
+{\footnotesize\ttfamily std\+::stack$<$\mbox{\hyperlink{classRequest}{Request}}$>$ Course\+Manager\+::history\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Stack for storing the history of processed requests. 
+
+\mbox{\Hypertarget{classCourseManager_a22c5b564da3b7231814d71bf8f2270eb}\label{classCourseManager_a22c5b564da3b7231814d71bf8f2270eb}} 
+\index{CourseManager@{CourseManager}!requests@{requests}}
+\index{requests@{requests}!CourseManager@{CourseManager}}
+\doxysubsubsection{\texorpdfstring{requests}{requests}}
+{\footnotesize\ttfamily std\+::queue$<$\mbox{\hyperlink{classRequest}{Request}}$>$ Course\+Manager\+::requests\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Queue for pending course change requests. 
+
+\mbox{\Hypertarget{classCourseManager_a8bc9c0f817c8883aefc9fa671de3066f}\label{classCourseManager_a8bc9c0f817c8883aefc9fa671de3066f}} 
+\index{CourseManager@{CourseManager}!students@{students}}
+\index{students@{students}!CourseManager@{CourseManager}}
+\doxysubsubsection{\texorpdfstring{students}{students}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$int, std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classStudent}{Student}}$>$ $>$ Course\+Manager\+::students\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Map of student IDs to student objects. 
+
+\mbox{\Hypertarget{classCourseManager_ad971f7e29b08529a7244195ffbf3ca96}\label{classCourseManager_ad971f7e29b08529a7244195ffbf3ca96}} 
+\index{CourseManager@{CourseManager}!units@{units}}
+\index{units@{units}!CourseManager@{CourseManager}}
+\doxysubsubsection{\texorpdfstring{units}{units}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$std\+::string, std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classCourseUnit}{Course\+Unit}}$>$ $>$ Course\+Manager\+::units\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Map of unit codes to unit objects. 
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-include/Course\+Manager.\+h\item 
-src/Course\+Manager.\+cpp\end{DoxyCompactItemize}
+include/\mbox{\hyperlink{CourseManager_8h}{Course\+Manager.\+h}}\item 
+src/\mbox{\hyperlink{CourseManager_8cpp}{Course\+Manager.\+cpp}}\end{DoxyCompactItemize}

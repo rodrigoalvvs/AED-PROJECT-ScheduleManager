@@ -367,7 +367,7 @@ void showLists(CourseManager* courseManager) {
             continue;
         }
 
-
+        orderType = orderType - '0';
         switch (scheduleOption) {
             case 0:
                 continue; // Go back to order menu
@@ -450,6 +450,7 @@ void showOccupancies(CourseManager* course){
         }
 
 
+        orderType = orderType - '0';
         switch (option - '0') {
             case 1:
                 course->showClassOccupancy(orderType);
@@ -523,7 +524,8 @@ bool showExitMenu(CourseManager* course){
             return false;
         case 2:
             clearLog();
-            return false;
+            std::cout << "Log cleared!\n";
+            showExitMenu(course);
         case 3:
             return false;
     }
@@ -578,7 +580,7 @@ int main() {
                 break;
             case 7:
                 running = showExitMenu(informatica);
-                break;
+                continue;
             default:
                 std::cout << "Invalid option, try again!\n";
                 continue;

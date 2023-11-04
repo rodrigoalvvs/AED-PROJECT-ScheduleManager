@@ -1,0 +1,303 @@
+\hypertarget{main_8cpp}{}\doxysection{src/main.cpp File Reference}
+\label{main_8cpp}\index{src/main.cpp@{src/main.cpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include \char`\"{}../include/\+Course\+Manager.\+h\char`\"{}}\newline
+Include dependency graph for main.\+cpp\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{main_8cpp_a9a53fca8ebdc4e91559cc3f7eec4b736}{valid\+Student\+Id}} (const std\+::string \&id)
+\begin{DoxyCompactList}\small\item\em Validates a student ID (9-\/digit numeric format). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a6d374074bcbdf48062d4455b09b943f1}{show\+Occupancies}} (\mbox{\hyperlink{classCourseManager}{Course\+Manager}} $\ast$, int)
+\item 
+void \mbox{\hyperlink{main_8cpp_a84a325639b241dc840887e54df36f188}{show\+Lists}} (\mbox{\hyperlink{classCourseManager}{Course\+Manager}} $\ast$course\+Manager, int order\+Type)
+\item 
+int \mbox{\hyperlink{main_8cpp_a882ef52254551424a239dae2c6b1c3c7}{get\+Student\+Id}} (const std\+::string \&message=\char`\"{}Provide the student id\+: \char`\"{})
+\begin{DoxyCompactList}\small\item\em Prompts the user to provide a student ID and validates it. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{main_8cpp_aabfb838cc77b011b487dfc26b6d1cef2}{get\+Class\+Id}} (const std\+::string \&message=\char`\"{}Provide the class id (XLEICXX)\+: \char`\"{})
+\begin{DoxyCompactList}\small\item\em Prompts the user to provide a class ID (XLEICXX) and validates it. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{main_8cpp_ad967aaf6f6dee1dbf1f77f28c7083d75}{get\+Uc\+Id}} (const std\+::string \&message=\char`\"{}Provide the uc id (L.\+EICXXX)\+: \char`\"{})
+\begin{DoxyCompactList}\small\item\em Prompts the user to provide a UC ID (L.\+EICXXX) and validates it. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_aa85de1cbff72f84585274823fbc36b82}{show\+Schedules}} (\mbox{\hyperlink{classCourseManager}{Course\+Manager}} $\ast$course\+Manager)
+\item 
+bool \mbox{\hyperlink{main_8cpp_a6eaed4deab9223e202e6986add9cebce}{show\+Switch\+Menu}} (\mbox{\hyperlink{classCourseManager}{Course\+Manager}} $\ast$course)
+\begin{DoxyCompactList}\small\item\em Display a menu to make requests for UC or class changes. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{main_8cpp_a37d7cc631ad93bf2040f8a4dc636793d}{show\+Request\+Menu}} (\mbox{\hyperlink{classCourseManager}{Course\+Manager}} $\ast$course)
+\begin{DoxyCompactList}\small\item\em Display a menu to make student-\/related requests. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_ab98c75d1f4ceabe0e051fc8bec703c97}{remove\+Line\+From\+Log}} (int line\+To\+Remove)
+\begin{DoxyCompactList}\small\item\em Remove a specific line from a log file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a1809a8305b0bdad2bed93040961961b3}{manage\+Log}} (\mbox{\hyperlink{classCourseManager}{Course\+Manager}} $\ast$course, int line\+To\+Change=-\/1)
+\begin{DoxyCompactList}\small\item\em Manage a log of course management operations and allow for reverting specific operations. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_af429d61b91bda945a90e28f68f91d350}{show\+Lists}} (\mbox{\hyperlink{classCourseManager}{Course\+Manager}} $\ast$course\+Manager)
+\begin{DoxyCompactList}\small\item\em Display a menu to consult various student listings based on order and criteria. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a4457b5fec672873693f246190f68dbf3}{show\+Occupancies}} (\mbox{\hyperlink{classCourseManager}{Course\+Manager}} $\ast$course)
+\begin{DoxyCompactList}\small\item\em Display a menu to consult various occupancies based on order and criteria. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_ae2d5212eb62104cb3219318f03f23734}{clear\+Log}} ()
+\begin{DoxyCompactList}\small\item\em Clear the log file by preserving the header line. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{main_8cpp_aa1526aeae683df9743676de423a10619}{show\+Exit\+Menu}} (\mbox{\hyperlink{classCourseManager}{Course\+Manager}} $\ast$course)
+\begin{DoxyCompactList}\small\item\em Display an exit menu and handle user options. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function to run the \mbox{\hyperlink{classStudent}{Student}} Manager System. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main_8cpp_ae2d5212eb62104cb3219318f03f23734}\label{main_8cpp_ae2d5212eb62104cb3219318f03f23734}} 
+\index{main.cpp@{main.cpp}!clearLog@{clearLog}}
+\index{clearLog@{clearLog}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{clearLog()}{clearLog()}}
+{\footnotesize\ttfamily void clear\+Log (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Clear the log file by preserving the header line. 
+
+This function clears the log file, preserving the header line that defines the format of the log entries. It removes all log entries while keeping the header line intact. \mbox{\Hypertarget{main_8cpp_aabfb838cc77b011b487dfc26b6d1cef2}\label{main_8cpp_aabfb838cc77b011b487dfc26b6d1cef2}} 
+\index{main.cpp@{main.cpp}!getClassId@{getClassId}}
+\index{getClassId@{getClassId}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{getClassId()}{getClassId()}}
+{\footnotesize\ttfamily std\+::string get\+Class\+Id (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message = {\ttfamily \char`\"{}Provide~the~class~id~(XLEICXX)\+:~\char`\"{}} }\end{DoxyParamCaption})}
+
+
+
+Prompts the user to provide a class ID (XLEICXX) and validates it. 
+
+This function prompts the user to enter a class ID in the format \char`\"{}\+XLEICXX\char`\"{} and validates it. It will keep prompting until a valid class ID is provided.
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & The message to display when prompting for the class ID (default is \char`\"{}\+Provide the class ID (\+XLEICXX)\+: \char`\"{}).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The valid class ID provided by the user in the format \char`\"{}\+XLEICXX\char`\"{}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8cpp_a882ef52254551424a239dae2c6b1c3c7}\label{main_8cpp_a882ef52254551424a239dae2c6b1c3c7}} 
+\index{main.cpp@{main.cpp}!getStudentId@{getStudentId}}
+\index{getStudentId@{getStudentId}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{getStudentId()}{getStudentId()}}
+{\footnotesize\ttfamily int get\+Student\+Id (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message = {\ttfamily \char`\"{}Provide~the~student~id\+:~\char`\"{}} }\end{DoxyParamCaption})}
+
+
+
+Prompts the user to provide a student ID and validates it. 
+
+This function prompts the user to enter a student ID and validates it. It will keep prompting until a valid student ID is provided.
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & The message to display when prompting for the student ID (default is \char`\"{}\+Provide the student ID\+: \char`\"{}).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The valid student ID provided by the user. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8cpp_ad967aaf6f6dee1dbf1f77f28c7083d75}\label{main_8cpp_ad967aaf6f6dee1dbf1f77f28c7083d75}} 
+\index{main.cpp@{main.cpp}!getUcId@{getUcId}}
+\index{getUcId@{getUcId}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{getUcId()}{getUcId()}}
+{\footnotesize\ttfamily std\+::string get\+Uc\+Id (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message = {\ttfamily \char`\"{}Provide~the~uc~id~(L.EICXXX)\+:~\char`\"{}} }\end{DoxyParamCaption})}
+
+
+
+Prompts the user to provide a UC ID (L.\+EICXXX) and validates it. 
+
+This function prompts the user to enter a UC ID in the format \char`\"{}\+L.\+EICXXX\char`\"{} and validates it. It will keep prompting until a valid UC ID is provided.
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & The message to display when prompting for the UC ID (default is \char`\"{}\+Provide the UC ID (\+L.\+EICXXX)\+: \char`\"{}).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The valid UC ID provided by the user in the format \char`\"{}\+L.\+EICXXX\char`\"{}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Main function to run the \mbox{\hyperlink{classStudent}{Student}} Manager System. 
+
+This function presents a menu of options to the user and allows them to interact with the \mbox{\hyperlink{classStudent}{Student}} Manager System. The user can consult schedules, lists, occupancies, make requests, handle requests, manage the system log, and exit the system.
+
+\begin{DoxyReturn}{Returns}
+Returns 0 upon successful execution. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8cpp_a1809a8305b0bdad2bed93040961961b3}\label{main_8cpp_a1809a8305b0bdad2bed93040961961b3}} 
+\index{main.cpp@{main.cpp}!manageLog@{manageLog}}
+\index{manageLog@{manageLog}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{manageLog()}{manageLog()}}
+{\footnotesize\ttfamily void manage\+Log (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCourseManager}{Course\+Manager}} $\ast$}]{course,  }\item[{int}]{line\+To\+Change = {\ttfamily -\/1} }\end{DoxyParamCaption})}
+
+
+
+Manage a log of course management operations and allow for reverting specific operations. 
+
+This function reads a CSV log file containing course management operations and provides the ability to revert specific operations based on the {\ttfamily line\+To\+Change} parameter.
+
+
+\begin{DoxyParams}{Parameters}
+{\em course} & A pointer to the \mbox{\hyperlink{classCourseManager}{Course\+Manager}} object. \\
+\hline
+{\em line\+To\+Change} & The line number of the operation to revert (default is -\/1 to view the log). \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8cpp_ab98c75d1f4ceabe0e051fc8bec703c97}\label{main_8cpp_ab98c75d1f4ceabe0e051fc8bec703c97}} 
+\index{main.cpp@{main.cpp}!removeLineFromLog@{removeLineFromLog}}
+\index{removeLineFromLog@{removeLineFromLog}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{removeLineFromLog()}{removeLineFromLog()}}
+{\footnotesize\ttfamily void remove\+Line\+From\+Log (\begin{DoxyParamCaption}\item[{int}]{line\+To\+Remove }\end{DoxyParamCaption})}
+
+
+
+Remove a specific line from a log file. 
+
+This function reads a log file, removes a specific line identified by its line number, and then saves the modified log back to the file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em line\+To\+Remove} & The line number to be removed from the log. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8cpp_aa1526aeae683df9743676de423a10619}\label{main_8cpp_aa1526aeae683df9743676de423a10619}} 
+\index{main.cpp@{main.cpp}!showExitMenu@{showExitMenu}}
+\index{showExitMenu@{showExitMenu}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{showExitMenu()}{showExitMenu()}}
+{\footnotesize\ttfamily bool show\+Exit\+Menu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCourseManager}{Course\+Manager}} $\ast$}]{course }\end{DoxyParamCaption})}
+
+
+
+Display an exit menu and handle user options. 
+
+This function displays an exit menu that allows the user to choose between several options\+:
+\begin{DoxyItemize}
+\item Returning to the main menu.
+\item Reverting all changes made during the session.
+\item Clearing the log file.
+\item Exiting the program.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em course} & A pointer to the \mbox{\hyperlink{classCourseManager}{Course\+Manager}} instance. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the user chooses to return to the main menu, false for other options (revert, clear log, or exit). 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8cpp_af429d61b91bda945a90e28f68f91d350}\label{main_8cpp_af429d61b91bda945a90e28f68f91d350}} 
+\index{main.cpp@{main.cpp}!showLists@{showLists}}
+\index{showLists@{showLists}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{showLists()}{showLists()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void show\+Lists (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCourseManager}{Course\+Manager}} $\ast$}]{course\+Manager }\end{DoxyParamCaption})}
+
+
+
+Display a menu to consult various student listings based on order and criteria. 
+
+This function displays a menu that allows the user to select the order and criteria for consulting student listings. The user can choose to order by student ID or alphabetically, and then select from options such as consulting students in a specific year, UC, class, or displaying UCs with the most students.
+
+
+\begin{DoxyParams}{Parameters}
+{\em course\+Manager} & A pointer to the \mbox{\hyperlink{classCourseManager}{Course\+Manager}} instance. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8cpp_a84a325639b241dc840887e54df36f188}\label{main_8cpp_a84a325639b241dc840887e54df36f188}} 
+\index{main.cpp@{main.cpp}!showLists@{showLists}}
+\index{showLists@{showLists}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{showLists()}{showLists()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void show\+Lists (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCourseManager}{Course\+Manager}} $\ast$}]{course\+Manager,  }\item[{int}]{order\+Type }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{main_8cpp_a6d374074bcbdf48062d4455b09b943f1}\label{main_8cpp_a6d374074bcbdf48062d4455b09b943f1}} 
+\index{main.cpp@{main.cpp}!showOccupancies@{showOccupancies}}
+\index{showOccupancies@{showOccupancies}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{showOccupancies()}{showOccupancies()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void show\+Occupancies (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCourseManager}{Course\+Manager}} $\ast$}]{,  }\item[{int}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{main_8cpp_a4457b5fec672873693f246190f68dbf3}\label{main_8cpp_a4457b5fec672873693f246190f68dbf3}} 
+\index{main.cpp@{main.cpp}!showOccupancies@{showOccupancies}}
+\index{showOccupancies@{showOccupancies}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{showOccupancies()}{showOccupancies()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void show\+Occupancies (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCourseManager}{Course\+Manager}} $\ast$}]{course }\end{DoxyParamCaption})}
+
+
+
+Display a menu to consult various occupancies based on order and criteria. 
+
+This function displays a menu that allows the user to select the order and criteria for consulting occupancies. The user can choose to order in ascending or descending order and then select from options such as class occupancy, year occupancy, UC occupancy, or displaying student count on a specific number of units.
+
+
+\begin{DoxyParams}{Parameters}
+{\em course} & A pointer to the \mbox{\hyperlink{classCourseManager}{Course\+Manager}} instance. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8cpp_a37d7cc631ad93bf2040f8a4dc636793d}\label{main_8cpp_a37d7cc631ad93bf2040f8a4dc636793d}} 
+\index{main.cpp@{main.cpp}!showRequestMenu@{showRequestMenu}}
+\index{showRequestMenu@{showRequestMenu}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{showRequestMenu()}{showRequestMenu()}}
+{\footnotesize\ttfamily bool show\+Request\+Menu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCourseManager}{Course\+Manager}} $\ast$}]{course }\end{DoxyParamCaption})}
+
+
+
+Display a menu to make student-\/related requests. 
+
+This function displays a menu to make various student-\/related requests, such as adding a student to a class, removing a student from a class, or requesting a change. It prompts the user to select the type of request and provides the necessary details.
+
+
+\begin{DoxyParams}{Parameters}
+{\em course} & A pointer to the \mbox{\hyperlink{classCourseManager}{Course\+Manager}} instance.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if a request is successfully made, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8cpp_aa85de1cbff72f84585274823fbc36b82}\label{main_8cpp_aa85de1cbff72f84585274823fbc36b82}} 
+\index{main.cpp@{main.cpp}!showSchedules@{showSchedules}}
+\index{showSchedules@{showSchedules}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{showSchedules()}{showSchedules()}}
+{\footnotesize\ttfamily void show\+Schedules (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCourseManager}{Course\+Manager}} $\ast$}]{course\+Manager }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{main_8cpp_a6eaed4deab9223e202e6986add9cebce}\label{main_8cpp_a6eaed4deab9223e202e6986add9cebce}} 
+\index{main.cpp@{main.cpp}!showSwitchMenu@{showSwitchMenu}}
+\index{showSwitchMenu@{showSwitchMenu}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{showSwitchMenu()}{showSwitchMenu()}}
+{\footnotesize\ttfamily bool show\+Switch\+Menu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCourseManager}{Course\+Manager}} $\ast$}]{course }\end{DoxyParamCaption})}
+
+
+
+Display a menu to make requests for UC or class changes. 
+
+This function displays a menu to make requests for UC or class changes for a specific student. The user is prompted to select the type of change (UC or class) and provide the necessary details.
+
+
+\begin{DoxyParams}{Parameters}
+{\em course} & A pointer to the \mbox{\hyperlink{classCourseManager}{Course\+Manager}} instance.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if a request is successfully made; false if the user chooses to return to the previous menu. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8cpp_a9a53fca8ebdc4e91559cc3f7eec4b736}\label{main_8cpp_a9a53fca8ebdc4e91559cc3f7eec4b736}} 
+\index{main.cpp@{main.cpp}!validStudentId@{validStudentId}}
+\index{validStudentId@{validStudentId}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{validStudentId()}{validStudentId()}}
+{\footnotesize\ttfamily bool valid\+Student\+Id (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{id }\end{DoxyParamCaption})}
+
+
+
+Validates a student ID (9-\/digit numeric format). 
+
+This function validates a student ID provided as a string by checking if it has the correct length (9 characters) and if it can be converted to an integer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The student ID to validate.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the student ID is valid; false otherwise. 
+\end{DoxyReturn}

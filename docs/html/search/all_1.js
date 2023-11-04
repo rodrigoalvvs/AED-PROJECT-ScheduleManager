@@ -1,6 +1,22 @@
 var searchData=
 [
-  ['courseclass_2',['CourseClass',['../classCourseClass.html',1,'']]],
-  ['coursemanager_3',['CourseManager',['../classCourseManager.html',1,'CourseManager'],['../classCourseManager.html#afba31bde00e392e28062c978c74a32f6',1,'CourseManager::CourseManager()']]],
-  ['courseunit_4',['CourseUnit',['../classCourseUnit.html',1,'CourseUnit'],['../classCourseUnit.html#a3bd0795975928c5be65cd4cd9acf93cf',1,'CourseUnit::CourseUnit()']]]
+  ['checkenrollment_7',['checkEnrollment',['../classStudent.html#a55f1076d55c8039a4e3bc7d57c23d4fa',1,'Student']]],
+  ['checkperiodoverlap_8',['checkPeriodOverlap',['../classCourseManager.html#a19c19918f072119e4ec0488affd0d0d6',1,'CourseManager']]],
+  ['checkscheduleoverlap_9',['checkScheduleOverlap',['../classCourseManager.html#a3b9f3f16f96004a19d232fee7e2ac9b1',1,'CourseManager']]],
+  ['classes_10',['classes',['../classCourseUnit.html#a091371310bc1ad23295f739b4fe7edfe',1,'CourseUnit::classes()'],['../classCourseClass.html#ae6350ae08298d4bca8d0dae0bc53ebd9',1,'CourseClass::classes()']]],
+  ['classesregistered_11',['classesRegistered',['../classStudent.html#a35818ed2a0f05ce3728f406841718291',1,'Student']]],
+  ['classid_12',['classId',['../classCourseClass.html#affb747b56fbad6330df41b8d1113be74',1,'CourseClass']]],
+  ['classlimitoccupancy_13',['classLimitOccupancy',['../classCourseClass.html#af1abf443f31fc287d5d8f93d896ed086',1,'CourseClass']]],
+  ['clearlog_14',['clearLog',['../main_8cpp.html#ae2d5212eb62104cb3219318f03f23734',1,'main.cpp']]],
+  ['cmphours_15',['cmpHours',['../CourseManager_8cpp.html#af0d3d9aa972a2dcaaf7a21256e1d5609',1,'CourseManager.cpp']]],
+  ['courseclass_16',['CourseClass',['../classCourseClass.html#a631ef2b903953cde05378374c87a5942',1,'CourseClass::CourseClass()'],['../classCourseClass.html',1,'CourseClass']]],
+  ['courseclass_2ecpp_17',['CourseClass.cpp',['../CourseClass_8cpp.html',1,'']]],
+  ['courseclass_2eh_18',['CourseClass.h',['../CourseClass_8h.html',1,'']]],
+  ['coursemanager_19',['CourseManager',['../classCourseManager.html#afba31bde00e392e28062c978c74a32f6',1,'CourseManager::CourseManager()'],['../classCourseManager.html',1,'CourseManager']]],
+  ['coursemanager_2ecpp_20',['CourseManager.cpp',['../CourseManager_8cpp.html',1,'']]],
+  ['coursemanager_2eh_21',['CourseManager.h',['../CourseManager_8h.html',1,'']]],
+  ['courseunit_22',['CourseUnit',['../classCourseUnit.html',1,'CourseUnit'],['../classCourseUnit.html#a3bd0795975928c5be65cd4cd9acf93cf',1,'CourseUnit::CourseUnit()']]],
+  ['courseunit_2ecpp_23',['CourseUnit.cpp',['../CourseUnit_8cpp.html',1,'']]],
+  ['courseunit_2eh_24',['CourseUnit.h',['../CourseUnit_8h.html',1,'']]],
+  ['currentorderofstudents_25',['currentOrderOfStudents',['../classCourseClass.html#a0cd2c6535c3582747636810802017455',1,'CourseClass::currentOrderOfStudents()'],['../classCourseUnit.html#a3065d15b9abac1f6b5ad3f5ece1f2336',1,'CourseUnit::currentOrderOfStudents()']]]
 ];

@@ -11,6 +11,7 @@
  * for classes and students and sets the current order of students to -1 (unordered).
 
  * @param classId_ The unique identifier for the CourseClass.
+ *
  */
 CourseClass::CourseClass(const std::string& classId_){
     this->students.reserve(this->classLimitOccupancy);
@@ -26,6 +27,7 @@ CourseClass::CourseClass(const std::string& classId_){
  * @brief Retrieves the count of students enrolled in this course class.
  *
  * This function returns an integer value indicating the count of students who are currently enrolled in this course class.
+ * @note Complexity O(1)
 
  * @return An integer value representing the count of enrolled students.
  */
@@ -39,6 +41,7 @@ int CourseClass::getStudentCount() const {
  * This function adds a student to the course class, identified by their student code, if the class has not reached its capacity.
 
  * @param studentCode_ The unique student code of the student to add.
+ * @note Complexity O(1)
  * @return true if the student was successfully added to the course class, false if the class is at its capacity.
  */
 bool CourseClass::addStudent(int studentCode_){
@@ -55,6 +58,7 @@ bool CourseClass::addStudent(int studentCode_){
  *
  * This function returns a shared pointer to a vector of student codes, representing the students who are currently enrolled in this course class.
 
+   @note Complexity O(1)
  * @return A shared pointer to a vector of student codes.
  */
 std::shared_ptr<std::vector<int>> CourseClass::getStudents() {
@@ -67,6 +71,7 @@ std::shared_ptr<std::vector<int>> CourseClass::getStudents() {
  * This function removes a student with the specified student ID from the course class if the student is currently enrolled.
 
  * @param studentId The unique student ID of the student to remove.
+ * @note Complexity O(N)
  * @return true if the student was successfully removed from the course class, false if the student is not enrolled.
  */
 bool CourseClass::removeStudent(int studentId){
@@ -83,6 +88,7 @@ bool CourseClass::removeStudent(int studentId){
  * @brief Retrieves the classes associated with this course class.
  *
  * This function returns a reference to a vector of shared pointers to class periods, representing the classes associated with this course class.
+ * @note Complexity O(1)
 
  * @return A reference to a vector of shared pointers to class periods.
  */
@@ -95,7 +101,7 @@ const std::vector<std::shared_ptr<Period>>& CourseClass::getClasses() {
  * @brief Retrieves the unique identifier of this course class.
  *
  * This function returns a constant reference to the unique identifier (classId) of this course class.
-
+ * @note Complexity O(1)
  * @return A constant reference to the unique identifier of the course class.
  */
 const std::string &CourseClass::getClassId() const {
@@ -105,7 +111,7 @@ const std::string &CourseClass::getClassId() const {
  * @brief Retrieves the number of classes held per week for this course class.
  *
  * This function returns an integer value representing the number of classes held per week for this course class.
-
+ * @note Complexity O(1)
  * @return An integer value indicating the number of classes per week for the course class.
  */
 int CourseClass::getClassesCountPerWeek() const {
@@ -123,6 +129,7 @@ int CourseClass::getClassesCountPerWeek() const {
  * @param startHour_ The start hour of the class period.
  * @param duration_ The duration of the class period.
  * @param type_ The type of the class period (e.g., T, TP, PL).
+ * @note Complexity O(1)
  * @return true if the class period was successfully added to the course class.
  */
 bool CourseClass::addPeriod(const std::string& weekDay_, float startHour_, float duration_, const std::string& type_) {
@@ -138,6 +145,7 @@ bool CourseClass::addPeriod(const std::string& weekDay_, float startHour_, float
  *
  * - 1: Order by student ID.
  * - 2: Order alphabetically.
+ * @note Complexity O(1)
  *
  * @return An integer value representing the current order type for students within the course class.
  */
@@ -152,6 +160,7 @@ int CourseClass::getCurrentOrder() const {
  *
  * - 1: Order by student ID.
  * - 2: Order alphabetically.
+ * @note Complexity O(1)
  *
  * @param orderType An integer value indicating the desired order type (1 for student ID, 2 for alphabetical order).
  */
@@ -159,6 +168,14 @@ void CourseClass::setCurrentOrder(int orderType) {
     this->currentOrderOfStudents = orderType;
 }
 
+/**
+ * Get the maximum occupancy limit for this class.
+ *
+ * This method returns the maximum number of students that can be enrolled in this class.
+ * @note Complexity O(1)
+ *
+ * @return The maximum occupancy limit of the class.
+ */
 int CourseClass::getClassLimit() const {
     return this->classLimitOccupancy;
 }

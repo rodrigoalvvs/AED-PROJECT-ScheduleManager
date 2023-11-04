@@ -1,41 +1,281 @@
 \hypertarget{classPeriod}{}\doxysection{Period Class Reference}
 \label{classPeriod}\index{Period@{Period}}
+
+
+Represents a time period with a start hour, duration, day of the week, and type.  
+
+
+
+
+{\ttfamily \#include $<$Period.\+h$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\hyperlink{classPeriod_afd2d8ddeeca3256f624b9a603d30385d}{Period}} (const std\+::string \&week\+Day\+\_\+, float start\+Hour\+\_\+, float duration\+\_\+, const std\+::string \&type\+\_\+)
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{classPeriod}{Period}} object with specified attributes. \end{DoxyCompactList}\item 
+const std\+::string \& \mbox{\hyperlink{classPeriod_a75050224e1aec8eb8f9baade8f47f1a4}{get\+Week\+Day}} () const
+\begin{DoxyCompactList}\small\item\em Retrieves the day of the week for this class period. \end{DoxyCompactList}\item 
+const std\+::string \& \mbox{\hyperlink{classPeriod_a2d490c8754144504927dbfeb4437794c}{get\+Period\+Type}} () const
+\begin{DoxyCompactList}\small\item\em Retrieves the type of this class period. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structHour}{Hour}} \mbox{\hyperlink{classPeriod_afa7738e35b94a93e9b4ea7747c60f182}{get\+Start\+Time}} () const
+\begin{DoxyCompactList}\small\item\em Retrieves the start time of this class period. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structHour}{Hour}} \mbox{\hyperlink{classPeriod_ac2dfe23981ecafd3d0c8dfdfd95e90cd}{get\+End\+Time}} () const
+\begin{DoxyCompactList}\small\item\em Retrieves the end time of this class period. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classPeriod_ac724defc38d325a31f18d15d26c29009}{get\+Duration}} () const
+\begin{DoxyCompactList}\small\item\em Retrieves the duration of this class period in hours. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPeriod_aa4a0657c01e00dac668b62d3e69f8bf2}{set\+Week\+Day}} (const std\+::string \&week\+Day\+\_\+)
+\begin{DoxyCompactList}\small\item\em Set the day of the week for this class period. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPeriod_a73a59f398a5c529e6793913776f60a92}{set\+Period\+Type}} (const std\+::string \&class\+Type\+\_\+)
+\begin{DoxyCompactList}\small\item\em Set the type of this class period. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPeriod_a231c388422cf33a2aa9a6e5afcf1e19e}{set\+Start\+Hour}} (float start\+Hour\+\_\+)
+\begin{DoxyCompactList}\small\item\em Set the start hour for this class period. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPeriod_a7ed1af8c86ec9792f0662439552e84c5}{set\+Duration}} (float duration\+\_\+)
+\begin{DoxyCompactList}\small\item\em Set the duration for this class period. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classPeriod_a54609be0b2c668ea39149c58577ef4bc}{overlaps}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classPeriod}{Period}} $>$ other\+Period) const
+\begin{DoxyCompactList}\small\item\em Checks if this class period overlaps with another. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{classPeriod_ac881b771fa6659bf4e57595b26267e47}{start\+Hour}}
+\begin{DoxyCompactList}\small\item\em The starting hour of the period. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classPeriod_afc7be6c8b493a7a342330effc91fd0aa}{duration}}
+\begin{DoxyCompactList}\small\item\em The duration of the period. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classPeriod_ab086b1222213a4c2ae8c084f700289b4}{week\+Day}}
+\begin{DoxyCompactList}\small\item\em The day of the week for the period. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classPeriod_ad013a05a23545729b2beac94b3533804}{type}}
+\begin{DoxyCompactList}\small\item\em The type of the period (e.\+g., \char`\"{}\+TP\char`\"{}, \char`\"{}\+T\char`\"{}, \char`\"{}\+PL\char`\"{}). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a time period with a start hour, duration, day of the week, and type. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classPeriod_afd2d8ddeeca3256f624b9a603d30385d}\label{classPeriod_afd2d8ddeeca3256f624b9a603d30385d}} 
-{\bfseries Period} (const std\+::string \&week\+Day\+\_\+, float start\+Hour\+\_\+, float duration\+\_\+, const std\+::string \&type\+\_\+)
-\item 
-\mbox{\Hypertarget{classPeriod_a75050224e1aec8eb8f9baade8f47f1a4}\label{classPeriod_a75050224e1aec8eb8f9baade8f47f1a4}} 
-const std\+::string \& {\bfseries get\+Week\+Day} () const
-\item 
-\mbox{\Hypertarget{classPeriod_a2d490c8754144504927dbfeb4437794c}\label{classPeriod_a2d490c8754144504927dbfeb4437794c}} 
-const std\+::string \& {\bfseries get\+Period\+Type} () const
-\item 
-\mbox{\Hypertarget{classPeriod_afa7738e35b94a93e9b4ea7747c60f182}\label{classPeriod_afa7738e35b94a93e9b4ea7747c60f182}} 
-\mbox{\hyperlink{structHour}{Hour}} {\bfseries get\+Start\+Time} () const
-\item 
-\mbox{\Hypertarget{classPeriod_ac2dfe23981ecafd3d0c8dfdfd95e90cd}\label{classPeriod_ac2dfe23981ecafd3d0c8dfdfd95e90cd}} 
-\mbox{\hyperlink{structHour}{Hour}} {\bfseries get\+End\+Time} () const
-\item 
+\index{Period@{Period}!Period@{Period}}
+\index{Period@{Period}!Period@{Period}}
+\doxysubsubsection{\texorpdfstring{Period()}{Period()}}
+{\footnotesize\ttfamily Period\+::\+Period (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{week\+Day\+\_\+,  }\item[{float}]{start\+Hour\+\_\+,  }\item[{float}]{duration\+\_\+,  }\item[{const std\+::string \&}]{type\+\_\+ }\end{DoxyParamCaption})}
+
+
+
+Constructs a \mbox{\hyperlink{classPeriod}{Period}} object with specified attributes. 
+
+This constructor initializes a \mbox{\hyperlink{classPeriod}{Period}} object with the given attributes, including the day of the week (week\+Day\+\_\+), start hour (start\+Hour\+\_\+), duration (duration\+\_\+), and type (type\+\_\+) of the class period.
+
+
+\begin{DoxyParams}{Parameters}
+{\em week\+Day\+\_\+} & The day of the week on which the class period occurs. \\
+\hline
+{\em start\+Hour\+\_\+} & The start hour of the class period. \\
+\hline
+{\em duration\+\_\+} & The duration of the class period. \\
+\hline
+{\em type\+\_\+} & The type of the class period (e.\+g., T, TP, PL). \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classPeriod_ac724defc38d325a31f18d15d26c29009}\label{classPeriod_ac724defc38d325a31f18d15d26c29009}} 
-float {\bfseries get\+Duration} () const
-\item 
-\mbox{\Hypertarget{classPeriod_aa4a0657c01e00dac668b62d3e69f8bf2}\label{classPeriod_aa4a0657c01e00dac668b62d3e69f8bf2}} 
-void {\bfseries set\+Week\+Day} (const std\+::string \&week\+Day\+\_\+)
-\item 
-\mbox{\Hypertarget{classPeriod_a73a59f398a5c529e6793913776f60a92}\label{classPeriod_a73a59f398a5c529e6793913776f60a92}} 
-void {\bfseries set\+Period\+Type} (const std\+::string \&class\+Type\+\_\+)
-\item 
-\mbox{\Hypertarget{classPeriod_a231c388422cf33a2aa9a6e5afcf1e19e}\label{classPeriod_a231c388422cf33a2aa9a6e5afcf1e19e}} 
-void {\bfseries set\+Start\+Hour} (float start\+Hour\+\_\+)
-\item 
+\index{Period@{Period}!getDuration@{getDuration}}
+\index{getDuration@{getDuration}!Period@{Period}}
+\doxysubsubsection{\texorpdfstring{getDuration()}{getDuration()}}
+{\footnotesize\ttfamily float Period\+::get\+Duration (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Retrieves the duration of this class period in hours. 
+
+\begin{DoxyReturn}{Returns}
+The duration of the class period in hours. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPeriod_ac2dfe23981ecafd3d0c8dfdfd95e90cd}\label{classPeriod_ac2dfe23981ecafd3d0c8dfdfd95e90cd}} 
+\index{Period@{Period}!getEndTime@{getEndTime}}
+\index{getEndTime@{getEndTime}!Period@{Period}}
+\doxysubsubsection{\texorpdfstring{getEndTime()}{getEndTime()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structHour}{Hour}} Period\+::get\+End\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Retrieves the end time of this class period. 
+
+\begin{DoxyReturn}{Returns}
+An {\ttfamily \mbox{\hyperlink{structHour}{Hour}}} object representing the end time. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPeriod_a2d490c8754144504927dbfeb4437794c}\label{classPeriod_a2d490c8754144504927dbfeb4437794c}} 
+\index{Period@{Period}!getPeriodType@{getPeriodType}}
+\index{getPeriodType@{getPeriodType}!Period@{Period}}
+\doxysubsubsection{\texorpdfstring{getPeriodType()}{getPeriodType()}}
+{\footnotesize\ttfamily const std\+::string \& Period\+::get\+Period\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Retrieves the type of this class period. 
+
+\begin{DoxyReturn}{Returns}
+A constant reference to the class period type (e.\+g., \char`\"{}lecture\char`\"{}, \char`\"{}lab\char`\"{}). 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPeriod_afa7738e35b94a93e9b4ea7747c60f182}\label{classPeriod_afa7738e35b94a93e9b4ea7747c60f182}} 
+\index{Period@{Period}!getStartTime@{getStartTime}}
+\index{getStartTime@{getStartTime}!Period@{Period}}
+\doxysubsubsection{\texorpdfstring{getStartTime()}{getStartTime()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structHour}{Hour}} Period\+::get\+Start\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Retrieves the start time of this class period. 
+
+\begin{DoxyReturn}{Returns}
+An {\ttfamily \mbox{\hyperlink{structHour}{Hour}}} object representing the start time. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPeriod_a75050224e1aec8eb8f9baade8f47f1a4}\label{classPeriod_a75050224e1aec8eb8f9baade8f47f1a4}} 
+\index{Period@{Period}!getWeekDay@{getWeekDay}}
+\index{getWeekDay@{getWeekDay}!Period@{Period}}
+\doxysubsubsection{\texorpdfstring{getWeekDay()}{getWeekDay()}}
+{\footnotesize\ttfamily const std\+::string \& Period\+::get\+Week\+Day (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Retrieves the day of the week for this class period. 
+
+\begin{DoxyReturn}{Returns}
+A constant reference to the day of the week (e.\+g., \char`\"{}\+Monday\char`\"{}). 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPeriod_a54609be0b2c668ea39149c58577ef4bc}\label{classPeriod_a54609be0b2c668ea39149c58577ef4bc}} 
+\index{Period@{Period}!overlaps@{overlaps}}
+\index{overlaps@{overlaps}!Period@{Period}}
+\doxysubsubsection{\texorpdfstring{overlaps()}{overlaps()}}
+{\footnotesize\ttfamily bool Period\+::overlaps (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classPeriod}{Period}} $>$}]{other\+Period }\end{DoxyParamCaption}) const}
+
+
+
+Checks if this class period overlaps with another. 
+
+This function checks if this class period overlaps with another class period provided as a shared pointer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em other\+Period} & A shared pointer to another class period. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if there is an overlap, false if there is no overlap. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classPeriod_a7ed1af8c86ec9792f0662439552e84c5}\label{classPeriod_a7ed1af8c86ec9792f0662439552e84c5}} 
-void {\bfseries set\+Duration} (float duration\+\_\+)
-\end{DoxyCompactItemize}
+\index{Period@{Period}!setDuration@{setDuration}}
+\index{setDuration@{setDuration}!Period@{Period}}
+\doxysubsubsection{\texorpdfstring{setDuration()}{setDuration()}}
+{\footnotesize\ttfamily void Period\+::set\+Duration (\begin{DoxyParamCaption}\item[{float}]{duration\+\_\+ }\end{DoxyParamCaption})}
+
+
+
+Set the duration for this class period. 
+
+This function allows setting the duration for this class period in hours.
+
+
+\begin{DoxyParams}{Parameters}
+{\em duration\+\_\+} & The new duration in hours for the class period. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPeriod_a73a59f398a5c529e6793913776f60a92}\label{classPeriod_a73a59f398a5c529e6793913776f60a92}} 
+\index{Period@{Period}!setPeriodType@{setPeriodType}}
+\index{setPeriodType@{setPeriodType}!Period@{Period}}
+\doxysubsubsection{\texorpdfstring{setPeriodType()}{setPeriodType()}}
+{\footnotesize\ttfamily void Period\+::set\+Period\+Type (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{class\+Type\+\_\+ }\end{DoxyParamCaption})}
+
+
+
+Set the type of this class period. 
+
+This function allows setting the type of this class period, such as \char`\"{}lecture\char`\"{} or \char`\"{}lab.\char`\"{}
+
+
+\begin{DoxyParams}{Parameters}
+{\em class\+Type\+\_\+} & A constant reference to the new class period type. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPeriod_a231c388422cf33a2aa9a6e5afcf1e19e}\label{classPeriod_a231c388422cf33a2aa9a6e5afcf1e19e}} 
+\index{Period@{Period}!setStartHour@{setStartHour}}
+\index{setStartHour@{setStartHour}!Period@{Period}}
+\doxysubsubsection{\texorpdfstring{setStartHour()}{setStartHour()}}
+{\footnotesize\ttfamily void Period\+::set\+Start\+Hour (\begin{DoxyParamCaption}\item[{float}]{start\+Hour\+\_\+ }\end{DoxyParamCaption})}
+
+
+
+Set the start hour for this class period. 
+
+This function allows setting the start hour for this class period.
+
+
+\begin{DoxyParams}{Parameters}
+{\em start\+Hour\+\_\+} & The new start hour for the class period. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPeriod_aa4a0657c01e00dac668b62d3e69f8bf2}\label{classPeriod_aa4a0657c01e00dac668b62d3e69f8bf2}} 
+\index{Period@{Period}!setWeekDay@{setWeekDay}}
+\index{setWeekDay@{setWeekDay}!Period@{Period}}
+\doxysubsubsection{\texorpdfstring{setWeekDay()}{setWeekDay()}}
+{\footnotesize\ttfamily void Period\+::set\+Week\+Day (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{week\+Day\+\_\+ }\end{DoxyParamCaption})}
+
+
+
+Set the day of the week for this class period. 
+
+This function allows setting the day of the week for this class period.
+
+
+\begin{DoxyParams}{Parameters}
+{\em week\+Day\+\_\+} & A constant reference to the new day of the week (e.\+g., \char`\"{}\+Monday\char`\"{}). \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classPeriod_afc7be6c8b493a7a342330effc91fd0aa}\label{classPeriod_afc7be6c8b493a7a342330effc91fd0aa}} 
+\index{Period@{Period}!duration@{duration}}
+\index{duration@{duration}!Period@{Period}}
+\doxysubsubsection{\texorpdfstring{duration}{duration}}
+{\footnotesize\ttfamily float Period\+::duration\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The duration of the period. 
+
+\mbox{\Hypertarget{classPeriod_ac881b771fa6659bf4e57595b26267e47}\label{classPeriod_ac881b771fa6659bf4e57595b26267e47}} 
+\index{Period@{Period}!startHour@{startHour}}
+\index{startHour@{startHour}!Period@{Period}}
+\doxysubsubsection{\texorpdfstring{startHour}{startHour}}
+{\footnotesize\ttfamily float Period\+::start\+Hour\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The starting hour of the period. 
+
+\mbox{\Hypertarget{classPeriod_ad013a05a23545729b2beac94b3533804}\label{classPeriod_ad013a05a23545729b2beac94b3533804}} 
+\index{Period@{Period}!type@{type}}
+\index{type@{type}!Period@{Period}}
+\doxysubsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily std\+::string Period\+::type\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The type of the period (e.\+g., \char`\"{}\+TP\char`\"{}, \char`\"{}\+T\char`\"{}, \char`\"{}\+PL\char`\"{}). 
+
+\mbox{\Hypertarget{classPeriod_ab086b1222213a4c2ae8c084f700289b4}\label{classPeriod_ab086b1222213a4c2ae8c084f700289b4}} 
+\index{Period@{Period}!weekDay@{weekDay}}
+\index{weekDay@{weekDay}!Period@{Period}}
+\doxysubsubsection{\texorpdfstring{weekDay}{weekDay}}
+{\footnotesize\ttfamily std\+::string Period\+::week\+Day\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The day of the week for the period. 
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-include/Period.\+h\item 
-src/Period.\+cpp\end{DoxyCompactItemize}
+include/\mbox{\hyperlink{Period_8h}{Period.\+h}}\item 
+src/\mbox{\hyperlink{Period_8cpp}{Period.\+cpp}}\end{DoxyCompactItemize}

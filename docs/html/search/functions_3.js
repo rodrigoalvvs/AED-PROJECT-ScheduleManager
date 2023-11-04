@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['printschedule_45',['printSchedule',['../classCourseManager.html#a0ac7213c679d0796c6c47ac02acf832b',1,'CourseManager']]]
+  ['handlerequests_199',['handleRequests',['../classCourseManager.html#a403881c3ca23cf9bcd03abd5193360f7',1,'CourseManager']]]
 ];

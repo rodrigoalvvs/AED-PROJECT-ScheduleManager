@@ -63,42 +63,525 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classCourseClass-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">CourseClass Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Represents a class within a course unit.  
+ <a href="classCourseClass.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="CourseClass_8h_source.html">CourseClass.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a631ef2b903953cde05378374c87a5942"><td class="memItemLeft" align="right" valign="top"><a id="a631ef2b903953cde05378374c87a5942"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>CourseClass</b> (const std::string &amp;classId_)</td></tr>
+<tr class="memitem:a631ef2b903953cde05378374c87a5942"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseClass.html#a631ef2b903953cde05378374c87a5942">CourseClass</a> (const std::string &amp;classId_)</td></tr>
+<tr class="memdesc:a631ef2b903953cde05378374c87a5942"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="classCourseClass.html" title="Represents a class within a course unit.">CourseClass</a> object with the given class identifier.  <a href="classCourseClass.html#a631ef2b903953cde05378374c87a5942">More...</a><br /></td></tr>
 <tr class="separator:a631ef2b903953cde05378374c87a5942"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a97d3ed1445368525cc3c6577f05ec39b"><td class="memItemLeft" align="right" valign="top"><a id="a97d3ed1445368525cc3c6577f05ec39b"></a>
-const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getClassId</b> () const</td></tr>
+<tr class="memitem:a97d3ed1445368525cc3c6577f05ec39b"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseClass.html#a97d3ed1445368525cc3c6577f05ec39b">getClassId</a> () const</td></tr>
+<tr class="memdesc:a97d3ed1445368525cc3c6577f05ec39b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the unique identifier of this course class.  <a href="classCourseClass.html#a97d3ed1445368525cc3c6577f05ec39b">More...</a><br /></td></tr>
 <tr class="separator:a97d3ed1445368525cc3c6577f05ec39b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4427e8628dbc78687d8dabd45e86a511"><td class="memItemLeft" align="right" valign="top"><a id="a4427e8628dbc78687d8dabd45e86a511"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getStudentCount</b> () const</td></tr>
+<tr class="memitem:a4427e8628dbc78687d8dabd45e86a511"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseClass.html#a4427e8628dbc78687d8dabd45e86a511">getStudentCount</a> () const</td></tr>
+<tr class="memdesc:a4427e8628dbc78687d8dabd45e86a511"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the count of students enrolled in this course class.  <a href="classCourseClass.html#a4427e8628dbc78687d8dabd45e86a511">More...</a><br /></td></tr>
 <tr class="separator:a4427e8628dbc78687d8dabd45e86a511"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8cf4a5d3a967796d55595573eb6018ca"><td class="memItemLeft" align="right" valign="top"><a id="a8cf4a5d3a967796d55595573eb6018ca"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getClassesPerWeek</b> () const</td></tr>
-<tr class="separator:a8cf4a5d3a967796d55595573eb6018ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afaa0c1342ba8bcd6e2eae7cc39e4be20"><td class="memItemLeft" align="right" valign="top"><a id="afaa0c1342ba8bcd6e2eae7cc39e4be20"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>addPeriod</b> (const std::string &amp;weekDay_, float startHour_, float duration_, const std::string &amp;type_)</td></tr>
+<tr class="memitem:ab962bab88820aa0c8d94df50baaa23a5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseClass.html#ab962bab88820aa0c8d94df50baaa23a5">getClassesCountPerWeek</a> () const</td></tr>
+<tr class="memdesc:ab962bab88820aa0c8d94df50baaa23a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the number of classes held per week for this course class.  <a href="classCourseClass.html#ab962bab88820aa0c8d94df50baaa23a5">More...</a><br /></td></tr>
+<tr class="separator:ab962bab88820aa0c8d94df50baaa23a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21360e73c072ec7ebae2aebda5c72d38"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseClass.html#a21360e73c072ec7ebae2aebda5c72d38">getCurrentOrder</a> () const</td></tr>
+<tr class="memdesc:a21360e73c072ec7ebae2aebda5c72d38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the current order type for students within this course class.  <a href="classCourseClass.html#a21360e73c072ec7ebae2aebda5c72d38">More...</a><br /></td></tr>
+<tr class="separator:a21360e73c072ec7ebae2aebda5c72d38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a916d8ae06d0aa375d5bd944c7978aeda"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseClass.html#a916d8ae06d0aa375d5bd944c7978aeda">getClassLimit</a> () const</td></tr>
+<tr class="separator:a916d8ae06d0aa375d5bd944c7978aeda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc938da14096d08f7e9f96fb75daf050"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseClass.html#abc938da14096d08f7e9f96fb75daf050">setCurrentOrder</a> (int orderType)</td></tr>
+<tr class="memdesc:abc938da14096d08f7e9f96fb75daf050"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the current order type for students within this course class.  <a href="classCourseClass.html#abc938da14096d08f7e9f96fb75daf050">More...</a><br /></td></tr>
+<tr class="separator:abc938da14096d08f7e9f96fb75daf050"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afaa0c1342ba8bcd6e2eae7cc39e4be20"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseClass.html#afaa0c1342ba8bcd6e2eae7cc39e4be20">addPeriod</a> (const std::string &amp;weekDay_, float startHour_, float duration_, const std::string &amp;type_)</td></tr>
+<tr class="memdesc:afaa0c1342ba8bcd6e2eae7cc39e4be20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a class period to this course class.  <a href="classCourseClass.html#afaa0c1342ba8bcd6e2eae7cc39e4be20">More...</a><br /></td></tr>
 <tr class="separator:afaa0c1342ba8bcd6e2eae7cc39e4be20"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad33f1843a7951b9984394f7628fc6ca9"><td class="memItemLeft" align="right" valign="top"><a id="ad33f1843a7951b9984394f7628fc6ca9"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>addStudent</b> (int studentCode)</td></tr>
+<tr class="memitem:ad33f1843a7951b9984394f7628fc6ca9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseClass.html#ad33f1843a7951b9984394f7628fc6ca9">addStudent</a> (int studentCode)</td></tr>
+<tr class="memdesc:ad33f1843a7951b9984394f7628fc6ca9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a student to this course class, if class capacity allows.  <a href="classCourseClass.html#ad33f1843a7951b9984394f7628fc6ca9">More...</a><br /></td></tr>
 <tr class="separator:ad33f1843a7951b9984394f7628fc6ca9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a06375345a514989cb878f3a3c9c084df"><td class="memItemLeft" align="right" valign="top"><a id="a06375345a514989cb878f3a3c9c084df"></a>
-const std::vector&lt; std::shared_ptr&lt; <a class="el" href="classPeriod.html">Period</a> &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getClasses</b> ()</td></tr>
+<tr class="memitem:a06375345a514989cb878f3a3c9c084df"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; std::shared_ptr&lt; <a class="el" href="classPeriod.html">Period</a> &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseClass.html#a06375345a514989cb878f3a3c9c084df">getClasses</a> ()</td></tr>
+<tr class="memdesc:a06375345a514989cb878f3a3c9c084df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the classes associated with this course class.  <a href="classCourseClass.html#a06375345a514989cb878f3a3c9c084df">More...</a><br /></td></tr>
 <tr class="separator:a06375345a514989cb878f3a3c9c084df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a252ed08c77d721194188a6fecef5e90a"><td class="memItemLeft" align="right" valign="top"><a id="a252ed08c77d721194188a6fecef5e90a"></a>
-const std::vector&lt; int &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getStudents</b> ()</td></tr>
-<tr class="separator:a252ed08c77d721194188a6fecef5e90a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21b42b5a4f9c2c2ede19c84f7351212e"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; std::vector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseClass.html#a21b42b5a4f9c2c2ede19c84f7351212e">getStudents</a> ()</td></tr>
+<tr class="memdesc:a21b42b5a4f9c2c2ede19c84f7351212e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves a list of students currently enrolled in this course class.  <a href="classCourseClass.html#a21b42b5a4f9c2c2ede19c84f7351212e">More...</a><br /></td></tr>
+<tr class="separator:a21b42b5a4f9c2c2ede19c84f7351212e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e2afb93b9a8592094977e5ca07c7d11"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseClass.html#a2e2afb93b9a8592094977e5ca07c7d11">removeStudent</a> (int studentId)</td></tr>
+<tr class="memdesc:a2e2afb93b9a8592094977e5ca07c7d11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a student from this course class.  <a href="classCourseClass.html#a2e2afb93b9a8592094977e5ca07c7d11">More...</a><br /></td></tr>
+<tr class="separator:a2e2afb93b9a8592094977e5ca07c7d11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:affb747b56fbad6330df41b8d1113be74"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseClass.html#affb747b56fbad6330df41b8d1113be74">classId</a></td></tr>
+<tr class="memdesc:affb747b56fbad6330df41b8d1113be74"><td class="mdescLeft">&#160;</td><td class="mdescRight">The identifier for the class.  <a href="classCourseClass.html#affb747b56fbad6330df41b8d1113be74">More...</a><br /></td></tr>
+<tr class="separator:affb747b56fbad6330df41b8d1113be74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6350ae08298d4bca8d0dae0bc53ebd9"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="classPeriod.html">Period</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseClass.html#ae6350ae08298d4bca8d0dae0bc53ebd9">classes</a></td></tr>
+<tr class="memdesc:ae6350ae08298d4bca8d0dae0bc53ebd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">A list of time periods for the class.  <a href="classCourseClass.html#ae6350ae08298d4bca8d0dae0bc53ebd9">More...</a><br /></td></tr>
+<tr class="separator:ae6350ae08298d4bca8d0dae0bc53ebd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85f9caac06d251000592ebb5aff44067"><td class="memItemLeft" align="right" valign="top">std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseClass.html#a85f9caac06d251000592ebb5aff44067">students</a></td></tr>
+<tr class="memdesc:a85f9caac06d251000592ebb5aff44067"><td class="mdescLeft">&#160;</td><td class="mdescRight">A list of student IDs enrolled in the class.  <a href="classCourseClass.html#a85f9caac06d251000592ebb5aff44067">More...</a><br /></td></tr>
+<tr class="separator:a85f9caac06d251000592ebb5aff44067"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cd2c6535c3582747636810802017455"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseClass.html#a0cd2c6535c3582747636810802017455">currentOrderOfStudents</a></td></tr>
+<tr class="memdesc:a0cd2c6535c3582747636810802017455"><td class="mdescLeft">&#160;</td><td class="mdescRight">The current order of students in the class.  <a href="classCourseClass.html#a0cd2c6535c3582747636810802017455">More...</a><br /></td></tr>
+<tr class="separator:a0cd2c6535c3582747636810802017455"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1abf443f31fc287d5d8f93d896ed086"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourseClass.html#af1abf443f31fc287d5d8f93d896ed086">classLimitOccupancy</a> = 30</td></tr>
+<tr class="memdesc:af1abf443f31fc287d5d8f93d896ed086"><td class="mdescLeft">&#160;</td><td class="mdescRight">The maximum occupancy limit for the class.  <a href="classCourseClass.html#af1abf443f31fc287d5d8f93d896ed086">More...</a><br /></td></tr>
+<tr class="separator:af1abf443f31fc287d5d8f93d896ed086"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Represents a class within a course unit. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a631ef2b903953cde05378374c87a5942"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a631ef2b903953cde05378374c87a5942">&#9670;&nbsp;</a></span>CourseClass()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CourseClass::CourseClass </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>classId_</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructs a <a class="el" href="classCourseClass.html" title="Represents a class within a course unit.">CourseClass</a> object with the given class identifier. </p>
+<p>This constructor initializes a <a class="el" href="classCourseClass.html" title="Represents a class within a course unit.">CourseClass</a> object with the specified class identifier (classId). It clears the internal data structures for classes and students and sets the current order of students to -1 (unordered).</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">classId_</td><td>The unique identifier for the <a class="el" href="classCourseClass.html" title="Represents a class within a course unit.">CourseClass</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="afaa0c1342ba8bcd6e2eae7cc39e4be20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afaa0c1342ba8bcd6e2eae7cc39e4be20">&#9670;&nbsp;</a></span>addPeriod()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CourseClass::addPeriod </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>weekDay_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>startHour_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>duration_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>type_</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds a class period to this course class. </p>
+<p>This function adds a class period to the course class, specifying the day of the week (weekDay_), start hour (startHour_), duration (duration_), and type (type_) of the class period.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">weekDay_</td><td>The day of the week on which the class period occurs. </td></tr>
+    <tr><td class="paramname">startHour_</td><td>The start hour of the class period. </td></tr>
+    <tr><td class="paramname">duration_</td><td>The duration of the class period. </td></tr>
+    <tr><td class="paramname">type_</td><td>The type of the class period (e.g., T, TP, PL). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Complexity O(1) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the class period was successfully added to the course class. </dd></dl>
+
+</div>
+</div>
+<a id="ad33f1843a7951b9984394f7628fc6ca9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad33f1843a7951b9984394f7628fc6ca9">&#9670;&nbsp;</a></span>addStudent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CourseClass::addStudent </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>studentCode_</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds a student to this course class, if class capacity allows. </p>
+<p>This function adds a student to the course class, identified by their student code, if the class has not reached its capacity.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">studentCode_</td><td>The unique student code of the student to add. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Complexity O(1) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the student was successfully added to the course class, false if the class is at its capacity. </dd></dl>
+
+</div>
+</div>
+<a id="a06375345a514989cb878f3a3c9c084df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06375345a514989cb878f3a3c9c084df">&#9670;&nbsp;</a></span>getClasses()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt; std::shared_ptr&lt; <a class="el" href="classPeriod.html">Period</a> &gt; &gt; &amp; CourseClass::getClasses </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retrieves the classes associated with this course class. </p>
+<p>This function returns a reference to a vector of shared pointers to class periods, representing the classes associated with this course class. </p><dl class="section note"><dt>Note</dt><dd>Complexity O(1)</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A reference to a vector of shared pointers to class periods. </dd></dl>
+
+</div>
+</div>
+<a id="ab962bab88820aa0c8d94df50baaa23a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab962bab88820aa0c8d94df50baaa23a5">&#9670;&nbsp;</a></span>getClassesCountPerWeek()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int CourseClass::getClassesCountPerWeek </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retrieves the number of classes held per week for this course class. </p>
+<p>This function returns an integer value representing the number of classes held per week for this course class. </p><dl class="section note"><dt>Note</dt><dd>Complexity O(1) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>An integer value indicating the number of classes per week for the course class. </dd></dl>
+
+</div>
+</div>
+<a id="a97d3ed1445368525cc3c6577f05ec39b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97d3ed1445368525cc3c6577f05ec39b">&#9670;&nbsp;</a></span>getClassId()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string &amp; CourseClass::getClassId </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retrieves the unique identifier of this course class. </p>
+<p>This function returns a constant reference to the unique identifier (classId) of this course class. </p><dl class="section note"><dt>Note</dt><dd>Complexity O(1) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A constant reference to the unique identifier of the course class. </dd></dl>
+
+</div>
+</div>
+<a id="a916d8ae06d0aa375d5bd944c7978aeda"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a916d8ae06d0aa375d5bd944c7978aeda">&#9670;&nbsp;</a></span>getClassLimit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int CourseClass::getClassLimit </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the maximum occupancy limit for this class.</p>
+<p>This method returns the maximum number of students that can be enrolled in this class. </p><dl class="section note"><dt>Note</dt><dd>Complexity O(1)</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The maximum occupancy limit of the class. </dd></dl>
+
+</div>
+</div>
+<a id="a21360e73c072ec7ebae2aebda5c72d38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21360e73c072ec7ebae2aebda5c72d38">&#9670;&nbsp;</a></span>getCurrentOrder()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int CourseClass::getCurrentOrder </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retrieves the current order type for students within this course class. </p>
+<p>This function returns an integer value indicating the current order type for students within the course class:</p>
+<ul>
+<li>1: Order by student ID.</li>
+<li>2: Order alphabetically. <dl class="section note"><dt>Note</dt><dd>Complexity O(1)</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>An integer value representing the current order type for students within the course class. </dd></dl>
+</li>
+</ul>
+
+</div>
+</div>
+<a id="a4427e8628dbc78687d8dabd45e86a511"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4427e8628dbc78687d8dabd45e86a511">&#9670;&nbsp;</a></span>getStudentCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int CourseClass::getStudentCount </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retrieves the count of students enrolled in this course class. </p>
+<p>This function returns an integer value indicating the count of students who are currently enrolled in this course class. </p><dl class="section note"><dt>Note</dt><dd>Complexity O(1)</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>An integer value representing the count of enrolled students. </dd></dl>
+
+</div>
+</div>
+<a id="a21b42b5a4f9c2c2ede19c84f7351212e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21b42b5a4f9c2c2ede19c84f7351212e">&#9670;&nbsp;</a></span>getStudents()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; std::vector&lt; int &gt; &gt; CourseClass::getStudents </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retrieves a list of students currently enrolled in this course class. </p>
+<p>This function returns a shared pointer to a vector of student codes, representing the students who are currently enrolled in this course class.</p>
+<dl class="section note"><dt>Note</dt><dd>Complexity O(1) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A shared pointer to a vector of student codes. </dd></dl>
+
+</div>
+</div>
+<a id="a2e2afb93b9a8592094977e5ca07c7d11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e2afb93b9a8592094977e5ca07c7d11">&#9670;&nbsp;</a></span>removeStudent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CourseClass::removeStudent </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>studentId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Removes a student from this course class. </p>
+<p>This function removes a student with the specified student ID from the course class if the student is currently enrolled.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">studentId</td><td>The unique student ID of the student to remove. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Complexity O(N) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the student was successfully removed from the course class, false if the student is not enrolled. </dd></dl>
+
+</div>
+</div>
+<a id="abc938da14096d08f7e9f96fb75daf050"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc938da14096d08f7e9f96fb75daf050">&#9670;&nbsp;</a></span>setCurrentOrder()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CourseClass::setCurrentOrder </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>orderType</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the current order type for students within this course class. </p>
+<p>This function allows setting the current order type for students within the course class. The order type can be:</p>
+<ul>
+<li>1: Order by student ID.</li>
+<li>2: Order alphabetically. <dl class="section note"><dt>Note</dt><dd>Complexity O(1)</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">orderType</td><td>An integer value indicating the desired order type (1 for student ID, 2 for alphabetical order). </td></tr>
+  </table>
+  </dd>
+</dl>
+</li>
+</ul>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ae6350ae08298d4bca8d0dae0bc53ebd9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6350ae08298d4bca8d0dae0bc53ebd9">&#9670;&nbsp;</a></span>classes</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::shared_ptr&lt;<a class="el" href="classPeriod.html">Period</a>&gt; &gt; CourseClass::classes</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A list of time periods for the class. </p>
+
+</div>
+</div>
+<a id="affb747b56fbad6330df41b8d1113be74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#affb747b56fbad6330df41b8d1113be74">&#9670;&nbsp;</a></span>classId</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string CourseClass::classId</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The identifier for the class. </p>
+
+</div>
+</div>
+<a id="af1abf443f31fc287d5d8f93d896ed086"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1abf443f31fc287d5d8f93d896ed086">&#9670;&nbsp;</a></span>classLimitOccupancy</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int CourseClass::classLimitOccupancy = 30</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The maximum occupancy limit for the class. </p>
+
+</div>
+</div>
+<a id="a0cd2c6535c3582747636810802017455"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0cd2c6535c3582747636810802017455">&#9670;&nbsp;</a></span>currentOrderOfStudents</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int CourseClass::currentOrderOfStudents</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The current order of students in the class. </p>
+
+</div>
+</div>
+<a id="a85f9caac06d251000592ebb5aff44067"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85f9caac06d251000592ebb5aff44067">&#9670;&nbsp;</a></span>students</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;int&gt; CourseClass::students</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A list of student IDs enrolled in the class. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>include/<a class="el" href="CourseClass_8h_source.html">CourseClass.h</a></li>
-<li>src/CourseClass.cpp</li>
+<li>src/<a class="el" href="CourseClass_8cpp.html">CourseClass.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

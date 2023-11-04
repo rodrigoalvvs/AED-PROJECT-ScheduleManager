@@ -1,0 +1,139 @@
+\hypertarget{classRequest}{}\doxysection{Request Class Reference}
+\label{classRequest}\index{Request@{Request}}
+
+
+Represents a request for class or course changes by a student.  
+
+
+
+
+{\ttfamily \#include $<$Request.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRequest_a486d846234a2b3cf0a60e5bb1b20efbf}{Request}} (short request\+Type\+\_\+, int student\+Id\+\_\+, const std\+::pair$<$ std\+::string, std\+::string $>$ \&adding\+\_\+, const std\+::pair$<$ std\+::string, std\+::string $>$ \&removing\+\_\+, int request\+Id\+\_\+=1)
+\begin{DoxyCompactList}\small\item\em Initializes a new request object. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classRequest_aa445053208c6a467648e8c19c6cb531e}{to\+\_\+string}} () const
+\begin{DoxyCompactList}\small\item\em Converts the \mbox{\hyperlink{classRequest}{Request}} object to a string representation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classRequest_a9316cd7b4cb72b520b9bb300d7ee26cf}{request\+Id}}
+\begin{DoxyCompactList}\small\item\em The unique identifier for the request. \end{DoxyCompactList}\item 
+short \mbox{\hyperlink{classRequest_a5c0f96a76afb790ab0e322ca9c878be0}{request\+Type}}
+\begin{DoxyCompactList}\small\item\em The type of request (1 for remove class, 2 for add class, 3 for change UC, 4 for change class). \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classRequest_a84a7167c3a6706b23d829bf41ef3eff3}{student\+Id}}
+\begin{DoxyCompactList}\small\item\em The ID of the student associated with the request. \end{DoxyCompactList}\item 
+std\+::pair$<$ std\+::string, std\+::string $>$ \mbox{\hyperlink{classRequest_a14519e32c397089a75c1914baf0f6a62}{adding}}
+\begin{DoxyCompactList}\small\item\em The addition details (e.\+g., UC and class to add). \end{DoxyCompactList}\item 
+std\+::pair$<$ std\+::string, std\+::string $>$ \mbox{\hyperlink{classRequest_ab7101719484da12c9b6fc72d53b7f9bc}{removing}}
+\begin{DoxyCompactList}\small\item\em The removal details (e.\+g., UC and class to remove). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a request for class or course changes by a student. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classRequest_a486d846234a2b3cf0a60e5bb1b20efbf}\label{classRequest_a486d846234a2b3cf0a60e5bb1b20efbf}} 
+\index{Request@{Request}!Request@{Request}}
+\index{Request@{Request}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{Request()}{Request()}}
+{\footnotesize\ttfamily Request\+::\+Request (\begin{DoxyParamCaption}\item[{short}]{request\+Type\+\_\+,  }\item[{int}]{student\+Id\+\_\+,  }\item[{const std\+::pair$<$ std\+::string, std\+::string $>$ \&}]{adding\+\_\+,  }\item[{const std\+::pair$<$ std\+::string, std\+::string $>$ \&}]{removing\+\_\+,  }\item[{int}]{request\+Id\+\_\+ = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+
+
+Initializes a new request object. 
+
+This constructor creates a new request object with the specified parameters, including the request type, student ID, items to be added, items to be removed, and a request ID.
+
+
+\begin{DoxyParams}{Parameters}
+{\em request\+Type\+\_\+} & The type of the request (1\+: Add student to class, 2\+: Remove student from class, 3\+: Switch UC, 4\+: Switch class). \\
+\hline
+{\em student\+Id\+\_\+} & The unique identifier of the student associated with the request. \\
+\hline
+{\em adding\+\_\+} & A pair representing the items to be added (e.\+g., UC and class). \\
+\hline
+{\em removing\+\_\+} & A pair representing the items to be removed (e.\+g., UC and class). \\
+\hline
+{\em request\+Id\+\_\+} & The unique identifier of the request. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classRequest_aa445053208c6a467648e8c19c6cb531e}\label{classRequest_aa445053208c6a467648e8c19c6cb531e}} 
+\index{Request@{Request}!to\_string@{to\_string}}
+\index{to\_string@{to\_string}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{to\_string()}{to\_string()}}
+{\footnotesize\ttfamily std\+::string Request\+::to\+\_\+string (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Converts the \mbox{\hyperlink{classRequest}{Request}} object to a string representation. 
+
+This function converts the \mbox{\hyperlink{classRequest}{Request}} object into a string representation, providing details about the request type and the associated student and items.
+
+\begin{DoxyReturn}{Returns}
+A string representation of the \mbox{\hyperlink{classRequest}{Request}} object. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classRequest_a14519e32c397089a75c1914baf0f6a62}\label{classRequest_a14519e32c397089a75c1914baf0f6a62}} 
+\index{Request@{Request}!adding@{adding}}
+\index{adding@{adding}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{adding}{adding}}
+{\footnotesize\ttfamily std\+::pair$<$std\+::string, std\+::string$>$ Request\+::adding}
+
+
+
+The addition details (e.\+g., UC and class to add). 
+
+\mbox{\Hypertarget{classRequest_ab7101719484da12c9b6fc72d53b7f9bc}\label{classRequest_ab7101719484da12c9b6fc72d53b7f9bc}} 
+\index{Request@{Request}!removing@{removing}}
+\index{removing@{removing}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{removing}{removing}}
+{\footnotesize\ttfamily std\+::pair$<$std\+::string, std\+::string$>$ Request\+::removing}
+
+
+
+The removal details (e.\+g., UC and class to remove). 
+
+\mbox{\Hypertarget{classRequest_a9316cd7b4cb72b520b9bb300d7ee26cf}\label{classRequest_a9316cd7b4cb72b520b9bb300d7ee26cf}} 
+\index{Request@{Request}!requestId@{requestId}}
+\index{requestId@{requestId}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{requestId}{requestId}}
+{\footnotesize\ttfamily int Request\+::request\+Id}
+
+
+
+The unique identifier for the request. 
+
+\mbox{\Hypertarget{classRequest_a5c0f96a76afb790ab0e322ca9c878be0}\label{classRequest_a5c0f96a76afb790ab0e322ca9c878be0}} 
+\index{Request@{Request}!requestType@{requestType}}
+\index{requestType@{requestType}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{requestType}{requestType}}
+{\footnotesize\ttfamily short Request\+::request\+Type}
+
+
+
+The type of request (1 for remove class, 2 for add class, 3 for change UC, 4 for change class). 
+
+\mbox{\Hypertarget{classRequest_a84a7167c3a6706b23d829bf41ef3eff3}\label{classRequest_a84a7167c3a6706b23d829bf41ef3eff3}} 
+\index{Request@{Request}!studentId@{studentId}}
+\index{studentId@{studentId}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{studentId}{studentId}}
+{\footnotesize\ttfamily int Request\+::student\+Id}
+
+
+
+The ID of the student associated with the request. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{Request_8h}{Request.\+h}}\item 
+src/\mbox{\hyperlink{Request_8cpp}{Request.\+cpp}}\end{DoxyCompactItemize}

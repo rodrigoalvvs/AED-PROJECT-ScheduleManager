@@ -1,0 +1,44 @@
+\hypertarget{CourseManager_8cpp}{}\doxysection{src/\+Course\+Manager.cpp File Reference}
+\label{CourseManager_8cpp}\index{src/CourseManager.cpp@{src/CourseManager.cpp}}
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$iomanip$>$}\newline
+{\ttfamily \#include $<$set$>$}\newline
+{\ttfamily \#include $<$queue$>$}\newline
+{\ttfamily \#include \char`\"{}../include/\+Course\+Manager.\+h\char`\"{}}\newline
+Include dependency graph for Course\+Manager.\+cpp\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{CourseManager_8cpp_af0d3d9aa972a2dcaaf7a21256e1d5609}{cmp\+Hours}} (const std\+::pair$<$ std\+::string, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classPeriod}{Period}} $>$$>$ \&a, const std\+::pair$<$ std\+::string, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classPeriod}{Period}} $>$$>$ \&b)
+\begin{DoxyCompactList}\small\item\em Compare two pairs of $<$string, shared\+\_\+ptr$<$\+Period$>$$>$ by their start hours. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{CourseManager_8cpp_af0d3d9aa972a2dcaaf7a21256e1d5609}\label{CourseManager_8cpp_af0d3d9aa972a2dcaaf7a21256e1d5609}} 
+\index{CourseManager.cpp@{CourseManager.cpp}!cmpHours@{cmpHours}}
+\index{cmpHours@{cmpHours}!CourseManager.cpp@{CourseManager.cpp}}
+\doxysubsubsection{\texorpdfstring{cmpHours()}{cmpHours()}}
+{\footnotesize\ttfamily bool cmp\+Hours (\begin{DoxyParamCaption}\item[{const std\+::pair$<$ std\+::string, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classPeriod}{Period}} $>$$>$ \&}]{a,  }\item[{const std\+::pair$<$ std\+::string, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classPeriod}{Period}} $>$$>$ \&}]{b }\end{DoxyParamCaption})}
+
+
+
+Compare two pairs of $<$string, shared\+\_\+ptr$<$\+Period$>$$>$ by their start hours. 
+
+This function is a custom comparison function for sorting pairs of $<$string, shared\+\_\+ptr$<$\+Period$>$$>$ by their start hours in ascending order.
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The first pair to compare. \\
+\hline
+{\em b} & The second pair to compare. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Complexity O(1) 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+true if the start hour of \textquotesingle{}a\textquotesingle{} is less than the start hour of \textquotesingle{}b\textquotesingle{}, false otherwise. 
+\end{DoxyReturn}
