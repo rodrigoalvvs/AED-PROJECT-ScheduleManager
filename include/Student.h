@@ -10,20 +10,17 @@
 #include <memory>
 #include "CourseClass.h"
 #include "CourseUnit.h"
-
 class CourseClass;
-
+/**
+ * @class Student
+ * @brief Represents a student with associated course registrations.
+ */
 class Student {
 private:
+    std::string name; ///< The name of the student.
+    int identifier;  ///< The unique identifier (ID) of the student.
+    std::unordered_map<std::string, std::string> classesRegistered; ///< A map of unit course IDs to class IDs.
 
-    // Student name
-    std::string name;
-
-    // Student id
-    int identifier;
-
-    // unordered_map with <"ucID", "classId">
-    std::unordered_map<std::string, std::string> classesRegistered;
 
 public:
     // Constructors and destructors

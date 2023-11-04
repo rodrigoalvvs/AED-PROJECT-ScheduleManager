@@ -54,7 +54,8 @@
 				3,
 				7,
 				8,
-				10
+				10,
+				11
 			]
 		}
 	],
@@ -92,7 +93,8 @@
 				3,
 				7,
 				8,
-				10
+				10,
+				11
 			]
 		},
 		{
@@ -103,7 +105,8 @@
 				4,
 				5,
 				6,
-				9
+				9,
+				12
 			]
 		}
 	],
@@ -169,6 +172,17 @@
 			"compileGroupIndex" : 0,
 			"path" : "src/CourseClass.cpp",
 			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/Request.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "include/Request.h",
+			"sourceGroupIndex" : 1
 		}
 	],
 	"type" : "EXECUTABLE"

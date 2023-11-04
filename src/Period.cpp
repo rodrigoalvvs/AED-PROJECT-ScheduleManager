@@ -129,7 +129,7 @@ void Period::setDuration(float duration_) {
  * @return true if there is an overlap, false if there is no overlap.
  */
 bool Period::overlaps(std::shared_ptr<Period> otherPeriod) const {
-    if (this->getStartTime() < otherPeriod->getEndTime() && this->getEndTime() > otherPeriod->getStartTime()) {
+    if (this->getStartTime() <= otherPeriod->getEndTime() && this->getEndTime() >= otherPeriod->getStartTime()) {
         // There is an overlap
         return true;
     }

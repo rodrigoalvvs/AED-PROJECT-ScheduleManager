@@ -7,45 +7,79 @@
 
 #include <string>
 #include <memory>
+/**
+ * @struct Hour
+ * @brief Represents a time of day in hours and minutes.
+ */
+struct Hour {
+    int hour;     ///< The hour component.
+    int minute;   ///< The minute component.
 
-struct Hour{
-    int hour;
-    int minute;
-
+    /**
+     * @brief Compare two Hour objects.
+     * @param other Another Hour object to compare with.
+     * @return True if this Hour is less than other, otherwise false.
+     */
     bool operator<(const Hour& other) const {
         int totalMinutesA = this->hour * 60 + this->minute;
         int totalMinutesB = other.hour * 60 + other.minute;
-
         return totalMinutesA < totalMinutesB;
     }
+
+    /**
+     * @brief Compare two Hour objects.
+     * @param other Another Hour object to compare with.
+     * @return True if this Hour is greater than other, otherwise false.
+     */
     bool operator>(const Hour& other) const {
         int totalMinutesA = this->hour * 60 + this->minute;
         int totalMinutesB = other.hour * 60 + other.minute;
-
         return totalMinutesA > totalMinutesB;
     }
 
+    /**
+     * @brief Compare two Hour objects.
+     * @param other Another Hour object to compare with.
+     * @return True if this Hour is greater than or equal to other, otherwise false.
+     */
     bool operator>=(const Hour& other) const {
         int totalMinutesA = this->hour * 60 + this->minute;
         int totalMinutesB = other.hour * 60 + other.minute;
-
         return totalMinutesA >= totalMinutesB;
     }
-    bool operator==(const Hour& other) const {
+
+    /**
+     * @brief Compare two Hour objects.
+     * @param other Another Hour object to compare with.
+     * @return True if this Hour is inferior than or equal to other, otherwise false.
+     */
+    bool operator<=(const Hour& other) const {
         int totalMinutesA = this->hour * 60 + this->minute;
         int totalMinutesB = other.hour * 60 + other.minute;
-
-        return totalMinutesA == totalMinutesB;
+        return totalMinutesA <= totalMinutesB;
     }
 
+    /**
+     * @brief Compare two Hour objects for equality.
+     * @param other Another Hour object to compare with.
+     * @return True if this Hour is equal to other, otherwise false.
+     */
+    bool operator==(const Hour& other) const {
+        return hour == other.hour && minute == other.minute;
+    }
 };
 
-class Period{
+/**
+ * @class Period
+ * @brief Represents a time period with a start hour, duration, day of the week, and type.
+ */
+class Period {
 private:
-    float startHour;
-    float duration;
-    std::string weekDay;
-    std::string type;
+    float startHour;       ///< The starting hour of the period.
+    float duration;        ///< The duration of the period.
+    std::string weekDay;   ///< The day of the week for the period.
+    std::string type;      ///< The type of the period (e.g., "TP", "T", "PL").
+
 public:
     // Constructors and destructors
     Period(const std::string& weekDay_, float startHour_, float duration_, const std::string& type_);

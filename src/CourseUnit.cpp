@@ -177,6 +177,13 @@ void CourseUnit::setCurrentOrder(int orderType) {
     this->currentOrderOfStudents = orderType;
 }
 
+/**
+ * @brief Find and return a class with available vacancies.
+ *
+ * This function iterates through the classes within the course unit and checks if any of them have available vacancies for students.
+ *
+ * @return The identifier of a class with available vacancies, or an empty string if no class has vacancies.
+ */
 std::string CourseUnit::getClassWithVacancy() const {
     for(std::pair<std::string, std::shared_ptr<CourseClass>> class_: this->classes){
         if(class_.second->getStudentCount() < class_.second->getClassLimit()){
@@ -186,11 +193,27 @@ std::string CourseUnit::getClassWithVacancy() const {
     return "";
 }
 
+/**
+ * @brief Get the current occupancy of a specific class within the course unit.
+ *
+ * This function retrieves the current number of students enrolled in a specific class of the course unit.
+ *
+ * @param classId The identifier of the class to check occupancy for.
+ * @return The number of students currently enrolled in the class, or -1 if the class does not exist.
+ */
 int CourseUnit::getClassOccupancy(const std::string &classId) const {
     if(this->classes.find(classId) == this->classes.end()) return -1;
     return this->classes.find(classId)->second->getStudentCount();
 }
 
+/**
+ * @brief Get the total occupancy of the course unit.
+ *
+ * This function calculates and returns the total number of students enrolled in all classes
+ * of the course unit.
+ *
+ * @return The total occupancy of the course unit.
+ */
 int CourseUnit::getOccupancy() const {
     int result = 0;
     for(std::pair<std::string, std::shared_ptr<CourseClass>> classPair: this->classes){
@@ -199,6 +222,13 @@ int CourseUnit::getOccupancy() const {
     return result;
 }
 
+/**
+ * @brief Get a list of all classes in the course unit.
+ *
+ * This function retrieves a list of all classes within the course unit.
+ *
+ * @return A list of shared pointers to CourseClass objects representing the classes.
+ */
 std::list<std::shared_ptr<CourseClass>> CourseUnit::getClasses() {
     std::list<std::shared_ptr<CourseClass>> classes_;
     for(std::pair< std::string, std::shared_ptr<CourseClass>> classPair: this->classes){

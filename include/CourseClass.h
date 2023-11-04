@@ -13,13 +13,18 @@
 #include "Student.h"
 
 
+
+/**
+ * @class CourseClass
+ * @brief Represents a class within a course unit.
+ */
 class CourseClass {
 private:
-    std::string classId;
-    std::vector<std::shared_ptr<Period>> classes;
-    std::vector<int> students;
-    int currentOrderOfStudents;
-    int classLimitOccupancy = 30;
+    std::string classId;                  ///< The identifier for the class.
+    std::vector<std::shared_ptr<Period>> classes;  ///< A list of time periods for the class.
+    std::vector<int> students;            ///< A list of student IDs enrolled in the class.
+    int currentOrderOfStudents;          ///< The current order of students in the class.
+    int classLimitOccupancy = 30;        ///< The maximum occupancy limit for the class.
 
 public:
     // Constructors and destructors

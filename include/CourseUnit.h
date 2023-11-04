@@ -10,16 +10,18 @@
 #include <memory>
 #include <list>
 #include "CourseClass.h"
-
 class CourseClass;
-
+/**
+ * @class CourseUnit
+ * @brief Represents a unit course that contains classes and enrolled students.
+ */
 class CourseUnit{
 private:
-    std::unordered_map<std::string, std::shared_ptr<CourseClass>> classes;
+    std::unordered_map<std::string, std::shared_ptr<CourseClass>> classes; ///< Map of class IDs to class objects.
+    std::vector<int> allStudents; ///< Vector of student IDs enrolled in the unit course.
+    int currentOrderOfStudents; ///< The current order of students.
+    int studentCount; ///< The total count of students enrolled in the unit course.
 
-    std::vector<int> allStudents;
-    int currentOrderOfStudents;
-    int studentCount;
 public:
     // Constructors and destructors
     CourseUnit();
